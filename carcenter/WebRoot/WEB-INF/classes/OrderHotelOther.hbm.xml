@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.OrderHotelOther" table="t_subscribe_orderHotelOther">
+		<id name="orderID_s" column="orderID_s" type="string" ></id>
+		<property name="status_i" column="status_i" type="integer"></property>
+		<property name="startDate_t" column="startDate_t" type="date"></property>
+		<property name="endDate_t" column="endDate_t" type="date"></property>
+ 		<property name="createDate_t" column="createDate_t" type="date"></property>
+		<property name="createUser_s" column="createUser_s" type="string"></property>
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" type="string"></property>
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" type="date"></property>
+		<property name="resaveds1" column="resaveds1_s" type="string"></property>
+		<property name="resaveds2" column="resaveds2_s" type="string"></property>
+		<property name="resaveds3" column="resaveds3_s" type="string"></property>
+		<property name="resaveds4" column="resaveds4_s" type="string"></property>
+		<property name="resaveds5" column="resaveds5_s" type="string"></property>		
+		<property name="isRentalCar_i" column="isRentalCar_i" type="integer"></property>
+		<property name="isRentalDriver_i" column="isRentalDriver_i" type="integer"></property>
+		<property name="standardRoomNumber_i" column="standardRoomNumber_i" type="integer"></property>
+		<property name="doubleRoomNumber_i" column="doubleRoomNumber_i" type="integer"></property>
+		<property name="deluxeRoomNUmber_i" column="deluxeRoomNUmber_i" type="integer"></property>
+		<property name="type_s" column="TYPE_S" ></property>
+		
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.freshen.entity.basis.OrderSharingRoad" table="t_subscribe_orderSharingRoad">
+		<id name="orderSharingRoadID_s" column="orderSharingRoadID_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="orderID_s" column="orderID_s" />
+		<property name="status_i" column="status_i" />
+		<property name="roadID_s" column="roadID_s" />
+		<property name="roadName_s" column="roadName_s" />
+		<property name="hoursNumber_s" column="hoursNumber_s" />
+		<property name="maxSpeed_s" column="maxSpeed_s" />
+		<property name="description_s" column="description_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="startDate_t" column="startDate_t" />
+		<property name="endDate_t" column="endDate_t" />
+		<property name="carNumber_i" column="carNumber_i" />
+		<property name="isHighRiskTest_i" column="isHighRiskTest_i" />
+		<property name="highRiskTestDescription_s" column="highRiskTestDescription_s" />
+		<property name="isCamera_i" column="isCamera_i" />
+		<property name="accidentPrevention_s" column="accidentPrevention_s" />
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.OrderDetail" table="t_subscribe_order">
+		<id column="orderID_s" name="orderID_s">
+			<generator class="assigned"></generator>
+		</id>
+		
+		<many-to-one name="employee" column="employeeID_s" class="com.freshen.entity.basis.Employee" lazy="false" />  
+		<property column="orderName_s" generated="never" lazy="false"
+			name="orderName_s" type="string" />
+		<property column="reservationDate_t" generated="never" lazy="false"
+			name="reservationDate_t" type="date" />
+		<property column="status_i" generated="never" lazy="false"
+			name="status_i" type="integer" />
+		<property column="customerID_s" generated="never" lazy="false"
+			name="customerID_s" type="string" />
+		<property column="startDate_t" generated="never" lazy="false"
+			name="startDate_t" type="date" />
+		<property column="endDate_t" generated="never" lazy="false"
+			name="endDate_t" type="date" />
+		<property column="customerUserID_s" generated="never" lazy="false"
+			name="customerUserID_s" type="string" />
+		
+		<property name="receiveInvoiceAddress_s" column="RECEIVERLNVOICEADDRESS_S" />
+		<property name="invoiceUserPhone_s" column="INVOICEUSERPHONE_S" />
+		<property column="invoiceOrder_s" generated="never" lazy="false"
+			name="invoiceOrder_s" type="string" />
+		<!--	<property column="employeeID_s" generated="never" lazy="false"
+			name="employeeID_s" type="string" />-->
+		<property column="addedValueTax_s" generated="never" lazy="false"
+			name="addedValueTax_s" type="string" />
+		<property column="invoiceUser_s" generated="never" lazy="false"
+			name="invoiceUser_s" type="string" />
+		<property column="customerAppraise_s" generated="never" lazy="false"
+			name="customerAppraise_s" type="string" />
+		<property column="createDate_t" generated="never" lazy="false"
+			name="createDate_t" type="date" />
+		<property column="createUser_s" generated="never" lazy="false"
+			name="createUser_s" type="string" />
+		<property column="lastUpdateUser_s" generated="never" lazy="false"
+			name="lastUpdateUser_s" type="string" />
+		<property column="lastUpdateDate_t" generated="never" lazy="false"
+			name="lastUpdateDate_t" type="date" />
+		<property column="resaveds1_s" generated="never" lazy="false"
+			name="resaveds1" type="string" />
+		<property column="resaveds2_s" generated="never" lazy="false"
+			name="resaveds2" type="string" />
+		<property column="resaveds3_s" generated="never" lazy="false"
+			name="resaveds3" type="string" />
+		<property column="resaveds4_s" generated="never" lazy="false"
+			name="resaveds4" type="string" />
+		<property column="resaveds5_s" generated="never" lazy="false"
+			name="resaveds5" type="string" />
+		<property name="ispotential" column="ISPOTENTIAL" type="integer" ></property>	
+			
+	</class>
+</hibernate-mapping>

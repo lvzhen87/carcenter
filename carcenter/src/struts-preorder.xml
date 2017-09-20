@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 第1个package -->	
+    <package name="validteStruts" extends="myIntercept" namespace="/">
+    	<!-- 查询待审核注册信息 -->
+        <action name="preorderInitAction" class="com.freshen.preorder.action.PreorderCheckAction" method="initialize" >
+        	<result name="preorder">/checkregister/unchecklist.jsp</result>
+        </action>
+        <!-- 更新审核信息状态 -->
+         <action name="preorderCheckAction" class="com.freshen.preorder.action.PreorderCheckAction" method="check">
+        	<result name="preorder">/checkregister/unchecklist.jsp</result>
+        </action>
+        
+         <!-- 查询注册客户信息 
+        <action name="regCostomerQueryAction" class="com.freshen.preorder.action.PreorderCheckAction" method="searchAllRegUsers">
+        	<result name="success">/checkregister/regusersearch.jsp</result>
+        </action>
+        -->
+         <!-- 查询注册客户详细信息 -->
+        <action name="showCustomerAction" class="com.freshen.preorder.action.ShowCustomerByIDAction" method="showCustomerByID">
+        	<result name="query">/checkregister/showcustomer.jsp</result>
+        </action>
+       
+        
+        <!-- 条件 查询所有客户信息 -->
+        <action name="registerCustomerSearchAction" class="com.freshen.preorder.action.RegisterCustomerSearchAction">
+        	<result name="success">/checkregister/regusersearch.jsp</result>
+        </action>
+         <!-- 准备修改客户信息 -->
+         <action name="prepareCustomerAction" class="com.freshen.preorder.action.RegisterCustomerSearchAction" method="prepareCustomer">
+        	<result name="success">/checkregister/changecustomer.jsp</result>
+        </action>
+         <!-- 准备修改客户信息prepareCustomerAction -->
+         <action name="modifyCustomerAction" class="com.freshen.preorder.action.RegisterCustomerSearchAction" method="modifyCustomer">
+        	<result name="success">/checkregister/changecustomer.jsp</result>
+        </action>
+        
+        
+        <!-- yepeng add start -->
+        <!-- 条件 查询所有客户信息 -->
+        <action name="registerCustomerAction" class="com.freshen.preorder.action.RegistCustomerAction" method="execute">
+        	<!-- 设置文件过滤器，只能传输压缩包 -->
+        	<interceptor-ref name="defaultStack"><!--
+        		 配置允许上传文件的类型,如果有多个类型用","隔开   
+       			<param name="fileUpload.allowedTypes">application/zip,application/rar</param>
+       			 --><!--配置允许上传文件的扩展名,如果有多个用","隔开  -->  
+            	<param name="fileUpload.allowedExtensions">zip,rar</param>  
+       		</interceptor-ref>
+        	<result name="success">/checkregister/registCustomer.jsp</result>
+        	<result name="error">/checkregister/registCustomer.jsp</result>
+        	<result name="input">/checkregister/registCustomer.jsp</result>
+           	<param name="uploadPath">D:\upload\</param>
+        </action>
+        <!-- yepeng add end -->
+        
+        
+        <!-- 查询待分配订单信息 -->
+        <action name="distrubuteOrderAction" class="com.freshen.preorder.action.ManageOrderAction">
+        	<result name="query">/checkorder/manageorders.jsp</result>
+        </action>
+        <!-- boss分配客户助理订单信息 -->
+        <action name="manageOrderAction" class="com.freshen.preorder.action.ManageOrderAction" method="employwork">
+        	<result name="forward" type="chain">
+        		<param name="actionName">distrubuteOrderAction</param>
+        		<param name="msg">${msg}</param>
+        	</result>
+        </action>
+        
+        
+         <!-- 查询子订单信息 -->
+        <action name="searchALLOrderAction" class="com.freshen.preorder.action.CheckOrderAction" method="initorders">
+        	<result name="query">/checkorder/checkorderdetail.jsp</result>
+        </action>
+         <!--一键审核 订单信息，不需要查订单详情 -->
+        <action name="oneKeyCheckOrderAction" class="com.freshen.preorder.action.OneKeyCheckOrderAction" >
+        	<result name="success" type="chain">searchMyOrderAction</result>
+        </action>
+        
+          <!-- 审核道路信息子订单信息 -->
+        <action name="checkRoadOrderAction" class="com.freshen.preorder.action.CheckOrderAction" method="checkroadorders">
+        	<result name="query" type="redirectAction">
+        		<param name="actionName">searchALLOrderAction</param>
+        		<param name="orderid">${orderid}</param>
+        		<param name="currentTab">${currentTab}</param>
+        	</result>
+        </action>
+          <!-- 审核车间办公信息子订单信息 -->
+        <action name="checkWorkShopAction" class="com.freshen.preorder.action.CheckOrderAction" method="checkworkshoporders">
+        	<result name="query" type="redirectAction">
+        		<param name="actionName">searchALLOrderAction</param>
+        		<param name="orderid">${orderid}</param>
+        		<param name="currentTab">${currentTab}</param>
+        	</result>
+        </action>
+        <!-- 客户助理  获取待审核订单信息 -->
+        <action name="searchMyOrderAction" class="com.freshen.preorder.action.CheckMyOrderAction" method="initorders">
+        	<result name="success">/checkorder/uncheckorders.jsp</result>
+        	<result name="error">/common/error.jsp</result>
+        </action>
+        <!-- 客户助理 条件查询 订单数据 -->
+        <action name="searchOrdersAction" class="com.freshen.preorder.action.CheckMyOrderAction" method="searchOrders">
+        	<result name="success">/checkorder/uncheckorders.jsp</result>
+        	<result name="error">/common/error.jsp</result>
+        </action>
+        
+       
+        
+        
+        <!-- 下载文件 -->
+        <action name="downloadFileAction" class="com.freshen.preorder.action.DownloadFileAction">
+        	<result name="success" type="stream">
+        		 <!-- 指定下载文件的内容类型，text/plain是默认类型 -->
+        		<param name="contentType">application/zip</param>
+        		<!-- inputName默认值是inputStream，如果action中用于读取下载文件内容的属性名是inputStream，那么可以省略这个参数 -->
+        		<param name="inputName">inputStream</param>
+        		<!--动态获取文件名，从Action中的取得filename-->
+        		<param name="contentDisposition">filename="${fileName}"</param>  
+        		<param name="bufferSize">2048</param>
+        	</result>
+        	<result name="error">/common/error.jsp</result>
+        </action>
+        
+        <!-- 道路占用查询 -->
+        <action name="roadOccupationAction" class="com.freshen.preorder.action.RoadOccupationAction" >
+        	<result name="success" >/common/roadaccupation.jsp</result>
+        </action>
+        <!-- 车间 占用查询 -->
+        <action name="wokshopOccupationAction" class="com.freshen.preorder.action.WorkshopOccupationAction" >
+        	<result name="success" >/common/workshopaccupation.jsp</result>
+        </action>
+        
+        
+        <!-- 记录orderID-->
+        <action name="applyAction" class="com.freshen.preorder.action.ApplyAction" method="execute" >
+        	<result name="success" type="chain">roaddetailAction</result>
+        </action>
+        <!-- 试验共享测试道路详细订单表 查询 -->
+        <action name="roaddetailAction" class="com.freshen.preorder.action.RoaddetailAction" method="execute" >
+        	<result name="success" >/checkorder/orderroaddetail.jsp</result>
+        </action>
+         <!-- 车间及办公室预订信息 查询 -->
+        <action name="workshopdetailAction" class="com.freshen.preorder.action.WorkshopdetailAction" method="execute" >
+        	<result name="success" >/checkorder/orderworkshopdetail.jsp</result>
+        </action>
+         <!-- 酒店及其他服务 查询 -->
+        <action name="hotelAction" class="com.freshen.preorder.action.HotelAction" method="execute" >
+        	<result name="success" >/checkorder/orderhoteldetail.jsp</result>
+        </action>
+        <!-- 单台车辆信息预订详情查询 -->
+         <action name="vehicleAction" class="com.freshen.preorder.action.VehicleAction" method="execute" >
+        	<result name="success" >/checkorder/ordervehicledetail.jsp</result>
+        </action>
+        <!-- 到访人员详情查询 -->
+         <action name="customerUserRegisterAction" class="com.freshen.preorder.action.CustomerUserRegisterAction" method="execute" >
+        	<result name="success" >/checkorder/customeruserdetail.jsp</result>
+        </action>
+        <!-- 试验包场道路详细订单表 查询 -->
+        <action name="wholeroaddetailAction" class="com.freshen.preorder.action.WholeRoadAction" method="execute" >
+        	<result name="success" >/checkorder/checkwholeroads.jsp</result>
+        </action>
+        <!-- 试验预付费道路详细订单表 查询 -->
+        <action name="preroaddetailAction" class="com.freshen.preorder.action.PreRoadAction" method="execute" >
+        	<result name="success" >/checkorder/checkpreroads.jsp</result>
+        </action>
+        
+	</package>
+
+</struts>

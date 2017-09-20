@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.freshen.entity.barrierGate.BarrierGateControl" table="t_BarrierGate_Control_bak">
+  <id column="eventNumber_s" name="eventNumber_s">
+   <generator class="assigned"/>
+  </id>
+  <property column="barrierGateID_s" generated="never" lazy="false" name="barrierGateID_s"/>
+  <property column="createTime_t" generated="never" lazy="false" name="createTime_t"/>
+  <property column="schema_s" generated="never" lazy="false" name="schema_s"/>
+  <property column="isEfficiency_i" generated="never" lazy="false" name="isEfficiency_i"/>
+ </class>
+</hibernate-mapping>

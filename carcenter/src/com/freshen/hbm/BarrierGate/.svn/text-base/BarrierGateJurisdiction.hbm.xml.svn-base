@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.freshen.entity.barrierGate.BarrierGateJurisdiction" table="t_BarrierGate_Jurisdiction_bak">
+		<id column="eventNumber_s" name="eventNumber_s">
+		   	<generator class="assigned"/>
+		</id>
+		<property column="cardID_s" generated="never" lazy="false" name="cardID_s"/>		 
+	 	<property name="jurisdiction_s" column="jurisdiction_s" type="string" ></property>
+	 	<property name="effectiveTime_t" column="effectiveTime_t" type="date" ></property>
+	 	<property name="invalidationTime_t" column="invalidationTime_t" type="date" ></property>
+	 	<property name="editFlagTime_t" column="editFlagTime_t" type="date" ></property>		 		 
+	</class>
+</hibernate-mapping>

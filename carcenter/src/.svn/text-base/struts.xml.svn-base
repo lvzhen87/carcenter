@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 配置struts的常量 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 拦截器 -->
+	<package name="myIntercept" extends="json-default" abstract="true" >
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="loginIntercept" class="com.freshen.intercept.LoginIntercepter"></interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="myLoginStack">
+				<interceptor-ref name="loginIntercept"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认引用 -->
+		<default-interceptor-ref name="myLoginStack"></default-interceptor-ref>
+		<default-action-ref name="welcomeAction"></default-action-ref>
+		<!-- 全局参数配置 -->
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">welcomeAction</param>
+			</result>
+			<result name="error" type="redirectAction" >
+				<param name="actionName">errProcessAction</param>
+				<param name="errmsg">${errmsg}</param>
+			</result>
+		</global-results>
+		<action name="errProcessAction" class="com.freshen.action.common.ErrorProcessAction" >
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+	
+	<!-- 欢迎Action -->
+	<package name="welcomeStruts" extends="json-default"  >
+		<default-action-ref name="welcomeAction"></default-action-ref>
+		<action name="welcomeAction" class="com.freshen.login.action.WelcomeAction">
+			<result name="success">/forlogin.jsp</result>
+		</action>
+	</package>
+	<!-- 预订审核 -->   
+	<include file="struts-preorder.xml"></include> 
+	<!--登录 -->
+	<include file="struts-login.xml"></include>
+	<!--引入试验接待 相关action -->
+	<include file="struts-reception.xml"></include>
+	<!-- 基础信息管理 -->
+	<include file="struts-basis.xml"></include>
+	<!-- 试验场管理 -->
+	<include file="struts-ground.xml"></include>
+	<!-- 试验场过程管理 -->
+	<include file="struts-process.xml"></include>
+	<!-- 订单核算  管理 -->
+	<include file="struts-cost.xml"></include>
+	 
+</struts>    

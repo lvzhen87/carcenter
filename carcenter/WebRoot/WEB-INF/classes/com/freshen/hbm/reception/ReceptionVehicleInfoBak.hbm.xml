@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.freshen.entity.reception.ReceptionVehicleInfoBak" table="t_reception_vehicleInfo_bak">
+		<id name="vehicleCPG_s" column="vehicleCPG_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="orderID_s" column="orderID_s" />
+		<property name="vehicleID_s" column="vehicleID_s" />
+		<property name="model_s" column="model_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="color_s" column="color_s" />
+		<property name="interPhoneID_s" column="interPhoneID_s" />
+		<property name="fieldID_s" column="fieldID_s" />
+		<property name="roidIds_s" column="roidIds_s" />
+		
+		<property name="weight_s" column="weight_s" />
+		<property name="maxWeight_s" column="maxWeight_s" />
+		<property name="fuelDemand_s" column="fuelDemand_s" />
+		<property name="fuelConsumption_s" column="fuelConsumption_s" />
+		<property name="category_i" column="category_i" />
+		<property name="licensPlate_s" column="licensPlate_s" />
+		<property name="brandType_s" column="brandType_s" />
+		<property name="maxSpeed_s" column="maxSpeed_s" />
+		<property name="vin_s" column="vin_s" />
+		<property name="axleNumber_i" column="axleNumber_i" />
+</class>
+</hibernate-mapping>

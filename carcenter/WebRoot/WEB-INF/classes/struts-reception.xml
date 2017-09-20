@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 第1个package -->	
+    <package name="receptionStruts" extends="myIntercept" namespace="/">
+    	
+    	<!-- 接待试验，查询当日应该接待的试验-->
+    	<action name="receptExpAction" class="com.freshen.reception.action.ReceptExpAction" method="execute">
+    		<result name="success">/reception/reception.jsp</result>
+    	</action>
+    	
+    	<!-- 接待试验，查询已进场或者进行中的试验-->
+    	<action name="recepExperienceAction" class="com.freshen.reception.action.ReceptExpAction" method="searchExperience">
+    		<result name="success">/reception/receptexperience.jsp</result>
+    	</action>
+    	<!-- 接待试验，查询已进场或者进行中的试验-->
+    	<action name="recExperiencephoneAction" class="com.freshen.reception.action.ReceptExpAction" method="searchExperience">
+    		<result name="success">/reception/receptinterphone.jsp</result>
+    	</action>
+    	
+    	<!-- 接待试验，根据订单号查询当日试验-->
+    	<action name="searchOrderAction" class="com.freshen.reception.action.ReceptExpAction" method="SearchOrderByID">
+    		<result name="success">/reception/reception.jsp</result>
+    		<result name="error">/reception/reception.jsp</result>
+    	</action>
+
+    	
+    	<!-- 接待试验，记录orderid和customerId,并修改订单状态和初始化车辆信息-->
+    	<action name="prepareCardAction" class="com.freshen.reception.action.GrantApplyAction" >
+    		<result name="success" type="chain">grantPrecardAction</result>
+    	</action>
+    	<!-- 准备发放卡片，记录orderid和customerId-->
+    	<action name="preCardAction" class="com.freshen.reception.action.GrantApplyAction" method="recordID" >
+    		<result name="success" type="chain">grantPrecardAction</result>
+    	</action>
+    	<!-- 接待试验，准备发放人卡-->
+    	<action name="grantPrecardAction" class="com.freshen.reception.action.GrantPercardAction" method="execute">
+    		<result name="success" >/reception/grantcard.jsp</result>
+    	</action>
+    	<!-- 接待试验，记录当前新加的接待人员，此时是在当前无试验人员时调用-->
+    	<action name="grantExpersonAction" class="com.freshen.reception.action.GrantPercardAction" method="recordExpersoncard">
+    		<result name="success">/reception/grantcard.jsp</result>
+    	</action>
+    	<!-- 接待试验，记录发放人卡-->
+    	<action name="recordPrecardAction" class="com.freshen.reception.action.GrantPercardAction" method="recordPersoncard">
+    		<result name="success" type="chain">grantPrecardAction</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    	<!-- 接待试验，准备记录额外添加的人员信息-->
+    	<action name="prepareaddExuser" class="com.freshen.reception.action.GrantPercardAction" method="prepareexPerson">
+    		<result name="success">/reception/addexcustomeruser.jsp</result>
+    	</action>
+    	<!-- 接待试验，记录额外添加的人员信息，只添加到reception-customeruser中，不发卡-->
+    	<action name="addExuser" class="com.freshen.reception.action.GrantPercardAction" method="exPerson">
+    		<!--  <result name="success">grantPrecardAction</result>-->
+    	</action>
+    	<!--<action name="exPersonAction" class="com.freshen.reception.action.GrantPercardAction" method="exPerson">
+    		<result name="success" type="chain">grantPrecardAction</result>
+    	</action>-->
+    	
+    	<!-- 接待试验，删除发放人卡-->
+    	<action name="deletePrecardAction" class="com.freshen.reception.action.GrantPercardAction" method="deletePersoncard">
+    		<result name="success" >/reception/grantcard.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	 <!--进场人员信息核对  yepeng Add 2014-10-15 -->
+    	<action name="intoMemberInfoCheckAction" class="com.freshen.reception.action.IntoMemberInfoCheckAction" method="execute">
+    		<result name="success" >/reception/intoMemberInfoCheck.jsp</result>
+    	</action>
+    	
+    	<!--
+    	 接待试验，记录发放的人卡
+    	<action name="preparePersonCardAction" class="com.freshen.reception.action.GrantCardAction" method="prepareUsercard" >
+    		<result name="success" type="chain">grantCardAction</result>
+    	</action>
+    	 接待试验，记录发放的人卡
+    	<action name="grantPersonCardAction" class="com.freshen.reception.action.GrantCardAction" method="recordPersonCard" >
+    		<result name="success" type="chain">grantCardAction</result>
+    	</action>
+    	-->
+    	
+    	<!--接待试验，查询已经发放的油卡  -->
+    	<action name="searchOilcardAction" class="com.freshen.reception.action.GrantOilCardAction" method="prepareOilcard">
+    		<result name="success" >/reception/recordoilcard.jsp</result>
+    	</action>
+    	<!-- 接待试验，发放油卡-->
+    	<action name="grantOilCardAction" class="com.freshen.reception.action.GrantOilCardAction" method="recordOilCard" >
+    		<result name="success" type="chain">searchOilcardAction</result>
+    	</action><!--
+    	 接待试验，删除人卡
+    	<action name="deletePersonCardAction" class="com.freshen.reception.action.GrantCardAction" method="deleteCardInfo" >
+    		<result name="success" type="chain">grantCardAction</result>
+    	</action>
+    	-->
+    	<!-- 接待试验，删除油卡-->
+    	<action name="deleteOilCardAction" class="com.freshen.reception.action.GrantOilCardAction" method="deleteOilCard" >
+    		<result name="success" type="chain">searchOilcardAction</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	
+    	
+    	<!-- 接待试验，准备发放对讲机信息-->
+    	<action name="prepareInterphoneAction" class="com.freshen.reception.action.GrantInterphoneAction" >
+    		<result name="success" >/reception/grantinterphone.jsp</result>
+    	</action>
+    	<!-- 接待试验，判断对讲机信息是否闲置-->
+    	<action name="judgeInterphoneAction" class="com.freshen.reception.action.GrantInterphoneAction" method="judgeInterphone">
+    		<result name="success" >/reception/grantinterphone.jsp</result>
+    	</action>
+    	<!-- 接待试验，发放对讲机信息-->
+    	<action name="grantInterphoneAction" class="com.freshen.reception.action.GrantInterphoneAction" method="grantInterphone">
+    		<result name="success">/reception/grantinterphone.jsp</result>
+    	</action>
+    	<!-- 接待试验，删除对讲机信息-->
+    	<action name="deleteInterphoneAction" class="com.freshen.reception.action.GrantInterphoneAction" method="deleteInterphone">
+    		<result name="success" type="chain">prepareInterphoneAction</result>
+    	</action>
+    	
+    	
+    	
+    
+    	<!-- 接待试验，填写车辆信息与发车卡 -->
+    	<action name="prepareRecordVehicleAction" class="com.freshen.reception.action.GrantCardAction" method="prepareRecordVehicle" >
+    		<result name="success">/reception/grantvehicle.jsp</result>
+    		<!--<result name="success">/reception/grantvehicle.jsp</result>-->
+    	</action>   
+    	
+    	<!-- 接待试验，登记额外车辆信息-->
+    	<action name="exrecordvehicleAction" class="com.freshen.reception.action.GrantCardAction" method="exrecordVehicleInfo" >
+    	</action>
+    	<!--<action name="exrecordvehicleAction" class="com.freshen.reception.action.GrantCardAction" method="exrecordVehicleInfo" >
+    		<result name="success" type="chain">prepareRecordVehicleAction</result>
+    	</action>-->
+    		
+    	<!-- 接待试验，登记车辆信息-->
+    	<action name="recordvehicleAction" class="com.freshen.reception.action.GrantCardAction" method="recordVehicleInfo" >
+    		<result name="success" type="chain">prepareRecordVehicleAction</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    	<!-- 接待试验，删除车辆信息-->
+    	<action name="deletevehicleAction" class="com.freshen.reception.action.GrantCardAction" method="deleteVehicleInfo" >
+    		<result name="success" type="chain">prepareRecordVehicleAction</result>
+    	</action>
+    	
+    	
+    	
+    	<!-- 接待试验，准备登记驾驶员
+    	<action name="recordDriverAction" class="com.freshen.reception.action.GrantCardAction" method="prepareRecordDriver">
+    		<result name="success" >/reception/recorddriver.jsp</result>
+    	</action>-->
+    	<!-- 接待试验，准备登记随行人员-->
+    	<action name="recordEntourageAction" class="com.freshen.reception.action.GrantCardAction" method="preareRecordEntourage" >
+    		<result name="success" >/reception/recordentourage.jsp</result>
+    	</action>
+    	<!-- 接待试验，登记随行人员
+    	<action name="recordUserAction" class="com.freshen.reception.action.GrantCardAction" method="recordEntourage" >
+    		<result name="success" type="chain">recordEntourageAction</result>
+    	</action>-->
+    	<!-- 接待试验，登记随行驾驶员-->
+    	<action name="recordDriverUserAction" class="com.freshen.reception.action.GrantCardAction" method="recordEntourage" >
+    		<result name="success" type="chain">recordEntourageAction</result>
+    	</action>
+    	
+    	
+    	
+    	<!-- 接待试验，跳转到 卡片信息查询页面-->
+    	<action name="cardSearchAction" class="com.freshen.reception.action.CardSearchAction" >
+    		<result name="success" >/reception/cardsearch.jsp</result>
+    	</action>
+    	<!-- 接待试验，跳转到 随行人员查询页面 -->
+    	<action name="presearchEntourageInfoAction" class="com.freshen.reception.action.EntourageSearchAction">
+    		<result name="success">/reception/entouragesearch.jsp</result>
+    	</action>
+    	<!-- 接待试验，查询随行人员查询页面 -->
+    	<action name="searchEntourageInfoAction" class="com.freshen.reception.action.EntourageSearchAction" method="searchEntouragesByOrderId">
+    		<result name="success">/reception/entouragesearch.jsp</result>
+    	</action>
+    	<!-- 接待试验，删除随行驾驶员页面
+    	<action name="deletereceptCustomerUserAction" class="com.freshen.reception.action.EntourageSearchAction" method="deleteEntouragesByOrderId">
+    		<result name="success" type="chain">recordDriverAction</result>
+    	</action> -->
+    	<!-- 接待试验，删除随行人员页面 -->
+    	<action name="deletereceptUserAction" class="com.freshen.reception.action.EntourageSearchAction" method="deleteEntouragesByOrderId">
+    		<result name="success" type="chain">recordEntourageAction</result>
+    	</action>
+    	
+    	
+    	<!-- 接待试验，跳转到查询驾驶员-->
+    	<action name="driverInfoAction" class="com.freshen.reception.action.DriverInfoAction" >
+    		<result name="success" >/reception/driverinfo.jsp</result>
+    	</action>
+    	<!-- 接待试验，查询驾驶员-->
+    	<action name="searchDriverAction" class="com.freshen.reception.action.DriverInfoAction" method="searchDriverInfo">
+    		<result name="success" >/reception/driverinfo.jsp</result>
+    	</action>
+    	<!-- 接待试验，准备添加驾驶员-->
+    	<action name="prepareAddDriverInfoAction" class="com.freshen.reception.action.DriverInfoAction" method="prepareAddDriverInfo">
+    		<result name="success" >/reception/addnewdriver.jsp</result>
+    	</action>
+    	<!-- 接待试验，添加驾驶员 -->
+    	<action name="addDriverInfoAction" class="com.freshen.reception.action.DriverInfoAction" method="addDriverInfo">
+    		<result name="success" >/reception/addnewdriver.jsp</result>
+    	</action>
+    	<!-- 接待试验，更新驾驶员 -->
+    	<action name="updateDriverAction" class="com.freshen.reception.action.DriverInfoAction" method="updateDriver">
+    		<result name="success" type="chain" >driverInfoAction</result>
+    	</action>
+    	<!-- 接待试验，删除驾驶员 -->
+    	<action name="deleteDriverAction" class="com.freshen.reception.action.DriverInfoAction" method="deleteDriver">
+    		<result name="success" type="chain" >searchDriverAction</result>
+    	</action>
+    	<!-- 接待试验，准备培训驾驶员-->
+    	<action name="prepareTrainDriverAction" class="com.freshen.reception.action.DriverInfoAction" method="preparetrainDrivers" >
+    		<result name="success">/reception/traindriver.jsp</result>
+    	</action>
+    	<!-- 接待试验，培训驾驶员-->
+    	<action name="trainDriverAction" class="com.freshen.reception.action.DriverInfoAction" method="trainDrivers" >
+    		<result name="success">/reception/traindriver.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	<!-- 接待试验，准备添加客户人员 -->
+    	<action name="prepareAddUserAction" class="com.freshen.reception.action.CustomerUserAction" method="prepareAddCustomerUser">
+    		<result name="success" >/reception/addnewcustomeruser.jsp</result>
+    	</action>
+    	<!-- 接待试验，添加客户人员 -->
+    	<action name="addUserAction" class="com.freshen.reception.action.CustomerUserAction" method="addCustomerUser">
+    		<result name="success" >/reception/addnewcustomeruser.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 接待试验，跳转车辆查询页面 -->
+    	<action name="prepareSearchVehicleInfoAction" class="com.freshen.reception.action.VehicleInfoAction">
+    		<result name="success" >/reception/vehiclesearch.jsp</result>
+    	</action>
+    	<!-- 接待试验，根据订单，查询车型信息 -->
+    	<action name="searchVehicleInfoAction" class="com.freshen.reception.action.VehicleInfoAction" method="searchByID">
+    		<result name="query">/reception/recordvehicle.jsp</result>
+    		<result name="success" >/reception/vehiclesearch.jsp</result>
+    	</action>
+    	
+    	<!-- 该Action可以看着辅助，将道路转换为json串返回jsp -->
+    	<action name="roadNameToJson" class="com.freshen.reception.action.RoadNameToJsonAction">
+    		<result name="success" type="json"></result>
+    	</action>
+    	
+    	<!-- 该Action可以看着辅助，将房门表转换为json串返回jsp -->
+    	<action name="MjDoorToJson" class="com.freshen.reception.action.MjDoorToJsonAction">
+    		<result name="success" type="json"></result>
+    	</action>
+	</package>
+	
+
+</struts>

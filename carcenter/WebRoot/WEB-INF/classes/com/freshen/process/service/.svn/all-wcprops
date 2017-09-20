@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service
+END
+TProcessInterPhoneEmployinfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service/TProcessInterPhoneEmployinfoService.java
+END
+TprocessWashcarinvalidService.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service/TprocessWashcarinvalidService.java
+END
+IoccupyConsumerListsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service/IoccupyConsumerListsService.java
+END
+IstationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/56/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service/IstationService.java
+END
+ITprocessWashcarinvalidService.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/process/service/ITprocessWashcarinvalidService.java
+END

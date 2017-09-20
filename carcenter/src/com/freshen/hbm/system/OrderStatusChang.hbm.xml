@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.system.OrderStatusChang" table="t_system_orderStatusChang">
+		<id name="orderID_s" column="orderID_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="status_i" column="status_i" />
+		<property name="remark_s" column="remark_s" />
+		<property name="updateUser_s" column="updateUser_s" />
+		<property name="updateDate_t" column="updateDate_t" />		
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+	</class>
+</hibernate-mapping>

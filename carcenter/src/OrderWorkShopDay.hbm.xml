@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.OrderWorkShopDay" table="t_subscribe_orderWorkShopDay">
+		<composite-id >
+			<key-property name="orderWorkShopID_s" column="orderWorkShopID_s" type="string" ></key-property>
+			<key-property name="orderID_s" column="orderID_s" type="string"></key-property>
+			<key-property name="status_i" column="status_i" type="integer"></key-property>		
+			<key-property name="date_t" column="date_t" type="date"></key-property>
+			<key-property name="workShopID_s" column="workShopID_s" type="string"></key-property>
+		</composite-id>
+		<!--<key-property name="useInfo_s" column="useInfo_s" type="string"></key-property>
+		<key-property name="workShopName_s" column="workShopName_s" type="string"></key-property>
+		<key-property name="remark_s" column="remark_s" type="string"></key-property>
+		<key-property name="createDate_t" column="createDate_t" type="date"></key-property>
+		<key-property name="createUser_s" column="createUser_s" type="string"></key-property>
+		<key-property name="lastUpdateUser_s" column="lastUpdateUser_s" type="string"></key-property>
+		<key-property name="lastUpdateDate_t" column="lastUpdateDate_t" type="date"></key-property>
+		<key-property name="resaveds1" column="resaveds1_s" type="string"></key-property>
+		<key-property name="resaveds2" column="resaveds2_s" type="string"></key-property>
+		<key-property name="resaveds3" column="resaveds3_s" type="string"></key-property>
+		<key-property name="resaveds4" column="resaveds4_s" type="string"></key-property>
+		<key-property name="resaveds5" column="resaveds5_s" type="string"></key-property>
+		 
+	-->
+		<property name="useInfo_s" column="useInfo_s" type="string"></property>
+		<property name="workShopName_s" column="workShopName_s" type="string"></property>
+		<property name="remark_s" column="remark_s" type="string"></property>
+		<property name="createDate_t" column="createDate_t" type="date"></property>
+		<property name="createUser_s" column="createUser_s" type="string"></property>
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" type="string"></property>
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" type="date"></property>
+		<property name="resaveds1" column="resaveds1_s" type="string"></property>
+		<property name="resaveds2" column="resaveds2_s" type="string"></property>
+		<property name="resaveds3" column="resaveds3_s" type="string"></property>
+		<property name="resaveds4" column="resaveds4_s" type="string"></property>
+		<property name="resaveds5" column="resaveds5_s" type="string"></property>
+	</class>
+	
+
+</hibernate-mapping>

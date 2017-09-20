@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/clims/baseclass
+END
+ServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/clims/baseclass/ServiceImpl.java
+END
+ClimsServiceBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/clims/baseclass/ClimsServiceBase.java
+END
+BeanModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/clims/baseclass/BeanModel.java
+END
+ClimsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/clims/baseclass/ClimsException.java
+END

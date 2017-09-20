@@ -1,0 +1,45 @@
+package com.freshen.util;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import com.freshen.clims.baseclass.BeanModel;
+import com.freshen.entity.reception.CardInfo;
+import com.freshen.entity.reception.ReceptionVehicleInfo;
+
+public class BasicTools {
+
+	/**
+	 * 判断集合是否为null	   
+	 * isnotNull 
+	 * @param   name    
+	 * @param  @return    设定文件    
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public static boolean  isnotNull(List list){	
+		if(list==null||list.size()==0){
+			return false;
+		}else{
+			Object o = list.get(0);
+			return BeanModel.isnotNull(o);
+		}	 
+	}
+	
+	public static void main(String[] a){
+		String deleteVehicles = "asd,Ierd,I";
+		//分解要删除的车辆信息
+		if(deleteVehicles != null && deleteVehicles.length() > 0){
+			deleteVehicles = deleteVehicles.replaceAll("I","");
+			String del[]=deleteVehicles.split(",");
+			for (int j = 0; j < del.length; j++) {
+				String info[] = del[j].split(",");
+				//为删除reception-vehicleInfo表
+				ReceptionVehicleInfo deleteVehicle=new ReceptionVehicleInfo();
+			 
+			}
+		}
+	}
+}

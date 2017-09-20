@@ -1,0 +1,188 @@
+package com.freshen.barrierGate.service.impl;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.freshen.barrierGate.service.BarrierGateControlService;
+import com.freshen.clims.baseclass.ClimsServiceBase;
+import com.freshen.entity.barrierGate.BarrierGateControl;
+import com.freshen.util.ConstantUtil;
+import com.freshen.util.DateUtil;
+import com.freshen.util.HibernateUtil;
+
+public class BarrierGateControlServiceImpl extends ClimsServiceBase implements BarrierGateControlService {
+	String eventNumber_s;
+	String barrierGateID_s;
+	Date createTime_t;
+	String schema_s;
+	Integer isEfficiency_i;
+	
+	//Session session = HibernateUtil.getSession();
+	Transaction tx = null;
+	public ArrayList<BarrierGateControl> getBarrierGateControlInfo(
+			BarrierGateControl barrierGateControl, int start, int size)
+			throws Exception {
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen())
+		{
+			session = HibernateUtil.getSession();
+		}
+		ArrayList<BarrierGateControl> list = new ArrayList();
+		try {
+			if(barrierGateControl == null)
+			{
+				Query query = session.createQuery(" from BarrierGateControl as barrierGateControl");
+				list = (ArrayList)query.list();
+				if(start != ConstantUtil.pagingNot)
+				{
+					query.setFirstResult(start);
+					query.setMaxResults(size);
+				}
+		 
+				return list;
+			}
+			eventNumber_s= barrierGateControl.getEventNumber_s();
+			barrierGateID_s = barrierGateControl.getBarrierGateID_s();
+			createTime_t = barrierGateControl.getCreateTime_t();
+			schema_s = barrierGateControl.getSchema_s();
+			isEfficiency_i = barrierGateControl.getIsEfficiency_i();
+			String hql = "  from BarrierGateControl as barrierGateControl where 1=1 ";
+			String condition = " ";
+			if(eventNumber_s != null && !eventNumber_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.eventNumber_s like '%" + eventNumber_s.trim() + "%'";
+		    }
+		    if(barrierGateID_s != null && !barrierGateID_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.barrierGateID_s like '%" + barrierGateID_s.trim() + "%'";
+		    }
+		    if(createTime_t != null){
+		    	condition = condition + " and to_char(barrierGateControl.createTime_t,'yyyy-MM-dd')='" + DateUtil.dateToString(createTime_t, "yyyy-MM-dd") +"'";
+		    }
+		    if(schema_s != null && !schema_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.schema_s like '%" + schema_s.trim() + "%'";
+		    }
+		    if(isEfficiency_i != null){
+		    	condition = condition + " and barrierGateControl.isEfficiency_i ='" + isEfficiency_i + "'";
+		    }
+		    
+		    Query query = session.createQuery(hql + condition);
+			list = (ArrayList)query.list();
+			if(start != ConstantUtil.pagingNot)
+			{
+				query.setFirstResult(start);
+				query.setMaxResults(size);
+			}
+	 
+			return list;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw e;
+		} finally{
+			session.clear();
+		}
+	}
+
+	public long getBarrierGateControlInfo(BarrierGateControl barrierGateControl)
+			throws Exception {
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen())
+		{
+			session = HibernateUtil.getSession();
+		}
+		ArrayList<BarrierGateControl> list = new ArrayList();
+		long n = 0;
+		try {
+			if(barrierGateControl == null)
+			{
+				Query query = session.createQuery(" from BarrierGateControl as barrierGateControl");
+				if(query.iterate().hasNext())
+				{
+					n = (Long)query.iterate().next();
+				}
+				return n;
+			}
+			eventNumber_s= barrierGateControl.getEventNumber_s();
+			barrierGateID_s = barrierGateControl.getBarrierGateID_s();
+			createTime_t = barrierGateControl.getCreateTime_t();
+			schema_s = barrierGateControl.getSchema_s();
+			isEfficiency_i = barrierGateControl.getIsEfficiency_i();
+			String hql = "  from BarrierGateControl as barrierGateControl where 1=1 ";
+			String condition = " ";
+			if(eventNumber_s != null && !eventNumber_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.eventNumber_s like '%" + eventNumber_s.trim() + "%'";
+		    }
+		    if(barrierGateID_s != null && !barrierGateID_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.barrierGateID_s like '%" + barrierGateID_s.trim() + "%'";
+		    }
+		    if(createTime_t != null){
+		    	condition = condition + " and to_char(barrierGateControl.createTime_t,'yyyy-MM-dd')='" + DateUtil.dateToString(createTime_t, "yyyy-MM-dd") +"'";
+		    }
+		    if(schema_s != null && !schema_s.trim().equals("")){
+		    	condition = condition + " and barrierGateControl.schema_s like '%" + schema_s.trim() + "%'";
+		    }
+		    if(isEfficiency_i != null){
+		    	condition = condition + " and barrierGateControl.isEfficiency_i ='" + isEfficiency_i + "'";
+		    }
+		    
+		    Query query = session.createQuery(hql + condition);
+		    if(query.iterate().hasNext())
+			{
+				n = (Long)query.iterate().next();
+			}
+			return n;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw e;
+		} finally{
+			session.clear();
+		}
+	}
+
+	public int OperationBarrierGateControl(
+			BarrierGateControl barrierGateControl, int operation)
+			throws Exception {
+		Transaction tx = null;
+		Session session= HibernateUtil.getSession();
+		try{			
+			if(!session.isOpen()){
+				session= HibernateUtil.getSession();							
+			}
+			tx=session.beginTransaction();//开启事务
+			//新增
+			if(operation==1){
+				session.merge(barrierGateControl);
+				session.flush();
+			    session.clear();
+			}
+			//删除
+			if(operation==2){
+				
+				if(barrierGateControl!=null){
+					session.delete(barrierGateControl);
+					session.flush();
+					session.clear();
+				}
+			}
+			tx.commit();
+			return 1;
+		}catch(Exception e){
+			tx.rollback();
+			throw e;
+		}finally{				
+			session.clear();
+		}	
+	}
+	
+	
+	public static void main(String[] args) throws Exception {
+		BarrierGateControlServiceImpl bg = new BarrierGateControlServiceImpl();
+		BarrierGateControl b = new BarrierGateControl();
+		ArrayList<BarrierGateControl> list = new ArrayList();
+		list = bg.getBarrierGateControlInfo(b, 0, 2);
+	}
+}

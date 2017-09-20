@@ -1,0 +1,152 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+<title>管理区域</title>
+<style type="text/css">
+#historyorderlist td{
+	font-size: 12px;
+	height: 25px;
+	text-align: center;
+}
+#trans td{
+font-size: 12px;
+}
+img hover{
+	border: solid 1px #DDD;
+}
+.dbgrid{
+			width: 1040px;
+		}
+</style>
+</head>
+
+<body  style="padding: 0px;margin: 0px; width: 99%">
+<div id="man_zone">
+<!-- 添加查询订单 -->
+<div style="height: 40px;padding: 5px;margin: 0px 5px 0px 10px">
+<form id="orderSearchForm" name="orderSearchForm" action="./searchOrdersAction" method="post">
+			
+				订单编号：<input type="text" name="orderID" value="${orderID}" />
+				试验名称：<input type="text" name="orderName" value="${orderName}" />
+		 
+				<img id="registerUserSearchFormBt" onclick="submitSearchForm()" alt="查询" title="查询" src="images/search.gif" style="width: 30px;height: 30px;vertical-align: middle;display: inline;cursor: hand;" >
+			
+</form>
+</div>
+<script type="text/javascript">
+	function submitSearchForm(){
+		document.getElementById("orderSearchForm").submit();
+		
+	}
+</script>
+ <table id="historyorderlist" width="98%" style="margin: 0px 0px 0px 10px">
+		
+		<thead>
+			<tr style="background-color:#E8F0FF">
+			   <th width="4%">序号</th>
+			   <th width="7%" >订单号</th>
+			   <th width="20%" >试验名称</th>
+			   <th width="20%">发票抬头</th>
+			   <th width="8%">提交时间</th>
+			   <th width="8%" >状态</th>
+			   <th width="18%">起止时间</th>
+			   <th width="7%">负责人</th>
+			   <!-- <th width="6%">试验车辆数</th>
+			   <th width="6%">陪同车辆数</th>
+			   <th width="6%">最大总质量</th> -->
+			   <th width="6%">详情</th>
+			</tr>
+			
+		</thead>		
+		<tbody>
+		<!-- 遍历mapSess中存入的相应数据 -->
+        <c:forEach items="${myOrdersList}" var="orderslist" varStatus="ordersStatus">
+			<c:set var="statusIndex" value="${ordersStatus.index}" />
+			<c:set var="evenOddStyle" value="background-color:#EEEEEE" />
+			<c:if test="${(statusIndex % 2) == 0}">
+				<c:set var="evenOddStyle" value="background-color:#FFFFFF" />
+			</c:if>
+        <tr style="${evenOddStyle}">
+        	<td>${statusIndex+1 }</td>
+           <td>${orderslist.orderID_s}</td>
+           <td>${orderslist.orderName_s}</td>
+           <td>${orderslist.invoiceOrder_s}</td> 
+		   <td>${orderslist.reservationDate_t }</td>
+		   <td>
+		   		<c:if test="${orderslist.status_i==1 }"> <font color="blue"> 预定未确认</font></c:if>
+		   		<c:if test="${orderslist.status_i==2 }">预定已确认</c:if>
+		   		<c:if test="${orderslist.status_i==3 }">预定取消</c:if>
+		   		<c:if test="${orderslist.status_i==4 }"> <font color="red"> 预定冲突 </font> </c:if>
+		   		<c:if test="${orderslist.status_i==5 }">已进场</c:if>
+		   		<c:if test="${orderslist.status_i==6 }">试验进行中</c:if>
+		   		<c:if test="${orderslist.status_i==7 }">试验结束</c:if>
+		   		<c:if test="${orderslist.status_i==8 }">订单已结算</c:if>
+		   </td>
+		   <td>${orderslist.startDateStr}<font style="font-weight: bold;">&nbsp; ~ &nbsp;</font>${orderslist.endDateStr}</td>
+		   <td>${orderslist.customerUser.customerUserName_s }</td>
+		   <td style="text-align: center;">
+		   		<a id="passimg" class="passcheck" title="明细" href="./applyAction?orderId=${orderslist.orderID_s}" >
+            	<img src="images/icons/icon_edit.png" style="cursor:hand;"  alt="详情" />
+           		</a>
+		   		<a id="passimg" class="passcheck" title="审核通过" href="javascript:if(confirm('您确定通过该试验申请？'))location='./oneKeyCheckOrderAction?orderid=${orderslist.orderID_s}&&isok=1'" >
+            	<img src="images/icons/icon_approve.png" style="cursor:hand;"  alt="审核通过" />
+           		</a>
+           		<!--<a id="passimg" class="passcheck" title="审核冲突" href="javascript:if(confirm('您确定该试验申请冲突？'))location='./oneKeyCheckOrderAction?orderid=${orderslist.orderID_s}&&isok=0'" >
+            	<img src="images/icons/cross_circle.png" style="cursor:hand;"  alt="审核冲突" />
+           		--></a>
+           	</td>
+		</tr>
+       	</c:forEach>	
+		</tbody>			
+	</table>
+	<!-- 分页 -->
+			<table id="trans"  style="background-color: #FFF;margin: 0px 0px 0px 10px" width="98%"  >
+				<tr>
+					<td width="50%" align="left" >
+						<div style="display: inline; width: 380px; padding-left: 10px;" >
+							共有记录${totalPages }条，分${maxPage}页，当前第${currentPage+1}页
+						</div>
+					</td>
+					<td width="50%" style="text-align: right;">
+						<div style="display: inline;width: 400px;float: right;padding-right: 5px;">
+							<a href="./searchOrdersAction?currentPage=0&&orderID=${orderID}&&orderName=${orderName}" target="manFrame" >首页</a>&nbsp;
+							<a href="./searchOrdersAction?currentPage=${currentPage-1<=0?0:currentPage-1}&&orderID=${orderID}&&orderName=${orderName}">前一页</a>&nbsp;
+							<a href="./searchOrdersAction?currentPage=${currentPage+1>=maxPage?totalPage-1:currentPage+1}&&orderID=${orderID}&&orderName=${orderName}">后一页</a>&nbsp;
+							<a href="./searchOrdersAction?currentPage=${maxPage-1}&&orderID=${orderID}&&orderName=${orderName}">末页</a>&nbsp;&nbsp;
+							<form id="changepage" style="display: inline;" action="./searchOrdersAction" method="post">
+							转到第<c:if test="${maxPage==0}">1</c:if>
+								<c:if test="${maxPage>0}">
+								<select class="easyui-combobox" id="currentPage" name="currentPage" onchange="submitPage()" required="true">
+									<c:forEach begin="1" end="${maxPage}" step="1" var="item" >
+									<option value="${item-1}" <c:if test="${currentPage+1 == item}">selected="selected" </c:if>>${item }</option>
+									</c:forEach>
+								</select>
+								</c:if>页
+							</form>
+							<script type="text/javascript">
+								$(document).ready(function(){
+							        $('#currentPage').combobox({
+							            onChange:function(){
+							                //alert("准备翻页");
+											document.getElementById("changepage").submit();
+							            }
+							        });
+							    });
+							</script>
+						</div>
+					</td>
+				</tr>
+			</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,737 @@
+package com.freshen.reception.service.impl;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.impl.SessionImpl;
+
+import com.freshen.barrierGate.service.BarrierGateJurisdictionService;
+import com.freshen.barrierGate.service.impl.BarrierGateJurisdictionServiceImpl;
+
+import com.freshen.entity.OrderRoadDetail;
+import com.freshen.entity.barrierGate.BarrierGateJurisdiction;
+import com.freshen.entity.reception.CardInfo;
+import com.freshen.entity.reception.ReceptionOrder;
+import com.freshen.entity.reception.ReceptionVehicleInfo;
+
+import com.freshen.preorder.service.IorderInfoService;
+
+import com.freshen.preorder.service.impl.OrderInfoServiceImpl;
+import com.freshen.reception.service.IcardInfoService;
+import com.freshen.reception.service.IreceptionOrderService;
+import com.freshen.reception.service.IreceptionVehicleInfoService;
+import com.freshen.util.ConstantUtil;
+import com.freshen.util.DateUtil;
+import com.freshen.util.HibernateUtil;import com.freshen.clims.baseclass.ClimsServiceBase;
+
+public class CardInfoServiceImpl extends ClimsServiceBase implements IcardInfoService{
+
+	String orderID_s;
+	String card_s;
+	String cardType_s;
+	Date createDate_t = new Date();
+	String createUser_s;
+	String lastUpdateUser_s;
+	Date lastUpdateDate_t = new Date();
+	String resaveds1_s, resaveds2_s, resaveds3_s, resaveds4_s, resaveds5_s;
+	//Session session = HibernateUtil.getSession();
+	Transaction tx = null;
+	
+	String orderRoadID_s;
+	/**
+	 * 通过条件查询卡信息表
+	 * getReceptionCardInfo 
+	 * @param  CardInfo
+	 * @param  page开始页
+	 * @param  page总数
+	 * @return    ArrayList     
+	 * @Exception 异常对象    
+	 * @since  CodingExample　
+	 */
+	public ArrayList<CardInfo> getReceptionCardInfo(CardInfo cardInfo, int start, int size) throws Exception{
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		try{
+			List<CardInfo> list = new ArrayList();
+			if(cardInfo == null){
+				Query query = session.createQuery("from CardInfo");
+				if(start != ConstantUtil.pagingNot){
+					query.setFirstResult(start);
+				    query.setMaxResults(size);
+				}
+			    list = query.list();	  			
+				return (ArrayList) list;
+			}
+			orderID_s = cardInfo.getOrderID_s();
+			card_s = cardInfo.getCard_s();
+			cardType_s = cardInfo.getCardType_s();
+			createDate_t = cardInfo.getCreateDate_t();
+			createUser_s = cardInfo.getCreateUser_s();
+			lastUpdateUser_s = cardInfo.getLastUpdateUser_s();
+			lastUpdateDate_t = cardInfo.getLastUpdateDate_t();
+			resaveds1_s = cardInfo.getResaveds1_s();
+			resaveds2_s = cardInfo.getResaveds2_s();
+			resaveds3_s = cardInfo.getResaveds3_s();
+			resaveds4_s = cardInfo.getResaveds4_s();
+			resaveds5_s = cardInfo.getResaveds5_s();
+			String hql="from CardInfo as cardInfo where 1=1 "; 
+		    String condition = "";
+			//	orderID_s，card_s是联合主键，只对应一条记录，所以当orderID_s，card_s不为空的情况，直接进行查询并返回
+			if(orderID_s != null && !orderID_s.trim().equals("") && card_s != null && !card_s.trim().equals("")){
+				condition = condition + " and cardInfo.orderID_s like '%" + orderID_s + "%'";
+				condition = condition + " and cardInfo.card_s like '%" + card_s + "%'";
+		    }
+			
+			
+		    if(orderID_s != null && !orderID_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.orderID_s like '%" + orderID_s + "%'";
+		    }
+		    if(card_s != null && !card_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.card_s like '%" + card_s + "%'";
+		    }
+		    if(cardType_s != null && !cardType_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.cardType_s like '%" + cardType_s + "%'";
+		    }
+		    if(createDate_t != null){
+		    	condition = condition + " and to_char(cardInfo.createDate_t,'yyyy-MM-dd')='" + DateUtil.dateToString(createDate_t, "yyyy-MM-dd") + "'";
+		    }
+		    if(lastUpdateDate_t != null){
+		    	condition = condition + " and to_char(cardInfo.lastUpdateDate_t,'yyyy-MM-dd')='" + DateUtil.dateToString(lastUpdateDate_t, "yyyy-MM-dd") + "'";
+		    }
+		    if(createUser_s != null && createUser_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.createUser_s like '%" + createUser_s + "%'";
+		    }
+		    if(lastUpdateUser_s != null && lastUpdateUser_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.lastUpdateUser_s like '%" + lastUpdateUser_s + "%'";
+		    }
+		    if(resaveds1_s != null && resaveds1_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds1_s like '%" + resaveds1_s + "%'";
+		    }
+		    if(resaveds2_s != null && resaveds2_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds2_s like '%" + resaveds2_s + "%'";
+		    }
+		    if(resaveds3_s != null && resaveds3_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds3_s like '%" + resaveds3_s + "%'";
+		    }
+		    if(resaveds4_s != null && resaveds4_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds4_s like '%" + resaveds4_s + "%'";
+		    }
+		    if(resaveds5_s != null && resaveds5_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds5_s like '%" + resaveds5_s + "%'";
+		    }
+		    Query query = session.createQuery(hql + condition);
+		    if(start != ConstantUtil.pagingNot){
+			    query.setFirstResult(start);
+			    query.setMaxResults(size);
+		    }
+		    list = query.list();
+		    return (ArrayList)list;	
+		}catch(Exception e){
+			throw new Exception(e);
+		}finally{
+			session.clear();
+		}	 
+	}
+
+	/**
+	 * 通过条件查询卡信息表，返回查询件数
+	 * getReceptionCardInfoNumber 
+	 * @return    long     
+	 * @Exception 异常对象    
+	 * @since  CodingExample　
+	 */
+	public long getReceptionCardInfoNumber(CardInfo cardInfo)throws Exception{
+		long n = 0;
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		try{
+			List<CardInfo> list = new ArrayList();
+			if(cardInfo == null){
+				Query query = session.createQuery("select count(*) from CardInfo");
+			    if(query.iterate().hasNext()){
+			    	n = (Long) query.iterate().next();
+			    }    
+			    return n;
+			}
+			orderID_s = cardInfo.getOrderID_s();
+			card_s = cardInfo.getCard_s();
+			cardType_s = cardInfo.getCardType_s();
+			createDate_t = cardInfo.getCreateDate_t();
+			createUser_s = cardInfo.getCreateUser_s();
+			lastUpdateUser_s = cardInfo.getLastUpdateUser_s();
+			lastUpdateDate_t = cardInfo.getLastUpdateDate_t();
+			resaveds1_s = cardInfo.getResaveds1_s();
+			resaveds2_s = cardInfo.getResaveds2_s();
+			resaveds3_s = cardInfo.getResaveds3_s();
+			resaveds4_s = cardInfo.getResaveds4_s();
+			resaveds5_s = cardInfo.getResaveds5_s();
+
+			//	orderID_s，card_s是联合主键，只对应一条记录，所以当orderID_s，card_s不为空的情况，直接进行查询并返回
+			if(orderID_s != null && !orderID_s.trim().equals("") && card_s != null && !card_s.trim().equals("")){
+				CardInfo ci = new CardInfo();
+				ci.setCard_s(card_s);
+				ci.setOrderID_s(orderID_s);
+				cardInfo = (CardInfo)session.get(cardInfo.getClass(), ci);
+		    	list.add(cardInfo);
+		    	return 1;
+		    }
+			
+			String hql = "select count(*) from CardInfo as cardInfo where 1=1 "; 
+		    String condition = "";
+		    
+		    if(cardType_s != null && !cardType_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.cardType_s like '%" + cardType_s + "%'";
+		    }
+		    if(createDate_t != null){
+		    	condition = condition + " and to_char(cardInfo.createDate_t,'yyyy-MM-dd')='" + DateUtil.dateToString(createDate_t, "yyyy-MM-dd") + "'";
+		    }
+		    if(lastUpdateDate_t != null){
+		    	condition = condition + " and to_char(cardInfo.lastUpdateDate_t,'yyyy-MM-dd')='" + DateUtil.dateToString(lastUpdateDate_t, "yyyy-MM-dd") + "'";
+		    }
+		    if(createUser_s != null && createUser_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.createUser_s like '%" + createUser_s + "%'";
+		    }
+		    if(lastUpdateUser_s != null && lastUpdateUser_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.lastUpdateUser_s like '%" + lastUpdateUser_s + "%'";
+		    }
+		    if(resaveds1_s != null && resaveds1_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds1_s like '%" + resaveds1_s + "%'";
+		    }
+		    if(resaveds2_s != null && resaveds2_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds2_s like '%" + resaveds2_s + "%'";
+		    }
+		    if(resaveds3_s != null && resaveds3_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds3_s like '%" + resaveds3_s + "%'";
+		    }
+		    if(resaveds4_s != null && resaveds4_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds4_s like '%" + resaveds4_s + "%'";
+		    }
+		    if(resaveds5_s != null && resaveds5_s.trim().equals("")){
+		    	condition = condition + " and cardInfo.resaveds5_s like '%" + resaveds5_s + "%'";
+		    }
+		    
+		    Query query = session.createQuery(hql+condition);
+
+		    if(query.iterate().hasNext()){
+		    	n = (Long) query.iterate().next();
+		    }  		  
+		    return n;
+		}catch(Exception e){
+			throw new Exception(e);
+		}finally{
+			session.clear();
+		}				
+	}
+		
+	/**
+	 * 保存卡信息
+	 * saveOrUpdateReceptionCardInfo 
+	 * @param   name    
+	 * @return   bjlist  权限信息中间表备份对象集合
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int saveOrUpdateReceptionCardInfo(ArrayList<CardInfo> list) throws Exception{
+		CardInfo cardInfo = new CardInfo();
+		//oracle权限信息中间表备份对象集合
+		List<BarrierGateJurisdiction> bjlist = new ArrayList();
+		String orderid="";
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		try{
+			tx = session.beginTransaction();//开启事务			
+			if(list != null && list.size() > 0){
+				
+				for(int i = 0; i < list.size(); i++){
+					cardInfo = new CardInfo();
+					if(list.get(i).getOrderID_s() != null && !list.get(i).getOrderID_s().trim().equals("")){
+						cardInfo.setOrderID_s(list.get(i).getOrderID_s());
+					}else{
+						throw new Exception("订单信息不正确");
+					}
+					if(list.get(i).getCard_s() != null && !list.get(i).getCard_s().trim().equals("")){
+						cardInfo.setCard_s(list.get(i).getCard_s());
+					}
+					if(list.get(i).getCardType_s() != null && !list.get(i).getCardType_s().trim().equals("")){
+						cardInfo.setCardType_s(list.get(i).getCardType_s());
+					}
+					if(list.get(i).getCreateUser_s() != null && !list.get(i).getCreateUser_s().trim().equals("")){
+						cardInfo.setCreateUser_s(list.get(i).getCreateUser_s());
+					}
+					if(list.get(i).getCreateDate_t() != null && !list.get(i).getCreateDate_t().equals("")){
+						cardInfo.setCreateDate_t(list.get(i).getCreateDate_t());
+					}
+					//人卡
+					if(list.get(i).getCardType_s().equals(ConstantUtil.cardType_2)){
+						BarrierGateJurisdiction barrierGateJurisdiction = new BarrierGateJurisdiction();
+						barrierGateJurisdiction.setCardID_s(list.get(i).getCard_s()); //卡号
+						barrierGateJurisdiction.setEditFlagTime_t(new Date());  //更新日期
+						bjlist.add(barrierGateJurisdiction);
+					}
+				//	session.merge(cardInfo);
+					session.saveOrUpdate(cardInfo);
+					session.flush();
+ 				}				 
+			}
+			tx.commit();
+			//增加权限信息中间表备份数据
+			/*for(int i =0;i<bjlist.size();i++){
+				barrierGateJurisdictionService.OperationBarrierGateJurisdiction(bjlist.get(i), 1);
+			}*/
+			return 1;
+		}catch (Exception e){
+			tx.rollback();
+			throw new Exception(e);
+		}finally{
+			session.clear();
+			session.close();
+		}
+	}
+	
+	 
+	/*public int manageCardInfo(ArrayList<CardInfo> list,String orderid,int operation) throws Exception{
+		if(operation==1){//新增
+			
+			//获得权限信息中间表备份对象集合
+			List<BarrierGateJurisdiction> bjlist = saveOrUpdateReceptionCardInfo(list);
+			
+		}
+		return 1;
+	}*/
+	
+	
+	public int assemblyJurisdictionInfo(List<BarrierGateJurisdiction> bjlist,String orderid) throws Exception{
+		BarrierGateJurisdictionService barrierGateJurisdictionService = new BarrierGateJurisdictionServiceImpl();
+		//获得order对象
+		IreceptionOrderService ireceptionOrderService = new ReceptionOrderServiceImpl();			 
+		ReceptionOrder receptionOrder = new ReceptionOrder();
+		receptionOrder.setOrderID_s(orderid);
+		receptionOrder = ireceptionOrderService.getReceptionOrder(receptionOrder, 0, 1).get(0);
+		
+		//获得CPG牌照号
+		IreceptionVehicleInfoService IreceptionVehicleInfoService = new ReceptionVehicleInfoServiceImpl();		
+		ReceptionVehicleInfo receptionVehicleInfo = null;
+		//通过CPG牌照号获得试验路面预约信息，从而获得车辆权限
+		IorderInfoService iorderInfoServiceImpl = new OrderInfoServiceImpl();
+		OrderRoadDetail orderRoadDetail = new OrderRoadDetail();
+		//增加权限信息中间表备份数据
+		for(int i =0;i<bjlist.size();i++){
+			BarrierGateJurisdiction barrierGateJurisdiction = bjlist.get(i);
+			receptionVehicleInfo.setVehicleID_s(barrierGateJurisdiction.getCardID_s());
+			//用CardID获得计划车辆信息t_reception_vehicleInfo
+			List<ReceptionVehicleInfo> receptionVehicleList = IreceptionVehicleInfoService.getReceptionVehicleInfo(receptionVehicleInfo, 0, 1,null);
+			if(receptionVehicleList==null||receptionVehicleList.size()==0){
+				throw new Exception("车卡号没有绑定车辆");
+			}
+			//通过计划车辆信息获得CPG牌照，通过CPG牌照获得试验路面预约详细订单表
+			receptionVehicleInfo = receptionVehicleList.get(0);
+			orderRoadDetail.setCarCPG_s(receptionVehicleInfo.getVehicleCPG_s());
+			List<OrderRoadDetail> orderRoadDetailList = iorderInfoServiceImpl.getOrderRoadByModel(orderRoadDetail);
+			if(orderRoadDetailList==null||orderRoadDetailList.size()==0){
+				throw new Exception("车辆没有权限信息");
+			}
+			
+			barrierGateJurisdiction.setEffectiveTime_t(receptionOrder.getStartDate_d()); //生效时间
+			barrierGateJurisdiction.setInvalidationTime_t(receptionOrder.getEndDate_d());//失效时间
+			//barrierGateJurisdictionService.OperationBarrierGateJurisdiction(bjlist.get(i), 1);
+			
+		}
+		return 1;
+	}
+	
+	/**
+	 * 当订单接待时， 根据orderid对计划车辆信息初始化
+	 * initVehicleInfo 
+	 * @param   name    
+	 * @param  @return    设定文件    
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int initVehicleInfo(String orderid) throws Exception{
+		
+		try{
+			//计划车辆信息
+			IreceptionVehicleInfoService ireceptionVehicleInfoService = new ReceptionVehicleInfoServiceImpl();		
+			ArrayList<ReceptionVehicleInfo> receptionVehicleInfoList = new ArrayList();
+			Hashtable<String,ReceptionVehicleInfo> carCPGMaproadId = new Hashtable();//cpg与道路id的对照关系
+			//通过orderid获得试验路面预约信息
+			IorderInfoService iorderInfoServiceImpl = new OrderInfoServiceImpl();
+			List<OrderRoadDetail> orderRoadDetailList = iorderInfoServiceImpl.getOrderRoad(orderid);		
+			if(orderRoadDetailList==null||orderRoadDetailList.size()==0){
+				return 1;
+			}else{
+				//根据试验路面预约详细订单表信息新增接待模块计划车辆信息
+				for(int i=0;i<orderRoadDetailList.size();i++){
+					OrderRoadDetail orderRoadDetailtmp = orderRoadDetailList.get(i);
+					String roadId_s = orderRoadDetailtmp.getRoadID_s();					
+					String carCPG_s = orderRoadDetailtmp.getCarCPG_s();
+					ReceptionVehicleInfo receptionVehicleInfotmp = new ReceptionVehicleInfo();					
+					receptionVehicleInfotmp.setVehicleCPG_s(carCPG_s);
+					receptionVehicleInfotmp.setCreateDate_t(new Date());
+					receptionVehicleInfotmp.setCreateUser_s("admin");
+					receptionVehicleInfotmp.setOrderID_s(orderid);
+					if(!carCPGMaproadId.containsKey(carCPG_s)){
+						receptionVehicleInfotmp.setRoidIds_s(roadId_s);
+						carCPGMaproadId.put(carCPG_s, receptionVehicleInfotmp);						
+					}else{
+						receptionVehicleInfotmp = (ReceptionVehicleInfo)carCPGMaproadId.get(carCPG_s);
+						String roadId_stmp = receptionVehicleInfotmp.getRoidIds_s();
+						receptionVehicleInfotmp.setRoidIds_s(roadId_stmp+"vv"+roadId_s);
+						carCPGMaproadId.remove(carCPG_s);
+						carCPGMaproadId.put(carCPG_s, receptionVehicleInfotmp);
+					}
+					
+				}
+				Enumeration<ReceptionVehicleInfo> valuesEnumeration = carCPGMaproadId.elements();
+				while(valuesEnumeration.hasMoreElements())
+				receptionVehicleInfoList.add(valuesEnumeration.nextElement());
+				//添加计划车辆信息
+				ireceptionVehicleInfoService.saveOrUpdateReceptionVehicleInfo(receptionVehicleInfoList);
+			}
+		}catch (Exception e){
+			throw new Exception(e);
+		}finally{		 
+		}
+		return 1;
+	}
+	/**
+	 * 删除卡信息
+	 * deleteReceptionCardInfo 
+	 * @param   name    
+	 * @return   1. 成功    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int deleteReceptionCardInfoAlone(ArrayList<CardInfo> list) throws Exception{
+		Session session = HibernateUtil.getSession();
+		try{
+			if(!session.isOpen()){
+				session= HibernateUtil.getSession();							
+			}
+			tx=session.beginTransaction();//开启事务
+			deleteReceptionCardInfo(list,session);
+			tx.commit();
+		}catch(Exception e){
+			tx.rollback();
+			throw new Exception(e);
+		}finally{					 
+			session.clear();
+			session.close();
+		}
+		return 1;
+	}
+	/**
+	 * 删除卡信息
+	 * deleteReceptionCardInfo 
+	 * @param   name    
+	 * @return   1. 成功    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int deleteReceptionCardInfo(ArrayList<CardInfo> list,Session session) throws Exception{
+		CardInfo cardInfo = new CardInfo();
+		 
+		try{
+			 
+			if(list != null && list.size() > 0){
+				for(int i = 0; i < list.size(); i++){
+					if(list.get(i).getOrderID_s() != null && !list.get(i).getOrderID_s().trim().equals("")){
+						cardInfo.setOrderID_s(list.get(i).getOrderID_s());
+					}
+					if(list.get(i).getCard_s() != null && !list.get(i).getCard_s().trim().equals("")){
+						cardInfo.setCard_s(list.get(i).getCard_s());
+					}
+					session.delete(cardInfo);
+					session.flush();
+				}
+			}		
+			 
+			
+			return 1;
+		}catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}finally{
+			 
+		}
+	}
+	
+	public static void main(String[] s){
+		CardInfoServiceImpl cardInfoServiceImpl = new CardInfoServiceImpl();
+		ArrayList<CardInfo> list = new ArrayList();
+		CardInfo cardInfo = new CardInfo();
+		cardInfo.setCard_s("001");
+		cardInfo.setCardType_s("2");
+		cardInfo.setOrderID_s("DD2014041009");
+		cardInfo.setCreateUser_s("kkk1");
+		cardInfo.setCreateDate_t(new Date());
+		list.add(cardInfo);
+		CardInfo cardInfo1 = new CardInfo();
+		cardInfo1.setCard_s("002");
+		cardInfo1.setCardType_s("2");
+		cardInfo1.setOrderID_s("DD2014041009");
+		cardInfo1.setCreateUser_s("kkk2");
+		cardInfo1.setCreateDate_t(new Date());
+		list.add(cardInfo1);
+		CardInfo cardInfo2 = new CardInfo();
+		cardInfo2.setCard_s("003");
+		cardInfo2.setCardType_s("2");
+		cardInfo2.setOrderID_s("DD2014041009");
+		cardInfo2.setCreateUser_s("kkk3");
+		cardInfo2.setCreateDate_t(new Date());
+		list.add(cardInfo2);
+		CardInfo cardInfo3 = new CardInfo();
+		cardInfo3.setCard_s("004");
+		cardInfo3.setCardType_s("2");
+		cardInfo3.setOrderID_s("DD2014041009");
+		cardInfo3.setCreateUser_s("kkk4");
+		cardInfo3.setCreateDate_t(new Date());
+		list.add(cardInfo3);
+		try {
+			cardInfoServiceImpl.initVehicleInfo("DD2014041007");
+		//	cardInfoServiceImpl.saveOrUpdateReceptionCardInfo(list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 在事务中保存卡信息
+	 * saveOrUpdateReceptionCardInfo 
+	 * @param   name    
+	 * @return   bjlist  权限信息中间表备份对象集合
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int saveReceptionCardInfobyTransaction(ArrayList<CardInfo> list,Session session) throws Exception{
+		CardInfo cardInfo = new CardInfo();
+		//oracle权限信息中间表备份对象集合
+		List<BarrierGateJurisdiction> bjlist = new ArrayList();		 
+		try{			 
+			if(list != null && list.size() > 0){
+				for(int i = 0; i < list.size(); i++){
+					cardInfo = new CardInfo();
+					if(list.get(i).getOrderID_s() != null && !list.get(i).getOrderID_s().trim().equals("")){
+						cardInfo.setOrderID_s(list.get(i).getOrderID_s());
+					}
+					if(list.get(i).getCard_s() != null && !list.get(i).getCard_s().trim().equals("")){
+						cardInfo.setCard_s(list.get(i).getCard_s());
+					}
+					if(list.get(i).getCardType_s() != null && !list.get(i).getCardType_s().trim().equals("")){
+						cardInfo.setCardType_s(list.get(i).getCardType_s());
+					}
+					if(list.get(i).getCreateUser_s() != null && !list.get(i).getCreateUser_s().trim().equals("")){
+						cardInfo.setCreateUser_s(list.get(i).getCreateUser_s());
+					}
+					if(list.get(i).getCreateDate_t() != null && !list.get(i).getCreateDate_t().equals("")){
+						cardInfo.setCreateDate_t(list.get(i).getCreateDate_t());
+					}
+					//人卡
+					if(list.get(i).getCardType_s().equals(ConstantUtil.cardType_2)){
+						BarrierGateJurisdiction barrierGateJurisdiction = new BarrierGateJurisdiction();
+						barrierGateJurisdiction.setCardID_s(list.get(i).getCard_s()); //卡号
+						barrierGateJurisdiction.setEditFlagTime_t(new Date());  //更新日期
+						bjlist.add(barrierGateJurisdiction);
+					}
+					session.saveOrUpdate(cardInfo);
+					session.flush();
+				    session.clear();
+				}
+			}else{
+				throw new Exception("卡信息不正确");
+			}
+			//增加权限信息中间表备份数据
+			/*for(int i =0;i<bjlist.size();i++){
+				barrierGateJurisdictionService.OperationBarrierGateJurisdiction(bjlist.get(i), 1);
+			}*/
+			return 1;
+		}catch (Exception e){			
+			throw new Exception(e);
+		}finally{			
+		}
+	}
+	
+	/**
+	 * 在事务中删除卡信息
+	 * deleteReceptionCardInfo 
+	 * @param   name    
+	 * @return   1. 成功    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int deleteReceptionCardInfobyTransaction(ArrayList<CardInfo> list,Session session) throws Exception{
+		CardInfo cardInfo = new CardInfo();		 
+		try{			 			
+			if(list != null && list.size() > 0){
+				for(int i = 0; i < list.size(); i++){
+					if(list.get(i).getOrderID_s() != null && !list.get(i).getOrderID_s().trim().equals("")){
+						cardInfo.setOrderID_s(list.get(i).getOrderID_s());
+					}
+					if(list.get(i).getCard_s() != null && !list.get(i).getCard_s().trim().equals("")){
+						cardInfo.setCard_s(list.get(i).getCard_s());
+					}
+					session.delete(cardInfo);
+					session.flush();				 
+				}
+			}else{
+				throw new Exception("卡信息不正确");
+			}			
+			return 1;
+		}catch (Exception e){
+			throw new Exception(e);
+		}finally{		 
+		}
+	}
+	
+	/**
+	 * 在事务中删除卡信息
+	 * deleteReceptionCardInfo 
+	 * @param   name    
+	 * @return   1. 成功    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int deleteReceptionCardInfo(ArrayList<CardInfo> list) throws Exception{
+		CardInfo cardInfo = new CardInfo();		 
+		try{			 			
+			if(list != null && list.size() > 0){
+				for(int i = 0; i < list.size(); i++){
+					if(list.get(i).getOrderID_s() != null && !list.get(i).getOrderID_s().trim().equals("")){
+						cardInfo.setOrderID_s(list.get(i).getOrderID_s());
+					}
+					if(list.get(i).getCard_s() != null && !list.get(i).getCard_s().trim().equals("")){
+						cardInfo.setCard_s(list.get(i).getCard_s());
+					}
+//					//System.out.println("-----"+sessionImpl);
+					sessionImpl.delete(cardInfo);
+					sessionImpl.flush();
+					sessionImpl.clear();
+				}
+			}else{
+				throw new Exception("卡信息不正确");
+			}			
+			return 1;
+		}catch (Exception e){
+			throw new Exception(e);
+		}finally{		 
+		}
+	}
+	
+	/**
+	 * 根据订单id删除卡信息
+	 * deleteReceptionCardInfo 
+	 * @param   name    
+	 * @return   1. 成功    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int deleteReceptionCardInfoByOrderId(String orderid_s,String card_type) throws Exception{		
+		Session session = HibernateUtil.getSession();
+		try{			 			
+			if(!session.isOpen()){
+				session= HibernateUtil.getSession();							
+			}
+			tx = session.beginTransaction();
+			Query query = session.createQuery("delete CardInfo r where r.orderID_s = ? and cardType_s=?");   
+			query.setString(0,orderid_s);   
+			query.setString(1,card_type);   
+			query.executeUpdate();
+			tx.commit();
+			return 1;
+		}catch (Exception e){
+			tx.rollback();
+			throw new Exception(e);
+		}finally{		 
+			session.clear();
+		}
+	}
+	
+	/**
+	 * 查询卡是否已经使用，并且使用的订单状态不为7
+	 * isCardApply 
+	 * @param   cardID ：卡号     orderID_s：当前订单号
+	 * @return    String:返回已经在使用的订单号，null代表卡都没有使用
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public String isCardApply(String cardID,String orderID_s) throws Exception{		    
+		Statement stat = null;
+		ResultSet rs = null;
+		if(cardID==null){
+			return null;
+		}
+		//Session session = HibernateUtil.getSession();
+	//	Connection conn = session.disconnect();
+		Session session= HibernateUtil.getSession();
+		Connection conn = session.connection();
+		try{			 	
+			 
+			String sql =   "select t.orderid_s                     "+
+			  "  from t_reception_cardinfo t, t_reception_order t1,t_reception_vehicleinfo t2 "+
+			  " where t.card_s = '"+cardID+"'                      "+
+			  "   and t2.vehicleid_s='"+cardID+"'			   "+
+			  "   and t2.resaveds1_s >=to_char(sysdate,'yyyy-MM-DD')"+
+			  "   and t.orderid_s = t1.orderid_s                   "+
+			  "   and t.orderid_s = t2.orderid_s                   "+
+			  "   and t.orderid_s != '"+orderID_s+"'               "+
+			  "   and t1.status_i!='"+ConstantUtil.orderStatus_7+"' ";
+			if(!orderID_s.equals("order01")){
+				sql=sql+  " UNION ALL "+
+				  "   select t.orderid_s " +
+				  "   from t_reception_vehicleinfo t " +
+				  "   where " +
+				  "   t.vehicleid_s = '"+cardID+"' " +
+				  "   and resaveds1_s >=to_char(sysdate,'yyyy-MM-DD')"+
+				  "   and t.orderid_s='order01'";
+			}
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			if(rs.next()){
+				String orderid_s = rs.getString("orderid_s");
+				if("order01".equals(orderid_s)){
+					return "公卡";
+				}else{
+					return rs.getString("orderid_s");
+				}
+			}
+			return null;
+		}catch (Exception e){
+			if(stat!=null){
+				stat.close();				
+			}
+			if(rs!=null){
+				rs.close();				
+			}
+			if(conn!=null){
+				conn.close();				
+			}
+			throw new Exception(e);
+		}finally{		 
+			session.clear();
+		}
+	}
+	
+	
+	public void set(SessionImpl session){
+		 //System.out.println(session);
+	}
+}

@@ -1,0 +1,34 @@
+package com.freshen.clims.baseclass;
+
+import org.hibernate.impl.SessionImpl;
+
+/**
+ * impl的基类
+ *     
+ * 项目名称：carcenter    
+ * 类名称：ClimsServiceBase    
+ * 类描述：    
+ * 创建人：kxc    
+ * 创建时间：2014-8-8 上午10:43:20    
+ * 修改人：kxc    
+ * 修改时间：2014-8-8 上午10:43:20    
+ * 修改备注：    
+ * @version     
+ *
+ */
+public class ClimsServiceBase {
+	//统一事务
+	public static SessionImpl sessionImpl;
+
+	public static SessionImpl getSessionImpl() {
+		return sessionImpl;
+	}
+
+	public static void setSessionImpl(SessionImpl sessionImpl) {
+		//System.out.println("11111111"+sessionImpl);
+		sessionImpl = sessionImpl;
+	}
+ 
+	
+	
+}

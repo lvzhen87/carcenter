@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl
+END
+OrderSharingRoadServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderSharingRoadServiceImpl.java
+END
+OrderDetailServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderDetailServiceImpl.java
+END
+CustomerUserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/CustomerUserServiceImpl.java
+END
+CustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/CustomerServiceImpl.java
+END
+OrderRoadDayDetailServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderRoadDayDetailServiceImpl.java
+END
+OrderRoadDetailServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderRoadDetailServiceImpl.java
+END
+CustomerRegisterServiceimpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/CustomerRegisterServiceimpl.java
+END
+OrderWorkShopDayServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderWorkShopDayServiceImpl.java
+END
+OrderWorkShopServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderWorkShopServiceImpl.java
+END
+TimequantumServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/TimequantumServiceImpl.java
+END
+OrderOtherServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderOtherServiceImpl.java
+END
+OrderWholeRoadServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderWholeRoadServiceImpl.java
+END
+PreorderCheckServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/2013_CPG_C-LIMS/!svn/ver/106/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/PreorderCheckServiceImpl.java
+END
+TInquityWorkShopoccupyinfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/TInquityWorkShopoccupyinfoServiceImpl.java
+END
+OrderInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderInfoServiceImpl.java
+END
+OrderVehicleInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderVehicleInfoServiceImpl.java
+END
+OrderPreRoadServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/OrderPreRoadServiceImpl.java
+END
+TInquityRoadoccupyinfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/TInquityRoadoccupyinfoServiceImpl.java
+END
+VehicleInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/preorder/service/impl/VehicleInfoServiceImpl.java
+END

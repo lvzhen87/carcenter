@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.system.Sequence" table="t_system_sequence">
+		<id name="business_s" column="business_s">
+		<generator class="assigned"></generator>
+		</id>
+		<property name="seed_i" column="seed_i" />
+		<property name="indexNumber_i" column="indexNumber_i" />
+		<property name="present_i" column="present_i" />
+		<property name="prefixion_s" column="prefixion_s" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+	</class>
+</hibernate-mapping>

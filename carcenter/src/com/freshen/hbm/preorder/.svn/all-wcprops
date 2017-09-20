@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder
+END
+OrderSharingRoad.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder/OrderSharingRoad.hbm.xml
+END
+OrderWholeRoad.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder/OrderWholeRoad.hbm.xml
+END
+CustomerRegister.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder/CustomerRegister.hbm.xml
+END
+OrderPreRoad.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder/OrderPreRoad.hbm.xml
+END
+TBasisBarriergate.java
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/preorder/TBasisBarriergate.java
+END

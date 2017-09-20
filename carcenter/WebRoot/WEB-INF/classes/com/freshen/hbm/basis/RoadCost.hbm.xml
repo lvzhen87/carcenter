@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.basis.RoadCost" table="t_basis_roadCost">
+		  <id name="roadID_s" column="roadID_s" >
+			<generator class="foreign">
+			<param name="property">roadInfo</param>
+			</generator>
+		</id>
+		<!--<id name="roadID_s" column="roadID_s" >
+			<generator class="assigned"></generator>
+		</id>-->
+		<property name="remark_s" column="remark_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<!-- --> <property name="overproofUnitPrie_i" column="overproofUnitPrie_i" />
+		<property name="unitPrie_i" column="unitPrie_i" />
+		<property name="wholeUnitPrie_i" column="wholeUnitPrie_i" />
+		<property name="wholeOverproofUnitPrie_i" column="wholeOverproofUnitPrie_i" />
+		<property name="minuteUnitPrie_i" column="minuteUnitPrie_i" />
+		<property name="coefficient_i" column="coefficient_i" />
+		<property name="activityUnitPrie_i" column="activityUnitPrie_i" />
+		<one-to-one name="roadInfo" class="com.freshen.entity.basis.RoadInfo" constrained="true" cascade="all"></one-to-one>
+		<!-- <many-to-one name="roadInfo" class="com.freshen.entity.basis.RoadInfo" 
+		column="roadID_s" unique="true"  
+		 ></many-to-one> -->
+	</class>
+</hibernate-mapping>

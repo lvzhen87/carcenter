@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.freshen.entity.barrierGate.VBarriergateInoroutinfo" table="V_BARRIERGATE_INOROUTINFO">
+        <composite-id>
+			<key-property  name="eventnumberS" column="EVENTNUMBER_S" type="string" />	
+		
+			<key-property name="orderidS" column="orderID_s" type="string"/>
+		
+		</composite-id>
+        
+        <property name="cardidS" type="java.lang.String">
+            <column name="CARDID_S" length="80" />
+        </property>
+        <property name="barriergateidS" type="java.lang.String">
+            <column name="BARRIERGATEID_S" length="80" />
+        </property>
+        <property name="createtimeS" type="java.lang.String">
+            <column name="CREATETIME_S" length="80" />
+        </property>
+        <property name="motionS" type="java.lang.String">
+            <column name="MOTION_S" length="80" />
+        </property>
+        <property name="isokI" type="java.lang.Integer">
+            <column name="isok_i" length="80" />
+        </property>               
+        <property name="editflagtimeS" type="java.lang.String">
+            <column name="EDITFLAGTIME_S" length="80" />
+        </property>
+        <property name="roadidS" type="java.lang.String">
+            <column name="ROADID_S" length="80" />
+        </property>
+        <property name="roadtypeS" type="java.lang.String">
+            <column name="ROADTYPE_S" length="20" />
+        </property>
+        <property name="roadnameS" type="java.lang.String">
+            <column name="ROADNAME_S" length="80" />
+        </property>
+        
+        <property name="ordernameS" type="java.lang.String">
+            <column name="ORDERNAME_S" length="80" />
+        </property>
+        <property name="customernameS" type="java.lang.String">
+            <column name="CUSTOMERNAME_S" length="80" />
+        </property>
+        
+        <property name="resaveds3_s" type="java.lang.String">
+            <column name="resaveds3_s" length="80" />
+        </property>
+        <property name="resaveds4_s" type="java.lang.String">
+            <column name="resaveds4_s" length="80" />
+        </property>
+        <property name="speedtype_s" type="java.lang.String">
+            <column name="speedtype_s" length="80" />
+        </property>
+        
+   </class>
+</hibernate-mapping>

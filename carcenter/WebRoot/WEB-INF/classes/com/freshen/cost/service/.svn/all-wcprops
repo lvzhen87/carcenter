@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service
+END
+IOrderUnsubscribeCostService.java
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/IOrderUnsubscribeCostService.java
+END
+IOrderRoadCostBasisService.java
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/2013_CPG_C-LIMS/!svn/ver/47/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/IOrderRoadCostBasisService.java
+END
+ICostOrderothercostService.java
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/2013_CPG_C-LIMS/!svn/ver/47/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/ICostOrderothercostService.java
+END
+IOrderhandcraftcostService.java
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/IOrderhandcraftcostService.java
+END
+IOrdercostInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/IOrdercostInfoService.java
+END
+ICostOrderotherchargebasisService.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/47/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/ICostOrderotherchargebasisService.java
+END
+IOrderWorkShopCostBasisService.java
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/47/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/IOrderWorkShopCostBasisService.java
+END

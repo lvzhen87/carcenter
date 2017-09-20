@@ -1,0 +1,355 @@
+package com.freshen.action.cost;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.freshen.action.common.CapgActionSupport;
+import com.freshen.entity.Customer;
+import com.freshen.entity.basis.RoadInfo;
+import com.freshen.entity.process.RoadEmployInventory;
+import com.freshen.entity.process.Station;
+import com.freshen.entity.reception.ReceptionOrder;
+import com.freshen.process.service.IstationService;
+import com.freshen.process.service.impl.StationServiceImpl;
+import com.freshen.reception.service.IreceptionOrderService;
+import com.freshen.reception.service.impl.ReceptionOrderServiceImpl;
+import com.freshen.util.ConstantUtil;
+import com.freshen.util.DateUtil;
+import com.freshen.util.ExceptionDispose;
+
+public class PeriodCostQueryAction extends CapgActionSupport{
+
+	List<Station> stationlist=new ArrayList<Station>();
+	List<ReceptionOrder> OrderList=new ArrayList();
+	List<RoadInfo> roadlist = new ArrayList<RoadInfo>();
+	List<RoadEmployInventory> roadEmployInventoryList = new ArrayList<RoadEmployInventory>();
+	String startDate; //订单开始时间开始
+	String endDate;//订单开始时间结束
+	String serialNumber_s, orderID_s, facilityID_s,vehicleID_s, vehicleCPG_s,roadName_s,customerName,states;
+	String orderName_s,roadID_s;
+	String orderNameShow;
+	String startComeDate_s;//出道路开始日期
+	String endComeDate_s;//出道路截止日期
+	String filename;
+	//分页必须
+	long totalPages;
+	int currentPage,maxPage,pageSize=ConstantUtil.pageSize;
+	public final static String QUERY = "query";
+	public String execute(){
+		try {
+			 
+			ReceptionOrder recorder =new ReceptionOrder();
+			recorder.setOrderID_s(orderID_s);
+			recorder.setOrderName_s(orderName_s);
+			if(states != null && states.length()>0 && !states.equals("-1")){
+				recorder.setStatus_s(states);
+			}else {
+				//状态为6和7
+				recorder.setGreaterStatus_s(ConstantUtil.orderStatus_5+"");
+				recorder.setLessStatus_s(ConstantUtil.orderStatus_8+"");
+			}
+			
+			Customer c=new Customer();
+			c.setCustomerName_s(customerName);
+			recorder.setCustomer(c);
+			if(startDate != null && !startDate.equals("")){
+				recorder.setStartDate_d(DateUtil.getDate(startDate));	
+			}
+			if(endDate != null && !endDate.equals("")){
+				recorder.setEndDate_d(DateUtil.getDate(endDate));
+			}
+			
+			IreceptionOrderService irecorderService=new ReceptionOrderServiceImpl();
+			//确定记录总数
+			totalPages =irecorderService.getReceptionOrderNumber(recorder);
+			maxPage=(int) (totalPages%pageSize==0?totalPages/pageSize:totalPages/pageSize+1);
+			//合适当前页的有效性
+			if(currentPage<=0){
+				currentPage=0;
+			}else if(currentPage>=maxPage){
+				currentPage=maxPage;
+			}
+			
+			if(totalPages > 0){
+				OrderList=irecorderService.getReceptionOrder(recorder,currentPage*pageSize, pageSize);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			this.setErrmsg(e.getMessage());			
+			ExceptionDispose.saveExceptionInfo(e);
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+
+	public static Date getNextDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DAY_OF_MONTH, -7);
+		date = calendar.getTime();
+		return date;
+	}
+	
+	/**
+	 * 道路使用清单查询
+	 * periodCostQuery 
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public String periodCostQuery(){
+		IstationService stationServiceImpl = new StationServiceImpl();
+		try {
+			RoadEmployInventory model = new RoadEmployInventory();
+			model.setOrderId_s(orderID_s);
+			model.setStartComeDate_s(startComeDate_s);
+			Date endComeDate = DateUtil.stringToDate1(endComeDate_s);
+			Calendar calendar=Calendar.getInstance();   
+		    calendar.setTime(endComeDate); 
+		    calendar.add(Calendar.DATE, 1);
+			model.setEndComeDate_s(DateUtil.dateToString(calendar.getTime(),"yyyy-MM-dd"));
+			roadEmployInventoryList = stationServiceImpl.getRoadEmployInventoryList(model);
+	//System.out.println("roadEmployInventoryList="+roadEmployInventoryList.size());
+			HttpServletRequest req = ServletActionContext.getRequest();
+			req.setAttribute("roadEmployInventoryList", roadEmployInventoryList);
+			String[] request = stationServiceImpl.getRoadEmployInventoryPDF(model,roadEmployInventoryList);
+			req.setAttribute("filename", request[0]);
+			req.setAttribute("customerName", request[1]);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			this.setErrmsg(e.getMessage());			
+			ExceptionDispose.saveExceptionInfo(e);
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 道路使用清单导出pdf
+	 * periodCostQuery 
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public String periodCostQueryPDF(){
+		IstationService stationServiceImpl = new StationServiceImpl();
+		try {
+			RoadEmployInventory model = new RoadEmployInventory();
+			model.setOrderId_s(orderID_s);
+			model.setStartComeDate_s(startComeDate_s);
+			model.setEndComeDate_s(endComeDate_s);
+			roadEmployInventoryList = stationServiceImpl.getRoadEmployInventoryList(model);
+			stationServiceImpl.getRoadEmployInventoryPDF(model,roadEmployInventoryList);
+	//System.out.println("roadEmployInventoryList="+roadEmployInventoryList.size());
+			HttpServletRequest req = ServletActionContext.getRequest();
+			req.setAttribute("roadEmployInventoryList", roadEmployInventoryList);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			this.setErrmsg(e.getMessage());			
+			ExceptionDispose.saveExceptionInfo(e);
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	public List<Station> getStationlist() {
+		return stationlist;
+	}
+
+	public void setStationlist(List<Station> stationlist) {
+		this.stationlist = stationlist;
+	}
+
+	public String getSerialNumber_s() {
+		return serialNumber_s;
+	}
+
+	public void setSerialNumber_s(String serialNumber_s) {
+		this.serialNumber_s = serialNumber_s;
+	}
+
+	public String getOrderID_s() {
+		return orderID_s;
+	}
+
+	public void setOrderID_s(String orderID_s) {
+		this.orderID_s = orderID_s;
+	}
+
+	public String getFacilityID_s() {
+		return facilityID_s;
+	}
+
+	public void setFacilityID_s(String facilityID_s) {
+		this.facilityID_s = facilityID_s;
+	}
+
+	public String getVehicleID_s() {
+		return vehicleID_s;
+	}
+
+	public void setVehicleID_s(String vehicleID_s) {
+		this.vehicleID_s = vehicleID_s;
+	}
+
+	public String getVehicleCPG_s() {
+		return vehicleCPG_s;
+	}
+
+	public void setVehicleCPG_s(String vehicleCPG_s) {
+		this.vehicleCPG_s = vehicleCPG_s;
+	}
+
+	public long getTotalPages() {
+		return totalPages;
+	}
+
+	public void setTotalPages(long totalPages) {
+		this.totalPages = totalPages;
+	}
+
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public int getMaxPage() {
+		return maxPage;
+	}
+
+	public void setMaxPage(int maxPage) {
+		this.maxPage = maxPage;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public List<ReceptionOrder> getOrderList() {
+		return OrderList;
+	}
+
+	public void setOrderList(List<ReceptionOrder> orderList) {
+		OrderList = orderList;
+	}
+
+	public String getOrderName_s() {
+		return orderName_s;
+	}
+
+	public void setOrderName_s(String orderName_s) {
+		this.orderName_s = orderName_s;
+	}
+
+	public String getRoadName_s() {
+		return roadName_s;
+	}
+
+	public void setRoadName_s(String roadName_s) {
+		this.roadName_s = roadName_s;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getOrderNameShow() {
+		return orderNameShow;
+	}
+
+	public void setOrderNameShow(String orderNameShow) {
+		this.orderNameShow = orderNameShow;
+	}
+
+	public String getStates() {
+		return states;
+	}
+
+	public void setStates(String states) {
+		this.states = states;
+	}
+
+	public String getRoadID_s() {
+		return roadID_s;
+	}
+
+	public void setRoadID_s(String roadID_s) {
+		this.roadID_s = roadID_s;
+	}
+
+	public List<RoadInfo> getRoadlist() {
+		return roadlist;
+	}
+
+	public void setRoadlist(List<RoadInfo> roadlist) {
+		this.roadlist = roadlist;
+	}
+
+	public String getStartComeDate_s() {
+		return startComeDate_s;
+	}
+
+	public void setStartComeDate_s(String startComeDateS) {
+		startComeDate_s = startComeDateS;
+	}
+
+	public String getEndComeDate_s() {
+		return endComeDate_s;
+	}
+
+	public void setEndComeDate_s(String endComeDateS) {
+		endComeDate_s = endComeDateS;
+	}
+
+	public List<RoadEmployInventory> getRoadEmployInventoryList() {
+		return roadEmployInventoryList;
+	}
+
+	public void setRoadEmployInventoryList(
+			List<RoadEmployInventory> roadEmployInventoryList) {
+		this.roadEmployInventoryList = roadEmployInventoryList;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	
+	
+}

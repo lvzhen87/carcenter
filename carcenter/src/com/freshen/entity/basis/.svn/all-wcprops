@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis
+END
+ViewOrganization.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/ViewOrganization.java
+END
+CustomerUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/CustomerUser.java
+END
+RoadInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/RoadInfo.java
+END
+VCustomeuser.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/VCustomeuser.java
+END
+AbstractVCustomeuserId.java
+K 25
+svn:wc:ra_dav:version-url
+V 191
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/AbstractVCustomeuserId.java
+END
+VRoadRaletive.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/VRoadRaletive.java
+END
+OtherChargeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OtherChargeInfo.java
+END
+Sequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/Sequence.java
+END
+OrganizationPost.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrganizationPost.java
+END
+TBasisWorkshopcost.java
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/TBasisWorkshopcost.java
+END
+UnsubscribeRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/UnsubscribeRule.java
+END
+RoadCost.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/RoadCost.java
+END
+PreRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/PreRule.java
+END
+PasswordInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/PasswordInfo.java
+END
+DriverTrainingRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/DriverTrainingRule.java
+END
+Employee.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/Employee.java
+END
+OrderWholeRoad.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrderWholeRoad.java
+END
+OrganizationDept.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrganizationDept.java
+END
+VCustomeuserId.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/VCustomeuserId.java
+END
+ExpendRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/ExpendRecord.java
+END
+OrganizationTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrganizationTree.java
+END
+ExpendRecordTotal.java
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/ExpendRecordTotal.java
+END
+InterphoneInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/InterphoneInfo.java
+END
+BarrierGate.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/BarrierGate.java
+END
+OrderPreRoad.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrderPreRoad.java
+END
+AbstractVCustomeuser.java
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/AbstractVCustomeuser.java
+END
+RoadExperimentType.java
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/RoadExperimentType.java
+END
+WorkShopInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/WorkShopInfo.java
+END
+Driver.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/Driver.java
+END
+OrderSharingRoad.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/basis/OrderSharingRoad.java
+END

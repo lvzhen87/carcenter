@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/2013_CPG_C-LIMS/!svn/ver/85/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service
+END
+BarrierGateJurisdictionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/2013_CPG_C-LIMS/!svn/ver/119/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/BarrierGateJurisdictionService.java
+END
+InorOutinfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/2013_CPG_C-LIMS/!svn/ver/43/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/InorOutinfoDao.java
+END
+BarrierGateInorOutinfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/69/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/BarrierGateInorOutinfoService.java
+END
+BarrierGateControlService.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/BarrierGateControlService.java
+END
+VBarrierGateInorOutinfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/VBarrierGateInorOutinfoService.java
+END
+InorOutinfoBakDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/InorOutinfoBakDao.java
+END
+IbarrierGateCancellationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/2013_CPG_C-LIMS/!svn/ver/43/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/barrierGate/service/IbarrierGateCancellationService.java
+END

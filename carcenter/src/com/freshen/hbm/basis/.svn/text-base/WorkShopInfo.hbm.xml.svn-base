@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.basis.WorkShopInfo" table="t_basis_workShopInfo">
+		<id name="workShopID_s" column="workShopID_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="workShopName_s" column="workShopName_s" />
+		<property name="useInfos_s" column="useInfos_s" />
+		<property name="remark_s" column="remark_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="type_s" column="type_s" />
+		<property name="isSubscribe_i" column="isSubscribe_i" />
+		<property name="ismonthSubscribe_i" column="ismonthSubscribe_i" />
+		<property name="isdaysubscribe_i" column="isdaysubscribe_i" />
+		<property name="beginningday_i" column="beginningday_i" />
+		
+		<one-to-one name="tBasisWorkshopcost" class="com.freshen.entity.basis.TBasisWorkshopcost" lazy="false" cascade="all" fetch="select"></one-to-one>
+	</class>
+</hibernate-mapping>

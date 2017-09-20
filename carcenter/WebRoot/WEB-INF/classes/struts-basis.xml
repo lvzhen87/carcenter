@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 第1个package -->	
+    <package name="basisStruts" extends="myIntercept" namespace="/">
+    	
+    	<!-- 道闸基础信息，默认查询所有道闸
+    	<action name="barrierAction" class="com.freshen.basis.action.BarrierGateAction" method="execute">
+    		<result name="success">/basismanage/barrierpage.jsp</result>
+    	</action>-->
+    	<!-- 道闸基础信息，默认查询所有道闸-->
+    	<action name="searchbarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="searchBarrierinfo">
+    		<result name="success">/basismanage/barrierpage.jsp</result>
+    	</action>
+    	<!-- 准备添加道闸基础信息-->
+    	<action name="prepareadBarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="prepareBarrierinfo">
+    		<result name="success">/basismanage/addnewbarrier.jsp</result>
+    	</action>
+    	<!-- 修改道闸基础信息-->
+    	<action name="addBarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="addBarrierinfoold">
+    		<result name="success">/basismanage/barrierpage.jsp</result>
+    	</action>
+    	<!-- 同步道闸基础信息-->
+    	<action name="tbBarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="addBarrierinfo">
+    		<result name="success">/basismanage/barrierpage.jsp</result>
+    	</action>
+    	<!-- 更新道闸基础信息
+    	<action name="updateBarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="updateBarrierinfo">
+    		<result name="success">/basismanage/addnewbarrier.jsp</result>
+    	</action>-->
+    	<!-- 删除道闸信息-->
+    	<action name="deleteBarrierAction" class="com.freshen.basis.action.BarrierGateAction" method="deleteBarrierinfo">
+    		<result name="success" type="chain">searchbarrierAction</result>
+    	</action>
+    	
+    	
+    	
+    	<!-- 道路基础信息，默认查询所有道路
+    	<action name="roadAction" class="com.freshen.basis.action.RoadInfoAction" method="searchRoadinfo">
+    		<result name="success">/basismanage/roadinfopage.jsp</result>
+    	</action>-->
+    	<!-- 道路基础信息，默认查询所有道路-->
+    	<action name="searchroadAction" class="com.freshen.basis.action.RoadInfoAction" method="searchRoadinfo">
+    		<result name="success">/basismanage/roadinfopage.jsp</result>
+    	</action>
+    	<!-- 准备道路基础信息-->
+    	<action name="prepareroadAction" class="com.freshen.basis.action.RoadInfoAction" method="prepareRoadinfo">
+    		<result name="success">/basismanage/addnewroadinfo.jsp</result>
+    	</action>
+    	<!-- 添加道路基础信息-->
+    	<action name="addroadAction" class="com.freshen.basis.action.RoadInfoAction" method="addRoadinfo">
+    		<result name="success">/basismanage/addnewroadinfo.jsp</result>
+    	</action>
+    	<!-- 删除道路试验类型基础信息-->
+    	<action name="delroadexptypeAction" class="com.freshen.basis.action.RoadInfoAction" method="deleteRoadExptype">
+    		<result name="success">/basismanage/addnewroadinfo.jsp</result>
+    	</action>
+    	<!-- 删除道路信息-->
+    	<action name="deleteroadAction" class="com.freshen.basis.action.RoadInfoAction" method="deleteRoadinfo">
+    		<!--  <result name="success">/basismanage/roadinfopage.jsp</result>-->
+    	</action>
+    	
+    	
+    	
+    	<!-- 车间基础信息，默认查询所有车间-->
+    	<action name="searchworkshopAction" class="com.freshen.basis.action.WorkShopInfoAction" method="execute">
+    		<result name="success">/basismanage/workshopinfopage.jsp</result>
+    	</action>
+    	<!-- 准备车间基础信息-->
+    	<action name="prepareworkshopAction" class="com.freshen.basis.action.WorkShopInfoAction" method="prepareWorkshopInfo">
+    		<result name="success">/basismanage/addworkshopinfo.jsp</result>
+    	</action>
+    	<!-- 添加新的车间基础信息-->
+    	<action name="addworkshopAction" class="com.freshen.basis.action.WorkShopInfoAction" method="addWorkshopInfo">
+    		<result name="success" type="json"></result>
+    	</action>
+    	<!-- 更新车间基础信息
+    	<action name="updateworkshopAction" class="com.freshen.basis.action.WorkShopInfoAction" method="updateWorkshopInfo">
+    		<result name="success">/basismanage/addworkshopinfo.jsp</result>
+    	</action>-->
+    	<!-- 删除车间基础信息-->
+    	<action name="deleteworkshopAction" class="com.freshen.basis.action.WorkShopInfoAction" method="deleteWorkshopInfo">
+    		  <result name="success" >/basismanage/workshopinfopage.jsp</result>
+    	</action>
+    	<!-- 删除车间使用内容基础信息-->
+    	<action name="deluseinfoAction" class="com.freshen.basis.action.WorkShopInfoAction" method="deleteuseinfo">
+    		<result name="success" >/basismanage/addworkshopinfo.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	<!-- 对讲机基础信息，默认查询所有对讲机
+    	<action name="searchinterphoneAction" class="com.freshen.basis.action.InterphoneAction" method="execute">
+    		<result name="success">/basismanage/interphonepage.jsp</result>
+    	</action>-->
+    	<!-- 对讲机基础信息，默认查询所有对讲机-->
+    	<action name="initinterphoneAction" class="com.freshen.basis.action.InterphoneAction" method="execute">
+    		<result name="success">/basismanage/interphonepage.jsp</result>
+    	</action>
+    	<!-- 准备对讲机基础信息-->
+    	<action name="prepareinterphoneAction" class="com.freshen.basis.action.InterphoneAction" method="prepareInterphone">
+    		<result name="success">/basismanage/addnewinterphone.jsp</result>
+    	</action>
+    	<!-- 添加/更新对讲机基础信息-->
+    	<action name="addinterphoneAction" class="com.freshen.basis.action.InterphoneAction" method="addInterphone">
+    		<result name="success">/basismanage/addnewinterphone.jsp</result>
+    	</action>
+    	<!-- 删除对讲机基础信息-->
+    	<action name="deleteinterphoneAction" class="com.freshen.basis.action.InterphoneAction" method="deleteInterphone">
+    		<result name="success" type="chain">initinterphoneAction</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	<!-- 客户人员基础信息，默认查询所有客户人员-->
+    	<action name="searchcustomeruserAction" class="com.freshen.basis.action.CustomerUserAction" method="execute">
+    		<result name="success">/basismanage/customeruserpage.jsp</result>
+    	</action>
+    	<!-- 添加新的客户人员基础信息-->
+    	<action name="prepareUserAction" class="com.freshen.basis.action.CustomerUserAction" method="prepareCustomerUser">
+    		<result name="success">/basismanage/addnewcustomeruser.jsp</result>
+    	</action>
+    	<!-- 更新客户人员基础信息-->
+    	<action name="updateCustomerUserAction" class="com.freshen.basis.action.CustomerUserAction" method="addCustomerUser">
+    		<result name="success">/basismanage/addnewcustomeruser.jsp</result>
+    	</action>
+    	<!-- 删除客户人员基础信息-->
+    	<action name="deleteCustomerUserAction" class="com.freshen.basis.action.CustomerUserAction" method="deleteCustomerUser">
+    		<!-- <result name="success">/basismanage/customeruserpage.jsp</result> -->
+    	</action>
+    	
+  
+    	
+    	<!-- 驾驶员基础信息，默认查询所有驾驶员-->
+    	<action name="searchdriverInfoAction" class="com.freshen.basis.action.DriverInfoAction" method="execute">
+    		<result name="success">/basismanage/driverpage.jsp</result>
+    	</action>
+    	<!-- 驾驶员基础信息，默认查询所有驾驶员-->
+    	<action name="preparedriverInfoAction" class="com.freshen.basis.action.DriverInfoAction" method="prepareDriverInfo">
+    		<result name="success">/basismanage/driverpage.jsp</result>
+    	</action>
+    	<!-- 添加新的驾驶员信息-->
+    	<action name="addDriverAction" class="com.freshen.basis.action.DriverInfoAction" method="addDriver">
+    		<result name="success">/basismanage/addnewdriver.jsp</result>
+    	</action>
+    	<!-- 删除驾驶员信息-->
+   		<action name="deleteDriverAction" class="com.freshen.basis.action.DriverInfoAction" method="deleteDriver">
+    		<result name="success">/basismanage/driverpage.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	<!-- 员工基础信息，默认查询所有员工-->
+    	<action name="searchemployeeInfoAction" class="com.freshen.basis.action.EmployeeInfoAction" method="execute">
+    		<result name="success">/basismanage/employeepage.jsp</result>
+    	</action>
+    	<!-- 准备更新员工信息-->
+    	<action name="prepareEmpAction" class="com.freshen.basis.action.EmployeeInfoAction" method="prepareEmployee">
+    		<result name="success">/basismanage/addnewemployee.jsp</result>
+    	</action>
+    	<!-- 更新员工信息记录-->
+    	<action name="updateemployeeInfoAction" class="com.freshen.basis.action.EmployeeInfoAction" method="updateEmployee">
+    		<result name="success">/basismanage/addnewemployee.jsp</result>
+    	</action>
+    	<!-- 获得部门下岗位-->
+    	<action name="getPostListAction" class="com.freshen.basis.action.EmployeeInfoAction" method="getPostList">
+    		<result name="success">/basismanage/addnewemployee.jsp</result>
+    	</action>
+    	<!-- 删除员工信息-->
+    	<action name="deleteemployeeInfoAction" class="com.freshen.basis.action.EmployeeInfoAction" method="deleteEmployee">
+    		<result name="success">/basismanage/employeepage.jsp</result>
+    	</action>
+    	<!-- 修改个人密码 -->
+    	<action name="changepwdAction" class="com.freshen.basis.action.EmployeeInfoAction" method="changepwdAction">
+    		<result name="success">/basismanage/changepwd.jsp</result>
+    	</action>
+    	
+    	<!-- 用于显示-->
+    	<action name="initTreeAction" class="com.freshen.basis.action.OrganizationAction" method="execute">
+    		<result name="success" >/basismanage/organizationpage.jsp</result>
+    	</action>
+    	<action name="drawTreeAction" class="com.freshen.basis.action.OrganizationAction" method="drawTree">
+    	</action>
+    	<!-- 查询组织架构树中部门信息，准备添加部门信息-->
+    	<action name="searchEmpAction" class="com.freshen.basis.action.OrganizationAction" method="searchEmployee">
+    		<result name="success" >/basismanage/organizationpage.jsp</result>
+    	</action>
+    	<!-- 添加组织架构中的信息（部门，岗位） -->
+    	<action name="addNodeAction" class="com.freshen.basis.action.OrganizationAction" method="addNode">
+    	</action>
+    	<!-- 同步数据 -->
+    	<action name="copyDataAction" class="com.freshen.basis.action.OrganizationAction" method="CopyData">
+    	</action>
+    	<!-- 添加组织架构中的信息（人员） -->
+    	<action name="addEmNodeAction" class="com.freshen.basis.action.OrganizationAction" method="addEmployNode">
+    	</action>
+    	<!-- 删除组织架构中的信息（部门，岗位，人员） -->
+    	<action name="deleteNodeAction" class="com.freshen.basis.action.OrganizationAction" method="deleteNode">
+    	</action>
+    	
+    	<!-- 20140809 Yepeng Add Start -->
+    	<!-- 员工消费基础信息-->
+    	<action name="expendRecordAction" class="com.freshen.basis.action.ExpendRecordAction" method="searchExpendRecord">
+    		<result name="success">/basismanage/expendrecord.jsp</result>
+    	</action>
+    	<action name="setExpendAction" class="com.freshen.basis.action.ExpendRecordAction" method="setExpend">
+   		<!-- <result name="success" type="redirectAction" >
+			<param name="actionName">expendRecordAction</param>
+		</result> -->
+    	</action>
+    	<action name="setExportBalenceAction" class="com.freshen.basis.action.ExpendRecordAction" method="ExportBalence">
+   		<!-- <result name="success" type="redirectAction" >
+			<param name="actionName">expendRecordAction</param>
+		</result> -->
+    	</action>
+    	<!-- 20140809 Yepeng Add End -->
+    	
+    	<!-- 20140923 Yepeng Add Start -->
+    	<!-- 试验场管理信息-->
+    	<action name="catarcManageAction" class="com.freshen.basis.action.CatarcManageAction" method="">
+    		<result name="success">/basismanage/catarcmanage.jsp</result>
+    	</action>
+    	<!-- 20140923 Yepeng Add End -->
+    	
+    	
+    	<!--测试 -->
+    	<action name="drawTreeGridAction" class="com.freshen.basis.action.testJson" >
+    		<!--<result name="success" >/basismanage/organizationpage.jsp</result>-->
+    	</action>
+    	
+    	
+    	<!-- 退订规则默认查询所有规则
+    	<action name="initunRuleAction" class="com.freshen.basis.action.UnruleAction" method="initUnrule">
+    		<result name="success">/basismanage/unsubscriberule.jsp</result>
+    	</action> -->
+    	<!-- 退订规则 按照查询条件查询-->
+    	<action name="searchunRuleAction" class="com.freshen.basis.action.UnruleAction" method="searchUnrule">
+    		<result name="success">/basismanage/unsubscriberule.jsp</result>
+    	</action>
+    	<!-- 准备退订规则信息-->
+    	<action name="prepareUnruleAction" class="com.freshen.basis.action.UnruleAction" method="prepareUnrule">
+    		<result name="success">/basismanage/addunrule.jsp</result>
+    	</action>
+    	<!-- 添加/更新退订规则信息-->
+    	<action name="addUnruleAction" class="com.freshen.basis.action.UnruleAction" method="addUnrule">
+    		<result name="success">/basismanage/addunrule.jsp</result>
+    	</action>
+    	<!-- 删除退订规则信息-->
+    	<action name="deleteUnruleAction" class="com.freshen.basis.action.UnruleAction" method="deleteUnrule">
+    		<result name="success">/basismanage/unsubscriberule.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 查询所有预订时间段规则规则 -->
+    	<action name="searchTimeruleAction" class="com.freshen.basis.action.TimeruleAction" method="execute">
+    		<result name="success">/basismanage/timerule.jsp</result>
+    	</action>
+    	<!-- 准备 预订时间段规则信息-->
+    	<action name="prepareTimeruleAction" class="com.freshen.basis.action.TimeruleAction" method="prepareTimerule">
+    		<result name="success">/basismanage/addtimerule.jsp</result>
+    	</action>
+    	<!-- 添加/更新 预订时间段规则信息-->
+    	<action name="addTimeruleAction" class="com.freshen.basis.action.TimeruleAction" method="addTimerule">
+    		<result name="success">/basismanage/addtimerule.jsp</result>
+    	</action>
+    	<!-- 删除 预订时间段规则信息-->
+    	<action name="deleteTimeruleAction" class="com.freshen.basis.action.TimeruleAction" method="deleteTimerule">
+    		<result name="success">/basismanage/timerule.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 组装json串-->
+    	<action name="initLimitAction" class="com.freshen.basis.action.LimitAction" method="drawlimit">
+    	</action>
+    	<!-- 查询岗位信息-->
+    	<action name="searchPostAction" class="com.freshen.basis.action.LimitAction" method="searchPost">
+    		<result name="success">/basismanage/limitmanage.jsp</result>
+    	</action>
+    	<!-- 设置权限-->
+    	<action name="setPostAction" class="com.freshen.basis.action.LimitAction" method="setPost">
+    		<result name="success">/basismanage/limitmanage.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 查询所有规则 -->
+    	<action name="searchRuleAction" class="com.freshen.basis.action.PreruleAction" method="execute">
+    		<result name="success">/basismanage/prerule.jsp</result>
+    	</action>
+    	<!-- 准备 预订则信息-->
+    	<action name="prepareruleAction" class="com.freshen.basis.action.PreruleAction" method="prepareRule">
+    		<result name="success">/basismanage/addprerule.jsp</result>
+    	</action>
+    	<!-- 添加/更新 预订时间段规则信息-->
+    	<action name="addruleAction" class="com.freshen.basis.action.PreruleAction" method="addPrerule">
+    		<result name="success">/basismanage/addprerule.jsp</result>
+    	</action>
+    	<!-- 删除 预订时间段规则信息-->
+    	<action name="deleteruleAction" class="com.freshen.basis.action.PreruleAction" method="deletePrerule">
+    		<result name="success" type="chain">searchRuleAction</result>
+    	</action>
+    	<action name="addDeptRoot" class="com.freshen.basis.action.OrganizationAction" method="AddRoot">
+    	</action>
+    	
+    	
+    	<!-- 查询费用规则  信息-->
+    	<action name="initChargeAction" class="com.freshen.basis.action.ChargeInfoAction" method="execute">
+    		<result>/basismanage/chargeinfopage.jsp</result>
+    	</action>
+    	<!-- 查询费用规则  信息,准备修改-->
+    	<action name="prepareChargeAction" class="com.freshen.basis.action.ChargeInfoAction" method="prepareCharge">
+    		<result>/basismanage/addchargeinfo.jsp</result>
+    	</action>
+    	<!-- 修改费用规则  信息-->
+    	<action name="modifyChargeAction" class="com.freshen.basis.action.ChargeInfoAction" method="modifyCharge">
+    		<result>/basismanage/addchargeinfo.jsp</result>
+    	</action>
+    	<!-- 查询费用规则  信息-->
+    	<action name="deleteChargeAction" class="com.freshen.basis.action.ChargeInfoAction" method="deleteCharge">
+    		<result>/basismanage/addchargeinfo.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 查询驾驶员培训规则  信息-->
+    	<action name="searchTrainruleAction" class="com.freshen.basis.action.DriverTrainRuleAction" method="execute">
+    		<result>/basismanage/dtrainingrulepage.jsp</result>
+    	</action>
+    	<!-- 查询驾驶员培训规则,准备修改-->
+    	<action name="prepareTrainruleAction" class="com.freshen.basis.action.DriverTrainRuleAction" method="prepareTrainRule">
+    		<result>/basismanage/trainrulepage.jsp</result>
+    	</action>
+    	<!-- 修改驾驶员培训规则  信息-->
+    	<action name="modifyTrainruleAction" class="com.freshen.basis.action.DriverTrainRuleAction" method="modifyTrainRule">
+    		<result>/basismanage/trainrulepage.jsp</result>
+    	</action>
+    	<!-- 删除驾驶员培训规则 信息-->
+    	<action name="deleteTrainruleAction" class="com.freshen.basis.action.DriverTrainRuleAction" method="deleteTrainRule">
+    		<result>/basismanage/dtrainingrulepage.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 初始化房门信息 -->
+    	<action name="initDoorinfoAction" class="com.freshen.basis.action.DoorInfoAction" method="initDoorInfo">
+    		<result>/basismanage/doorpage.jsp</result>
+    	</action>
+    	<!-- 修改房门信息 -->
+    	<action name="modifyDoorAction" class="com.freshen.basis.action.DoorInfoAction" method="modifyDoor">
+    		<result>/basismanage/doorpage.jsp</result>
+    	</action>
+    	
+    	  <!-- 条件 查询所有常量信息 -->
+        <action name="ConstantInfoAction" class="com.freshen.basis.action.ConstantInfoAction">
+        	<result name="success">/basismanage/constantInfopage.jsp</result>
+        </action>
+         <!-- 准备常量信息 -->
+         <action name="prepareConstantAction" class="com.freshen.basis.action.ConstantInfoAction" method="prepareConstant">
+        	<result name="success">/basismanage/modifyConstantinfo.jsp</result>
+        </action>
+         <!-- 准备常量信息 -->
+         <action name="modifyConstantAction" class="com.freshen.basis.action.ConstantInfoAction" method="modifyConstant">
+        	<result name="success">/basismanage/modifyConstantinfo.jsp</result>
+        </action>
+        
+        <!-- 道路单子状态查询 -->
+         <action name="searchBasisRoadweekstatusinfo" class="com.freshen.basis.action.RoadweekstatusInfoAction" method="searchBasisRoadweekstatusinfo">
+        	<result name="success">/basismanage/roadweekstatusinfo.jsp</result>
+        </action>
+        
+        <!-- 设置补贴-->
+    	<action name="getsubsidiesinfoAction" class="com.freshen.basis.action.SubsidiesAction" method="">
+    		<result name="success">/basismanage/subsidies.jsp</result>
+    	</action>
+    	
+    	<!-- 设置补贴-->
+    	<action name="updatesubsidiesinfoAction" class="com.freshen.basis.action.SubsidiesAction" method="updateSubsidiesinfo">
+    		<result name="success">/basismanage/subsidies.jsp</result>
+    	</action>
+	</package>
+</struts>

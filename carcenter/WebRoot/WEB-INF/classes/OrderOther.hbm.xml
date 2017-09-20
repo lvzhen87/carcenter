@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.OrderOther" table="t_subscribe_orderOther">
+		<composite-id>
+			<key-property  name="orderID_s" column="orderID_s" type="string" ></key-property>
+			<key-property name="vehicleCPG_s" column="vehicleCPG_s" type="string"></key-property>
+		</composite-id>
+		<property name="isConfidentiality_i" column="isConfidentiality_i" type="integer"></property>		
+		<property name="isHighRiskTest_i" column="isHighRiskTest_i" type="integer"></property>
+		<property name="highRiskTestDescription_s" column="highRiskTestDescription_s" type="string"></property>				
+		
+		<property name="isCamera_i" column="isCamera_i" type="integer"></property>
+		<property name="createDate_t" column="createDate_t" type="date"></property>
+		<property name="createUser_s" column="createUser_s" type="string"></property>
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" type="string"></property>
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" type="date"></property>
+		<property name="resaveds1" column="resaveds1_s" type="string"></property>
+		<property name="resaveds2" column="resaveds2_s" type="string"></property>
+		<property name="resaveds3" column="resaveds3_s" type="string"></property>
+		<property name="resaveds4" column="resaveds4_s" type="string"></property>
+		<property name="resaveds5" column="resaveds5_s" type="string"></property>		
+	</class>
+</hibernate-mapping>

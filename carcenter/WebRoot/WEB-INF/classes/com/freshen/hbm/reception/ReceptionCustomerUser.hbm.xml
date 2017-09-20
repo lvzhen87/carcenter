@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.freshen.entity.reception.ReceptionCustomerUser" table="t_reception_customerUser">
+		<composite-id>
+			<key-property  name="customerUserID_s" column="customerUserID_s" type="string" >
+			</key-property>
+			
+			<key-property name="orderID_s" column="orderID_s" type="string">		 
+			</key-property>
+		</composite-id>
+		 
+		<property name="customerUserName_s" column="customerUserName_s" type="string"/>
+		<property name="userType_i" column="userType_i" type="integer"/>
+		<property name="createDate_t" column="createDate_t" type="date"/>
+		<property name="createUser_s" column="createUser_s" type="string"/>
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" type="string"/>
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" type="date"/>
+		<property name="resaveds1_s" column="resaveds1_s" type="string"/>
+		<property name="resaveds2_s" column="resaveds2_s" type="string"/>
+		<property name="resaveds3_s" column="resaveds3_s" type="string"/>
+		<property name="resaveds4_s" column="resaveds4_s" type="string"/>
+		<property name="resaveds5_s" column="resaveds5_s" type="string"/>
+		
+		<!--<property name="invoiceAddress_s" column="invoiceAddress_s" type="string"/>
+		<property name="registerAddress_s" column="registerAddress_s" type="string"/>
+		<property name="responsibleUserID_s" column="responsibleUserID_s" type="string"/>
+		<property name="invoiceUserID_s" column="invoiceUserID_s" type="string"/>
+		-->
+		<property name="card_s" column="CARD_S" type="string"/>
+		<property name="serialface_s" column="serialface_s" type="string"/>
+		<property name="deviceSysid_s" column="deviceSysid_s" type="string"/>
+		<property name="doorCode_s" column="doorCode_s" type="string"/>
+		<property name="isSafetyTrain_i" column="isSafetyTrain_i" type="integer"/>
+		<property name="isCheckinHotel_i" column="isCheckinHotel_i" type="integer"/>
+		<property name="invalidate_t" column="invalidate_t" type="date"/>
+</class>
+</hibernate-mapping>

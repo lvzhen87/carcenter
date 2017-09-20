@@ -1,0 +1,40 @@
+package com.freshen.barrierGate.service;
+
+import java.util.ArrayList;
+
+import com.freshen.entity.barrierGate.BarrierGateInorOutinfo;
+
+public interface BarrierGateInorOutinfoService {
+	/**
+	 * 查询车辆出入道闸信息
+	 * @param barrierGateInorOutinfo
+	 * @param start 起始位置  值为-1时不分页
+	 * @param size 显示长度
+	 * @return
+	 * @throws Exception
+	 */
+	public ArrayList<BarrierGateInorOutinfo> getBarrierGateInorOutinfo(BarrierGateInorOutinfo barrierGateInorOutinfo
+			,int start ,int size) throws Exception;
+	/**
+	 * 查询车辆出入道闸数量
+	 * @param barrierGateInorOutinfo
+	 * @return
+	 * @throws Exception
+	 */
+	public long getBarrierGateInorOutinfo(BarrierGateInorOutinfo barrierGateInorOutinfo) throws Exception;
+	
+	/**
+	 * 修改 删除 车辆出入道闸信息
+	 * @param barrierGateInorOutinfo
+	 * @param operation 1修改 增加 2删除
+	 * @return
+	 * @throws Exception
+	 */
+	public int OperationBarrierGateInorOutinfo(BarrierGateInorOutinfo barrierGateInorOutinfo ,int operation) throws Exception;
+	
+	/**
+	 * 操作进出道闸流水表
+	 */
+	public String OperationBarrierGateInorOutinfoService(BarrierGateInorOutinfo barrierGateInorOutinfo, int operation)
+	throws Exception ;
+}

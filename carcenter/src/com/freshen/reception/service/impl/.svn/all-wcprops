@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/2013_CPG_C-LIMS/!svn/ver/84/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl
+END
+SingleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl/SingleServiceImpl.java
+END
+ReceptionOrderServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/123/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl/ReceptionOrderServiceImpl.java
+END
+ReceptionVehicleInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/2013_CPG_C-LIMS/!svn/ver/122/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl/ReceptionVehicleInfoServiceImpl.java
+END
+CardInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/112/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl/CardInfoServiceImpl.java
+END
+ReceptionCustomerUserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/reception/service/impl/ReceptionCustomerUserServiceImpl.java
+END

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+	<class name="com.freshen.entity.basis.CustomerUser" table="t_basis_customerUser">
+		<id name="customerUserID_s" column="customerUserID_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="customerName_s" column="customerName_s" />
+		<property name="customerID_s" column="customerID_s" />
+		<property name="department_s" column="department_s" />
+		<property name="customerUserName_s" column="customerUserName_s" />
+		<property name="identityCard_s" column="identityCard_s" />
+		<property name="position_s" column="position_s" />
+		<property name="telephone_s" column="telephone_s" />
+		<property name="facsimile_s" column="facsimile_s" />
+		<property name="email_s" column="email_s" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="userType_i" column="userType_i" />
+		<property name="createDate_t" column="createDate_t"/>
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="emplycode_s" column="emplycode_s" />
+		<property name="emplyusertype_s" column="emplyusertype_s" />
+		<property name="emplypass_s" column="emplypass_s" />
+		<property name="emplysex_s" column="emplysex_s" />
+		<property name="empbirthday_t" column="empbirthday_t" />
+		<property name="duty_s" column="duty_s" />
+		<property name="nation_s" column="nation_s" />
+		<property name="degree_s" column="degree_s" />
+		<property name="address_s" column="address_s" />
+		<property name="memo_s" column="memo_s" />
+		<property name="sysNo_s" column="sysNo_s" />
+	</class>
+
+</hibernate-mapping>

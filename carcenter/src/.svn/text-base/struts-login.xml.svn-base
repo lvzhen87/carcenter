@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<!-- 第1个package -->	
+    <package name="loginStruts" extends="struts-default" namespace="/">
+    	<!-- 登录 -->
+        <action name="loginAction" class="com.freshen.login.action.LoginAction" method="execute" >
+        	<result name="forward" type="chain">loginApplyAction</result>
+        	<result name="login">/login.jsp</result>
+        </action>
+        <!-- 登录之后 准备数据 -->
+        <action name="loginApplyAction" class="com.freshen.login.action.LoginApplyAction" >
+        	<result name="success">/index.jsp</result>
+        	<result name="error">/login.jsp</result>
+		</action>
+        <!-- 退出系统-->
+        <action name="loginOutAction" class="com.freshen.login.action.WelcomeAction"  method="loginOut">
+        	<result name="success">/login.jsp</result>
+		</action>
+    </package>
+</struts>

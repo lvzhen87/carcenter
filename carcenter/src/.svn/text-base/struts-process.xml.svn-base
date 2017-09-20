@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!-- 处理订单核算模块  逻辑  -->
+<package name="processStruts" extends="myIntercept" namespace="/">
+
+	<!-- 订单查询 进出设备表-->
+	<action name="searchprocessorderAction" class="com.freshen.process.action.ProcessStationAction">
+		<result name="success" >/process/processorder.jsp</result>
+	</action>
+	<!-- 根据订单查询 进出设备表-->
+	<action name="searchprocessAction" class="com.freshen.process.action.ProcessStationAction" method="processDetail">
+		<result name="success" >/process/processstation.jsp</result>
+	</action>
+	
+	<!-- 根据订单查询 进出设备表，显示费用信息-->
+	<action name="searchstatisticAction" class="com.freshen.process.action.ProcessStatisticalAction" method="processStatistic">
+		<result name="success" >/process/processstatistical.jsp</result>
+	</action>
+	
+	<!-- 初始化手工录入进出道闸信息 -->
+	<action name="initAddInorOutBarrierGateAction" class="com.freshen.process.action.ProcessStatisticalAction" method="initAddInorOutBarrierGate">
+		<result name="success" >/process/addInorOutBarrierGate.jsp</result>
+	</action>
+	
+	<!-- 手工录入进出道闸信息 -->
+	<action name="addInorOutBarrierGateAction" class="com.freshen.process.action.ProcessStatisticalAction" method="addInorOutBarrierGate">
+		<result name="success" >/process/addInorOutBarrierGate.jsp</result>
+		<result name="error">/common/error.jsp</result>
+	</action>
+	
+	<!-- 查询对讲机过程信息表  -->
+	<action name="searchinterphoneAction" class="com.freshen.process.action.ProcessInterphoneAction">
+		<result name="success" >/process/processinterphone.jsp</result>
+	</action>
+	
+	<!--回收对讲机  -->
+	<action name="predeliphoneAction" class="com.freshen.process.action.ProcessInterphoneAction"  method="predelIphone">	 
+		<result name="success" type="chain">prepareInterphoneAction</result>
+	</action>
+	
+	<!--回收对讲机  -->
+	<action name="callbackinterphoneAction" class="com.freshen.process.action.ProcessInterphoneAction"  method="callbackInterphone">
+		<result name="success" >/process/processinterphone.jsp</result>
+	</action>
+	
+</package>
+</struts>

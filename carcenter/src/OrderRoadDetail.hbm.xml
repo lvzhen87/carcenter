@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.OrderRoadDetail" table="t_subscribe_orderRoadDetail">
+		<id name="orderRoadID_s" column="orderRoadID_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="orderID_s" column="orderID_s" />
+		<property name="status_i" column="status_i" />
+		<property name="startDate_t" column="startDate_t" />
+		<property name="endDate_t" column="endDate_t" />
+		<property name="type_s" column="type_s" />
+		<property name="roadID_s" column="roadID_s" />
+		<property name="roadName_s" column="roadName_s" />
+		<property name="experimentTypeID_s" column="experimentTypeID_s" />
+		<property name="hoursNumber_s" column="hoursNumber_s" />
+		 
+		<property name="maxSpeed_s" column="maxSpeed_s" />
+		<property name="description_s" column="description_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="billingMode_i" column="billingMode_i" />		
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="carIndex_s" column="carIndex_s" />
+		<property name="carCPG_s" column="carCPG_s" />
+	</class>
+</hibernate-mapping>

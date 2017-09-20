@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 第1个package -->	
+    <package name="groundStruts" extends="myIntercept" namespace="/">
+    	<!-- 默认查询预约订单-->
+    	<action name="searchRecorderAction" class="com.freshen.ground.action.GroundorderAction" method="searchOrders">
+    		<result name="success">/ground/allorders.jsp</result>
+    	</action>
+    	
+    	<!-- 默认查询预约订单-->
+    	<action name="searchRecorderShowAction" class="com.freshen.ground.action.GroundorderAction" method="searchOrdersShow">
+    		<result name="success">/ground/allordershow.jsp</result>
+    	</action>
+    	
+    	<!-- 默认查询到场人员信息-->
+    	<action name="searchRecuserShowAction" class="com.freshen.ground.action.GroundCustomeruserAction" method="searchCustomeruserShow">
+    		<result name="success">/ground/recusershow.jsp</result>
+    	</action>
+    	<!-- 默认查询预约订单-->
+    	<action name="searchOrderDetailAction" class="com.freshen.ground.action.GroundorderAction" method="searchOrdersDatail">
+    		<result name="success">/ground/orderdetail.jsp</result>
+    	</action>
+    	
+    	<!--将orderID记录到session中 -->
+    	<action name="OrderApplyAction" class="com.freshen.ground.action.ApplyAction">
+    		<result name="success" type="chain">searchInfoDetailAction</result>
+    	</action>
+    	
+    	<!-- 默认查询预约订单-->
+    	<action name="searchVeRecordShowAction" class="com.freshen.ground.action.RecStationAction" method="searchRecStation">
+    		<result name="success">/ground/recvehicleshow.jsp</result>
+    	</action>
+    	<!-- 修改速度类型-->
+    	<action name="updateSpeedAction" class="com.freshen.ground.action.RecStationAction"  method="updateSpeed">
+			<result name="success" >/ground/recvehicleshow.jsp</result>
+		</action>
+		<!-- 查询超时车辆-->
+		<action name="searchOvertimeAction" class="com.freshen.ground.action.RecStationAction" method="searchOvertimeRecStation">
+    		<result name="success">/ground/recvehicleOvertimeshow.jsp</result>
+    	</action>
+    	<!-- 根据订单ID查询基础信息表单信息-->
+    	<action name="searchInfoDetailAction" class="com.freshen.ground.action.ExpInfoAction" method="searchInfoDatail">
+    		<result name="success">/ground/infodetail.jsp</result>
+    	</action>
+    	<!-- 前往预定信息，初始化联系人  -->
+        <action name="initOrderInfoAction" class="com.freshen.ground.action.ExpInfoAction" method="initOrderInfo">
+        	<result name="success">/ground/modifyinfo.jsp</result>
+        </action>
+        <!-- 修改订单基础信息 -->
+        <action name="modifyOrderInfoAction" class="com.freshen.ground.action.ExpInfoAction" method="modifyInfo">
+        	<result name="success">/ground/modifyinfo.jsp</result>
+        </action>    
+         
+    	
+    	<!-- 单台车辆信息预订详情查询 -->
+         <action name="ordervehicleAction" class="com.freshen.ground.action.VehicleAction" method="execute" >
+        	<result name="success" >/ground/ordervehicle.jsp</result>
+        </action>
+        <!-- 初始化预约表中该条记录的详细信息 -->
+         <action name="initvehicleAction" class="com.freshen.ground.action.VehicleAction" method="initVehicle" >
+        	<result name="success" >/ground/modifyvehicle.jsp</result>
+        </action>
+         <!-- 初始化接待表中该条记录的详细信息 -->
+         <action name="initrecvehicleAction" class="com.freshen.ground.action.VehicleAction" method="initRecVehicle" >
+        	<result name="success" >/ground/modifyrecvehicle.jsp</result>
+        </action>
+        <!-- 确认修改预约表中车辆详情 -->
+         <action name="modifyvehicleAction" class="com.freshen.ground.action.VehicleAction" method="modifyVehicle" >
+        	<result name="success" >/ground/modifyvehicle.jsp</result>
+        </action>
+         <!-- 确认修改接待表中车辆详情 -->
+         <action name="modifyrecvehicleAction" class="com.freshen.ground.action.VehicleAction" method="modifyRecVehicle" >
+        	<result name="success" >/ground/modifyrecvehicle.jsp</result>
+        </action>
+         <!-- 删除车辆预约，操作subscribe中的表 -->
+         <action name="delordervehicleAction" class="com.freshen.ground.action.VehicleAction" method="deleteorderVehicle" >
+        	<result name="success" >/ground/ordervehicle.jsp</result>
+        </action>
+         <!-- 删除车辆预约，操作reception中的表 -->
+         <action name="delorderrecvehicleAction" class="com.freshen.ground.action.VehicleAction" method="deleteorderrecVehicle" >
+        	<!--  <result name="success" >/ground/ordervehicle.jsp</result>-->
+        </action>
+        
+        
+    	<!-- 共享道路1  查询订单 下 所有 共享道路 信息 -->
+    	<action name="sharingroadAction" class="com.freshen.ground.action.SharingRoadAction" method="execute" >
+        	<result name="success" >/ground/ordersharingroad.jsp</result>
+        </action>
+        <!-- 共享道路2  前往 某一条 共享道路 修改页面-->
+    	<action name="initsharingAction" class="com.freshen.ground.action.SharingRoadAction" method="initSharingroad" >
+        	<result name="success" >/ground/modifysharingroad.jsp</result>
+        </action>
+        <!-- 共享道路3 前往共享道路 添加页面 -->
+    	<action name="addsharingAction" class="com.freshen.ground.action.SharingRoadAction" method="addsharingRoad" >
+        	<result name="success" >/ground/addsharingroad.jsp</result>
+        </action>
+         <!-- 共享道路3-1  保存 新建 共享道路信息-->
+        <action name="saveSharingRoadAction" class="com.freshen.ground.action.AddSharingRoadAction" >
+        	<result name="success" type="redirectAction" >sharingroadAction</result>
+        </action>
+        
+        <!-- 共享道路4  删除某一条记录 -->
+    	<action name="delsharingAction" class="com.freshen.ground.action.SharingRoadAction" method="delsharingRoad" >
+        	<result name="success" type="redirectAction" >sharingroadAction</result>
+        </action>
+        <!-- 共享道路5  确定修改某一条记录 -->
+    	<action name="modifysharingAction" class="com.freshen.ground.action.SharingRoadAction" method="modifySharingRoad" >
+        	<result name="success" >/ground/modifysharingroad.jsp</result>
+        </action>
+        
+        
+   		<!-- 包场道路  查询指定 订单下 所有 包场 信息-->
+    	<action name="wholeroadAction" class="com.freshen.ground.action.WholeRoadAction" method="execute" >
+        	<result name="success" >/ground/wholeroaddetail.jsp</result>
+        </action>
+         <!-- 包场道路信息预订详情查询 -->
+    	<action name="initwholeroadAction" class="com.freshen.ground.action.WholeRoadAction" method="initWholeRoad" >
+        	<result name="success" >/ground/modifywholeroad.jsp</result>
+        </action>
+         <!-- 包场道路  增加一条新的 包场记录 -->
+    	<action name="addWholeRoadAction" class="com.freshen.ground.action.WholeRoadAction" method="addWholeRoad" >
+        	<result name="success" >/ground/modifywholeroad.jsp</result>
+        </action>
+        <!-- 查询包场 时间段信息，24时间段的可预定 信息 -->
+    	<action name="orderRoadWholeInfoAction" class="com.freshen.ground.action.OrderRoadWholeAction">
+        	<result name="success">/ground/modifywholeroad.jsp</result>
+        </action>
+         <!-- 选定时间段，确认包场记录 -->
+    	<action name="saveWholeRoadAction" class="com.freshen.ground.action.OrderRoadWholeAction" method="saveWholeRoad" >
+        	<result name="success" type="redirectAction">wholeroadAction</result>
+        </action>
+        <!-- 包场道路  退订 包场记录 -->
+        <action name="delwholeRoadAction" class="com.freshen.ground.action.WholeRoadAction" method="delWholeRoad" >
+        	<result name="success" type="redirectAction">wholeroadAction</result>
+        </action>
+        <!-- 包场道路  退订 之前显示退订规则 -->
+        <action name="wholeRulesAction" class="com.freshen.ground.action.WholeRoadAction" method="showRules" >
+        	<result name="success" >/ground/wholerules.jsp</result>
+        </action>
+        
+        <!-- 精确预订道路  查出制定订单下的  所有精确预定信息-->
+    	<action name="preroadAction" class="com.freshen.ground.action.PrepaymentRoadAction" method="execute" >
+        	<result name="success" >/ground/preroaddetail.jsp</result>
+        </action>
+         <!-- 前往  精确预订道路  新加 信息 页面 -->
+    	<action name="addPreRoadAction" class="com.freshen.ground.action.PrepaymentRoadAction" method="addPreRoad" >
+        	<result name="success" >/ground/modifypreroad.jsp</result>
+        </action>
+        <!-- 查询精确预定  时间段信息，24时间段的可预定 信息 ，调用与包场  查询时间段 相同的 action类-->
+        <action name="orderRoadPreInfoAction" class="com.freshen.ground.action.OrderRoadPreAction">
+        	<result name="success">/ground/modifypreroad.jsp</result>
+        </action>
+        
+        <!--选定时间段，确认包场记录 -->
+        <action name="savePreRoadAction" class="com.freshen.ground.action.OrderRoadPreAction" method="saveWholeRoad" >
+        	<result name="success" type="redirectAction">preroadAction</result>
+        </action>
+        
+        <!-- 精确预订道路  退订精确预定道路 -->
+    	<action name="delPreRoadAction" class="com.freshen.ground.action.PrepaymentRoadAction" method="delPreRoad" >
+        	<result name="success" type="redirectAction" >preroadAction</result>
+        </action>
+        <!-- 精确预订道路  退订之前显示退订规则 -->
+    	<action name="PreRoadRulesAction" class="com.freshen.ground.action.PrepaymentRoadAction" method="showRules" >
+        	<result name="success" >/ground/preroadrules.jsp</result>
+        </action>
+        
+        
+        
+        <!-- 车间办公及设备预订 查询-->
+        <action name="orderworkshopAction" class="com.freshen.ground.action.WorkshopAction" method="execute" >
+        	<result name="success" >/ground/orderworkshopdetail.jsp</result>
+        </action>
+         <!-- 车间办公及设备预订 订单修改-->
+        <action name="initworkshopAction" class="com.freshen.ground.action.WorkshopAction" method="initWorkshop" >
+        	<result name="success" >/ground/modifyworkshop.jsp</result>
+        </action>
+          <!-- 车间办公及设备预订 准备新增订单-->
+        <action name="preorderworkshopAction" class="com.freshen.ground.action.WorkshopAction" method="preparenewWorkshop" >
+        	<result name="success" >/ground/modifyworkshop.jsp</result>
+        </action>
+         <!-- 车间办公及设备预订 确定订单修改信息-->
+        <action name="modifyworkshopAction" class="com.freshen.ground.action.WorkshopAction" method="modifyWorkshop" >
+        	<!--  <result name="success" >/ground/modifyworkshop.jsp</result>-->
+        </action>
+         <!-- 车间办公及设备  删除预订信息-->
+        <action name="delorderworkshopAction" class="com.freshen.ground.action.WorkshopAction" method="deleteorderWorkshop" >
+        	<result name="success" >/ground/orderworkshopdetail.jsp</result>
+        </action>
+       
+        
+        
+         <!-- 酒店预订 查询-->
+        <action name="orderhotelAction" class="com.freshen.ground.action.HotelAction" method="execute" >
+        	<result name="success" >/ground/orderhotel.jsp</result>
+        </action>
+          <!-- 酒店预订 准备修改数据-->
+        <action name="inithotelAction" class="com.freshen.ground.action.HotelAction" method="initHotel" >
+        	<result name="success" >/ground/modifyhotel.jsp</result>
+        </action>
+          <!-- 酒店预订 确认修改-->
+        <action name="modifyhotelAction" class="com.freshen.ground.action.HotelAction" method="modifyHotel" >
+        	<result name="success" >/ground/modifyhotel.jsp</result>
+        </action>
+          <!-- 酒店预订删除-->
+        <action name="delorderhotelAction" class="com.freshen.ground.action.HotelAction" method="delorderHotel" >
+        	<result name="success" >/ground/orderhotel.jsp</result>
+        </action>
+        
+         <!-- 到访试验     人员详情查询  ，查出指定订单下的 人员信息   -->
+         <action name="regcustomerUserAction" class="com.freshen.ground.action.CustomerUserRegisterAction" method="execute" >
+        	<result name="success" >/ground/registcustomeruser.jsp</result>
+        </action>
+        <!-- 到访人员  根据ID，删除该人员 -->
+         <action name="delUserRegisterAction" class="com.freshen.ground.action.CustomerUserRegisterAction" method="delUserRegister" >
+        	<result name="success" type="redirectAction" >regcustomerUserAction</result>
+        </action>
+        <!-- 到访人员详情查询 -->
+         <action name="modifyUserRegisterAction" class="com.freshen.ground.action.CustomerUserRegisterAction" method="modifyRegisterUser" >
+        	<result name="success" >/ground/modifyreguser.jsp</result>
+        </action>
+        
+        
+        <!--将orderID status记录到session中 -->
+    	<action name="ShowGOrderApplyAction" class="com.freshen.ground.action.ApplyAction" method="recordOrderinfo">
+    		<result name="success" type="chain">showInfoAction</result>
+    	</action>
+       <!-- 订单查询详情-显示订单中的基础信息-->
+    	<action name="showInfoAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showInfo">
+    		<result name="success">/ground/showinfo.jsp</result>
+    	</action>
+        <!-- 订单查询详情-显示订单中的酒店信息-->
+    	<action name="showHotelAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showHotel">
+    		<result name="success">/ground/showhotel.jsp</result>
+    	</action>
+         <!-- 订单查询详情-显示订单中的预付费信息-->
+    	<action name="showPreroadAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showPreroad">
+    		<result name="success">/ground/showpreroad.jsp</result>
+    	</action>
+         <!-- 订单查询详情-显示订单中的到场人员信息-->
+    	<action name="showReceptionUserAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showReceptionUser">
+    		<result name="success">/ground/showreceptionuser.jsp</result>
+    	</action>
+         <!-- 订单查询详情-显示订单中的共享道路信息-->
+    	<action name="showSharingroadAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showSharingroad">
+    		<result name="success">/ground/showsharingroad.jsp</result>
+    	</action>
+    	  <!-- 订单查询详情-显示订单中的包场道路信息-->
+    	<action name="showWholeroadAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showWholeroad">
+    		<result name="success">/ground/showwholeroad.jsp</result>
+    	</action>
+         <!-- 订单查询详情-显示订单中的办公车间信息-->
+    	<action name="showWorkshopAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showWorkshop">
+    		<result name="success">/ground/showworkshop.jsp</result>
+    	</action>
+         <!-- 订单查询详情-显示订单中的车辆信息-->
+    	<action name="showVehicleAction" class="com.freshen.ground.action.ShowGorderDetailAction" method="showVehicle">
+    		<result name="success">/ground/showvehicle.jsp</result>
+    	</action>
+    	
+    	
+    	 <!-- 静态订单的车卡查询-->
+    	<action name="initStaticOVAction" class="com.freshen.ground.action.StaticOrderVehicleAction" method="prepareRecordVehicle">
+    		<result name="success">/ground/vehiclecard.jsp</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    		
+    	<!-- 接待试验，登记车辆信息-->
+    	<action name="recordStaticOvehicleAction" class="com.freshen.ground.action.StaticOrderVehicleAction" method="recordOVehicleInfo" >
+    		<result name="success" type="chain">initStaticOVAction</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    	<!-- 接待试验，删除车辆信息-->
+    	<action name="deleteStaticOvehicleAction" class="com.freshen.ground.action.StaticOrderVehicleAction" method="deleteOVehicleInfo" >
+    		<result name="success" type="chain">initStaticOVAction</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 洗车管理，初始化页面和查询 -->
+    	<action name="initWashcarAction" class="com.freshen.ground.action.WashcarAction" method="execute">
+    		<result name="success">/ground/washcar.jsp</result>
+    	</action>
+    	<!-- 洗车管理，删除信息-->
+    	<action name="delWashcarAction" class="com.freshen.ground.action.WashcarAction" method="deleteWashcar">
+    		<result name="success" type="chain">initWashcarAction</result>
+    	</action>
+    </package>
+</struts>
+    

@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity
+END
+Customer.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/Customer.java
+END
+Orderroaddaydetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/Orderroaddaydetail.java
+END
+OrderRoadDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderRoadDetail.java
+END
+CustomerRegister.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/CustomerRegister.java
+END
+OrderWorkShopDay.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderWorkShopDay.java
+END
+OrderWorkShop.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderWorkShop.java
+END
+OrderHotelOther.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderHotelOther.java
+END
+OrderOther.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderOther.java
+END
+TSubscribeOrdervehicleinfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/TSubscribeOrdervehicleinfo.java
+END
+TInquityWorkShopoccupyinfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/TInquityWorkShopoccupyinfo.java
+END
+ViewOrderInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/ViewOrderInfo.java
+END
+PdfInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/PdfInfo.java
+END
+TimeRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/TimeRule.java
+END
+TInquityRoadoccupyinfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/TInquityRoadoccupyinfo.java
+END
+VehicleInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/VehicleInfo.java
+END
+OrderDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/entity/OrderDetail.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/2013_CPG_C-LIMS/!svn/ver/70/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate
+END
+TBarriergateControl.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/TBarriergateControl.hbm.xml
+END
+BarrierGateJurisdiction.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/BarrierGateJurisdiction.hbm.xml
+END
+BarrierGateInorOutinfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/2013_CPG_C-LIMS/!svn/ver/70/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/BarrierGateInorOutinfo.hbm.xml
+END
+TBarriergateCancellationBak.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/TBarriergateCancellationBak.hbm.xml
+END
+BarrierGateControl.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/BarrierGateControl.hbm.xml
+END
+VBarriergateInoroutinfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/54/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/VBarriergateInoroutinfo.hbm.xml
+END
+VBarriergateInoroutinfo1.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/BarrierGate/VBarriergateInoroutinfo1.hbm.xml
+END

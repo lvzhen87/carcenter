@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost
+END
+TCostOrderhandcraftcost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 191
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderhandcraftcost.hbm.xml
+END
+TCostOrderworkshopcostbasis.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderworkshopcostbasis.hbm.xml
+END
+TCostOrderothercost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderothercost.hbm.xml
+END
+TCostOrderotherchargebasis.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderotherchargebasis.hbm.xml
+END
+TCostOrderunsubscribecost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderunsubscribecost.hbm.xml
+END
+TCostOrderroadcostbasis.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 191
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/cost/TCostOrderroadcostbasis.hbm.xml
+END

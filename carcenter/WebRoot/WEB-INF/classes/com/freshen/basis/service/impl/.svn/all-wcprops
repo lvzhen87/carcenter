@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl
+END
+AuthorPageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/AuthorPageServiceImpl.java
+END
+ViewOrganizationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/ViewOrganizationServiceImpl.java
+END
+RoadInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/RoadInfoServiceImpl.java
+END
+OrderViewServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/OrderViewServiceImpl.java
+END
+OtherChargeInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/OtherChargeInfoServiceImpl.java
+END
+DriverTRuleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/DriverTRuleServiceImpl.java
+END
+VRoadRaletiveServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/VRoadRaletiveServiceImpl.java
+END
+CutomerUserViewServiceimpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/CutomerUserViewServiceimpl.java
+END
+OrganizationPostServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/OrganizationPostServiceImpl.java
+END
+SequenceDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/SequenceDaoImpl.java
+END
+UnsubscribeRuleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/UnsubscribeRuleServiceImpl.java
+END
+RoadCostServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/RoadCostServiceImpl.java
+END
+PreRuleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/PreRuleServiceImpl.java
+END
+PasswordInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/PasswordInfoServiceImpl.java
+END
+EmployeeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/EmployeeServiceImpl.java
+END
+OrganizationDeptServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/OrganizationDeptServiceImpl.java
+END
+ExpendRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/ExpendRecordServiceImpl.java
+END
+OrganizationTreeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/OrganizationTreeServiceImpl.java
+END
+TimeRuleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/TimeRuleServiceImpl.java
+END
+InterphoneInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/InterphoneInfoServiceImpl.java
+END
+BarrierGateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/BarrierGateServiceImpl.java
+END
+RoadExperimentTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/RoadExperimentTypeServiceImpl.java
+END
+WorkShopInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/WorkShopInfoServiceImpl.java
+END
+DriverServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 192
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/basis/service/impl/DriverServiceImpl.java
+END

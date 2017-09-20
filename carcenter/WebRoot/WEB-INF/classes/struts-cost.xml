@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!-- 处理订单核算模块  逻辑  -->
+<package name="costStruts" extends="myIntercept" namespace="/">
+	<!-- 初始化订单估算页面  -->
+	<action name="initOrderCostAction" class="com.freshen.action.cost.OrderCostAction"  method="searchOrderCost">
+		<result name="success" >/ordercost/ordercostlist.jsp</result>
+		<result name="type1" >/ordercost/editroadcostlist.jsp</result>
+	</action>
+	<!-- 根据 条件 查询   估算订单  -->
+	<action name="searchOrderCostAction" class="com.freshen.action.cost.OrderCostAction" method="searchOrderCost">
+		<result name="success" >/ordercost/ordercostlist.jsp</result>
+		<result name="type1" >/ordercost/editroadcostlist.jsp</result>
+	</action>
+	<!-- 根据 条件 查询   估算订单 明细  -->
+	<action name="costDetailAction" class="com.freshen.action.cost.OrderCostAction" method="costDetail">
+		<result name="success" >/ordercost/ordercostdetail.jsp</result>
+	</action>
+	
+	<!-- 初始化  费用 需要更新的 页面 -->
+	<action name="initUpdateCostAction" class="com.freshen.action.cost.EditOrderCostAction">
+		<result name="type1" >/ordercost/updateroadcost.jsp</result>
+		<result name="type2" >/ordercost/updateworkshopcost.jsp</result>
+		<result name="type3" >/ordercost/updateothercost.jsp</result>
+		<result name="success" >/ordercost/updateroadcost.jsp</result>
+	</action>
+	<!-- 更新道路 费用 -->
+	<action name="updateRoadCostAction" class="com.freshen.action.cost.EditOrderCostAction" method="updateRoadCost">
+		<result name="success" type="redirectAction" >
+			<param name="actionName">initUpdateCostAction</param>
+			<param name="orderID">${orderID}</param>
+		</result>
+	</action>
+	<!-- 更新车间 费用 -->
+	<action name="updateWorkshopCostAction" class="com.freshen.action.cost.EditOrderCostAction" method="updateWorkshopCost">
+		<result name="success" type="redirectAction" >
+			<param name="actionName">initUpdateCostAction</param>
+			<param name="orderID">${orderID}</param>
+			<param name="type">2</param>
+		</result>
+	</action>
+	<!-- 更新其他 费用 -->
+	<action name="updateOtherCostAction" class="com.freshen.action.cost.EditOrderCostAction" method="updateOtherCost">
+		<result name="success" type="redirectAction" >
+			<param name="actionName">initUpdateCostAction</param>
+			<param name="orderID">${orderID}</param>
+			<param name="type">3</param>
+		</result>
+	</action>
+	
+	
+	
+	<!-- 手动输入费用信息-->
+    	<action name="initHandcraftAction" class="com.freshen.action.cost.HandCraftAction" method="execute">
+    		<result name="success">/ordercost/handcraft.jsp</result>
+    	</action>
+    	<!-- 准备对讲机基础信息-->
+    	<action name="prepareHandcraftAction" class="com.freshen.action.cost.HandCraftAction" method="prepareHandCraft">
+    		<result name="success">/ordercost/edithandcraft.jsp</result>
+    	</action>
+    	<!-- 添加/更新对讲机基础信息-->
+    	<action name="addHandcraftAction" class="com.freshen.action.cost.HandCraftAction" method="addHandCraft">
+    		<result name="success">/ordercost/edithandcraft.jsp</result>
+    		<result name="error">/common/error.jsp</result>
+    	</action>
+    	<!-- 删除对讲机基础信息-->
+    	<action name="deleteHandcraftAction" class="com.freshen.action.cost.HandCraftAction" method="deleteHandCraft">
+    		<result name="success" type="chain">initHandcraftAction</result>
+    	</action>
+    	
+    	<!-- 订单道路使用量查询 -->
+		<action name="searchPeriodCostAction" class="com.freshen.action.cost.PeriodCostQueryAction" >
+			<result name="success" >/ordercost/periodCostQuery.jsp</result>	
+		</action>
+		<!-- 订单时段道路使用量查询 -->
+		<action name="periodCostQuery" class="com.freshen.action.cost.PeriodCostQueryAction" method="periodCostQuery">		
+			<result name="success" >/ordercost/orderPeriodCostInventory.jsp</result>
+		</action>
+</package>
+</struts>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.freshen.entity.basis.RoadInfo" table="t_basis_RoadInfo">
+		<id name="roadID_s" column="roadID_s"   type="string">
+			<generator class="assigned"></generator>
+		</id>
+		<set name="roadExperimentTypeSet" lazy="false">
+	        <key column="roadID_s"></key>
+	        <one-to-many class="com.freshen.entity.basis.RoadExperimentType" />
+        </set>
+        <set name="BarrierGateEnter" lazy="true"  inverse="true">
+	        <key column="entranceRoadID_s"></key>
+	        <one-to-many class="com.freshen.entity.basis.BarrierGate" />
+        </set>
+        <set name="BarrierGateOut" lazy="true"  inverse="true">
+	        <key column="outRoadID_s"></key>
+	        <one-to-many class="com.freshen.entity.basis.BarrierGate" />
+        </set>
+		<property name="roadName_s" column="roadName_s" />
+		<property name="technicalParameters_s" column="technicalParameters_s" />
+		<property name="remark_s" column="remark_s" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="maxCapacity_i" column="maxCapacity_i" />
+		<property name="state_i" column="state_i" />
+		<property name="inputDate_t" column="inputDate_t" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="roadType_s" column="roadType_s" />
+		<property name="beginningDay_i" column="beginningDay_i" />
+		<one-to-one name="roadCost" class="com.freshen.entity.basis.RoadCost" lazy="false" cascade="all" fetch="select"></one-to-one>
+	</class>
+</hibernate-mapping>

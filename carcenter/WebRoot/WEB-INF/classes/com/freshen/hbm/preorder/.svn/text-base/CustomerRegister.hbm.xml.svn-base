@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.freshen.entity.CustomerRegister" table="t_subscribe_customerRegister ">
+		<composite-id >
+			 <key-property name="customerUserID_s" type="string">
+                <column name="customerUserID_s" length="80" />
+            </key-property>
+            <key-property name="orderID_s" type="string">
+                <column name="orderID_s" length="80" />
+            </key-property>
+		</composite-id>
+		 
+		<property name="userType_i" column="userType_i" />
+		<property name="isSafetyTrain_i" column="isSafetyTrain_i" />
+		<property name="isAirportPickup_i" column="isAirportPickup_i" />
+		<property name="isCheckinHotel_i" column="isCheckinHotel_i" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		
+		<many-to-one name="vcustomeuser" column="customeruserid_s"  lazy="false"></many-to-one> 
+	</class>
+</hibernate-mapping>

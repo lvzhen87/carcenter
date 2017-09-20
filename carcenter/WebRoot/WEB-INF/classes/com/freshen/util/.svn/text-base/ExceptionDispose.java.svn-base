@@ -1,0 +1,75 @@
+package com.freshen.util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.freshen.basis.service.SequenceDao;
+import com.freshen.basis.service.impl.SequenceDaoImpl;
+import com.freshen.system.service.IsystemSequenceService;
+import com.freshen.system.service.impl.SystemSequenceServiceImpl;
+
+
+
+public class ExceptionDispose {
+
+	/**
+	 * ����ӿ��쳣��Ϣ
+	   
+	 * saveExceptionInfo 
+	 * @param   classInfo_s     ����
+	 * 			functionName_s  ������
+	 *   		ex ������Ϣ
+	 * @param  @return    �趨�ļ�    
+	 * @return String    
+	 * @Exception �쳣����    
+	 * @since  CodingExample��Ver(���뷶��鿴) 1.1
+	 * String classInfo_s,String functionName_s,
+	 */
+	private static Connection conn;
+	public static void saveExceptionInfo(Exception ex){
+		StackTraceElement[] traceElements = ex.getStackTrace();
+		StringBuffer exInfo = new StringBuffer();
+		exInfo.append("ex===================="+ex.getLocalizedMessage());
+		IsystemSequenceService sequenceDaoImpl = new SystemSequenceServiceImpl();
+		for (int i = 0; i < traceElements.length; i++) {			 
+			exInfo.append("method " + traceElements[i].getMethodName());
+			exInfo.append("(" + traceElements[i].getClassName() + ":");        
+			exInfo.append(traceElements[i].getLineNumber() + ")"+"\n\t");      
+		}
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		Transaction tx ;
+		tx = session.beginTransaction();
+		String squpk = sequenceDaoImpl.getPK("insquex", session) ;
+		String sql = "insert into t_interface_exceptionLog (eventNumber_s,createTime_t,exceptionInfo_s) values" +
+				"('"+squpk+"',sysdate,'"+exInfo+"')";
+		conn  = HibernateUtil.getconnBysession(session);
+		//System.out.println("oracle="+conn);
+		PreparedStatement prest = null;
+		try{			 
+			Statement stat = conn.createStatement();
+			stat.execute(sql);
+			tx.commit();
+		}catch (Exception e) {
+            ex.printStackTrace();   
+            tx.rollback();
+		}finally {
+           if (prest != null) {                
+        	   try {
+				prest.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+           }
+           session.clear();
+       }
+	}
+}

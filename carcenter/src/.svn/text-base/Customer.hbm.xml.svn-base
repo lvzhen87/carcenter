@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.Customer" table="t_subscribe_customer">
+		<id name="customerID_s" column="customerID_s">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="status_i" column="status_i" />
+		<property name="customerName_s" column="customerName_s" />
+		<property name="department_s" column="department_s" />
+		<property name="customerAddress_s" column="customerAddress_s" />
+		<property name="customerUserID_s" column="customerUserID_s" />
+		<property name="customerUserPhone_s" column="customerUserPhone_s" />
+		<property name="customerUserEmail_s" column="customerUserEmail_s" />
+		<property name="invoiceOrder_s" column="invoiceOrder_s" /> 
+		<property name="addedValueTax_s" column="addedValueTax_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resavedes1" column="resaveds1_s" />
+		<property name="resavedes2" column="resaveds2_s" />
+		<property name="resavedes3" column="resaveds3_s" />
+		<property name="resavedes4" column="resaveds4_s" />
+		<property name="resavedes5" column="resaveds5_s" />
+		
+		<property name="uploadFilePath_s" column="uploadFilePath_s" />
+		<property name="customerUserName_s" column="customerUserName_s"/>
+		<property name="password_s" column="password_s"></property>
+		<property name="customerLoginName_s" column="customerLoginName_s"></property>
+		
+		<property name="invoiceAddress_s" column="invoiceAddress_s" />
+		<property name="registerAddress_s" column="registerAddress_s"/>
+		<property name="invoiceUserID_s" column="invoiceUserID_s"></property>
+		<property name="responsibleUserID_s" column="responsibleUserID_s"></property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.basis.ConstantInfo" table="t_basis_constantInfo">
+	    <id name="constantID_s" column="constantID_s" >
+			 <generator class="assigned"></generator>
+		</id>
+		 
+		<!--<id name="roadID_s" column="roadID_s" >
+			<generator class="assigned"></generator>
+		</id>-->
+		
+ 		<property name="constantName_s" column="constantName_s" />
+		<property name="constantDescribe_s" column="constantDescribe_s" />
+		<property name="constantValues_s" column="constantValues_s" />
+		<property name="lastUpdateUser_s" column="lastUpdateUser_s" />
+		<property name="createDate_t" column="createDate_t" />
+		<property name="createUser_s" column="createUser_s" />
+		<property name="lastUpdateDate_t" column="lastUpdateDate_t" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		
+		<!-- <many-to-one name="roadInfo" class="com.freshen.entity.basis.RoadInfo" 
+		column="roadID_s" unique="true"  
+		 ></many-to-one> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,798 @@
+package com.freshen.basis.service.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.freshen.basis.service.IemployeeService;
+import com.freshen.basis.service.IorganizationDeptService;
+import com.freshen.basis.service.IpasswordInfoService;
+import com.freshen.entity.VehicleInfo;
+import com.freshen.entity.basis.Employee;
+import com.freshen.entity.basis.OrganizationDept;
+import com.freshen.entity.basis.OrganizationPost;
+import com.freshen.entity.basis.PasswordInfo;
+import com.freshen.entity.basis.VCustomeuser;
+import com.freshen.hibernate.HibernateSessionFactory;
+import com.freshen.preorder.service.IorderDetailService;
+import com.freshen.preorder.service.impl.OrderDetailServiceImpl;
+import com.freshen.system.service.IsystemSequenceService;
+import com.freshen.system.service.impl.SystemSequenceServiceImpl;
+import com.freshen.util.BasicTools;
+import com.freshen.util.ConstantUtil;
+import com.freshen.util.DataResource;
+import com.freshen.util.DateUtil;
+import com.freshen.util.HibernateUtil;import com.freshen.clims.baseclass.BeanModel;
+import com.freshen.clims.baseclass.ClimsException;
+import com.freshen.clims.baseclass.ClimsServiceBase;
+import com.freshen.util.StringTools;
+
+public class EmployeeServiceImpl extends ClimsServiceBase implements IemployeeService {
+
+	
+	Transaction tx = null;
+	
+	public Employee getEmployeeById(Employee ep)throws Exception {
+		Employee em=null;
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session=HibernateUtil.getSession();
+		}
+		em=(Employee) session.get(Employee.class, ep.getEmployeeID_s());
+		if(em!=null){
+		//没有map的对象关联
+			if(em.getOrganizationDept_s()!=null){
+				OrganizationDept dept=(OrganizationDept) session.get(OrganizationDept.class, em.getOrganizationDept_s());
+				em.setEmployeeDept(dept);
+			}
+			if(em.getOrganizationPost_s()!=null){
+				OrganizationPost post=(OrganizationPost) session.get(OrganizationPost.class, em.getOrganizationPost_s());
+				
+				em.setEmployeePost(post);
+			}
+		}
+		session.clear();
+		return em;
+	}
+
+	/**
+	 *  Function:查找 Employee实体
+	 *  @author Freshen  DateTime 2014-4-17 上午10:43:18
+	 *  @param ep Employee对象，如果该对象含有ID属性，则等同于getEmployeeById
+	 *  	当organizationPost_s为字符串null查询没有岗位的职员
+	 *  @return 
+	 */
+	public List<Employee> getEmployees(Employee ep,int start ,int size) throws Exception {
+		if(ep==null)return null;
+		List<Employee> employeeList =null;
+		Session session = HibernateUtil.getSession();
+		if(session.isOpen()){
+			session=HibernateUtil.getSession();
+		}
+		try {
+			if(ep.getEmployeeID_s()!=null && !ep.getEmployeeID_s().equals("")){				//有员工ID，则直接按照ＩＤ查找
+				Employee temp=getEmployeeById(ep);
+				if(temp!=null){
+					employeeList=new ArrayList();
+					employeeList.add(temp);
+				}
+				return employeeList;
+			}
+			String hql="from Employee as em where 1=1 and em.isOnline=0 ";
+			StringBuffer buf =new StringBuffer();
+			if(ep.getOrganizationPost_s()!=null&&ep.getOrganizationPost_s().trim().length()>1&&!ep.getOrganizationPost_s().equals("null")){
+				buf.append(" and em.organizationPost_s='"+ep.getOrganizationPost_s()+"'");
+			} 
+			if("null".equals(ep.getOrganizationPost_s())){
+				buf.append(" and em.organizationPost_s is null ");
+			}
+			if(ep.getOrganizationDept_s()!=null&&ep.getOrganizationDept_s().trim().length()>0){
+				buf.append(" and em.organizationDept_s='"+ep.getOrganizationDept_s()+"'");
+			}
+			
+			if(ep.getCustomerUserName_s()!=null&&ep.getCustomerUserName_s().trim().length()>0){
+				buf.append(" and em.customerUserName_s like '%"+ep.getCustomerUserName_s()+"%'");
+			}
+			if(ep.getIdentityCard_s()!=null&&ep.getIdentityCard_s().trim().length()>0){
+				buf.append("and em.identityCard_s like '%"+ep.getIdentityCard_s()+"%'");
+			}
+			if(ep.getTelephone_s()!=null &&ep.getTelephone_s().trim().length()>0){
+				buf.append(" and em.telephone_s='"+ep.getTelephone_s()+"'");
+			}
+			if(ep.getResaveds1_s()!=null &&ep.getResaveds1_s().trim().length()>0){
+				buf.append(" and em.resaveds1_s='"+ep.getResaveds1_s()+"'");
+			}
+			if(ep.getResaveds2_s()!=null &&ep.getResaveds2_s().trim().length()>0){
+				buf.append(" and em.resaveds2_s='"+ep.getResaveds2_s()+"'");
+			}
+			if(ep.getResaveds3_s()!=null &&ep.getResaveds3_s().trim().length()>0){
+				buf.append(" and em.resaveds3_s='"+ep.getResaveds3_s()+"'");
+			}
+			if(ep.getResaveds4_s()!=null &&ep.getResaveds4_s().trim().length()>0){
+				buf.append(" and em.resaveds4_s='"+ep.getResaveds4_s()+"'");
+			}
+			if(ep.getResaveds5_s()!=null &&ep.getResaveds5_s().trim().length()>0){
+				buf.append(" and em.resaveds5_s='"+ep.getResaveds5_s()+"'");
+			}
+			buf.append(" order by em.createDate_t DESC,em.lastUpdateDate_t DESC");
+			
+			Query query=session.createQuery(hql+buf.toString());
+			if(start!=ConstantUtil.pagingNot){
+			    query.setFirstResult(start);
+			    query.setMaxResults(size);
+		    }
+			employeeList=query.list();
+			if(employeeList!=null&&employeeList.size()>0){
+				for(int i=0;i<employeeList.size();i++){
+					Employee tmp = employeeList.get(i);
+					tmp = getEmployeeById(tmp);
+					employeeList.set(i, tmp);
+				}
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw e;		
+		}finally{			
+			session.clear();
+		}
+		
+		return employeeList;
+	}
+	//处理session的关闭等信息
+	private void close(Session session) {
+	//	if(session!=null)session.close();
+	}
+
+	public long getEmployeesNumber(Employee ep) throws Exception {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSession();
+		if(session.isOpen()){
+			session=HibernateUtil.getSession();
+		}
+		try {
+			if(ep.getEmployeeID_s()!=null && !ep.getEmployeeID_s().equals("")){				//有员工ID，则直接按照ＩＤ查找
+				Employee temp=getEmployeeById(ep);
+				return temp==null?0:1;
+			}
+			String hql="select count(*) from Employee as em where 1=1 and em.isOnline=0";
+			StringBuffer buf =new StringBuffer();
+			if("null".equals(ep.getOrganizationPost_s())){
+				buf.append(" and em.organizationPost_s is null ");
+			} 
+			if(ep.getOrganizationDept_s()!=null&&ep.getOrganizationDept_s().trim().length()>0){
+				buf.append(" and em.organizationDept_s='"+ep.getOrganizationDept_s()+"'");
+			}
+			if(ep.getCustomerUserName_s()!=null&&ep.getCustomerUserName_s().trim().length()>0){
+				buf.append(" and em.customerUserName_s like '%"+ep.getCustomerUserName_s()+"%'");
+			}
+			if(ep.getIdentityCard_s()!=null&&ep.getIdentityCard_s().trim().length()>0){
+				buf.append("and em.identityCard_s like '%"+ep.getIdentityCard_s()+"%'");
+			}
+			if(ep.getTelephone_s()!=null &&ep.getTelephone_s().trim().length()>0){
+				buf.append(" and em.telephone_s='"+ep.getTelephone_s()+"'");
+			}
+			if(ep.getResaveds1_s()!=null &&ep.getResaveds1_s().trim().length()>0){
+				buf.append(" and em.resaveds1_s='"+ep.getResaveds1_s()+"'");
+			}
+			if(ep.getResaveds2_s()!=null &&ep.getResaveds2_s().trim().length()>0){
+				buf.append(" and em.resaveds2_s='"+ep.getResaveds2_s()+"'");
+			}
+			if(ep.getResaveds3_s()!=null &&ep.getResaveds3_s().trim().length()>0){
+				buf.append(" and em.resaveds3_s='"+ep.getResaveds3_s()+"'");
+			}
+			if(ep.getResaveds4_s()!=null &&ep.getResaveds4_s().trim().length()>0){
+				buf.append(" and em.resaveds4_s='"+ep.getResaveds4_s()+"'");
+			}
+			if(ep.getResaveds5_s()!=null &&ep.getResaveds5_s().trim().length()>0){
+				buf.append(" and em.resaveds5_s='"+ep.getResaveds5_s()+"'");
+			}
+			Query query=session.createQuery(hql+buf.toString());
+			long n=0;
+		    if(query.iterate().hasNext()){
+		    	n=(Long) query.iterate().next();
+		    }
+		    return n;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw e;
+		}finally{
+			session.clear();
+		}
+		 
+	}
+
+	public String OperationEmployeesold(Employee employee, int operation)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Transaction tx = null;
+		String msgid = null;
+		Session session= HibernateUtil.getSession();
+		try{
+			if(!session.isOpen()){
+				session= HibernateUtil.getSession();							
+			}
+			tx=session.beginTransaction();//开启事务
+			//新增
+			if(operation==1){
+				IsystemSequenceService systemSequenceServiceImpl = new SystemSequenceServiceImpl();
+				if(employee!=null){					 			  
+					
+					Employee oldemp=(Employee) session.get(employee.getClass(),employee.getEmployeeID_s());
+					if(employee.getEmployeeID_s() != null && !employee.getEmployeeID_s().equals("")){
+						oldemp.setEmployeeID_s(employee.getEmployeeID_s());
+					}
+					
+					if(employee.getOrganizationPost_s() !=null && !employee.getOrganizationPost_s().equals("")){
+						oldemp.setOrganizationPost_s(employee.getOrganizationPost_s());
+					}
+					if(employee.getEmployeeLoginName() !=null && !employee.getEmployeeLoginName().equals("")){
+						oldemp.setEmployeeLoginName(employee.getEmployeeLoginName());
+					}
+					if(employee.getCustomerUserName_s() !=null && !employee.getCustomerUserName_s().equals("")){
+						oldemp.setCustomerUserName_s(employee.getCustomerUserName_s());
+					}
+					if(employee.getEmail_s() !=null && !employee.getEmail_s().equals("")){
+						oldemp.setEmail_s(employee.getEmail_s());
+					}
+					if(employee.getFacsimile_s()!=null && !employee.getFacsimile_s().equals("")){
+						oldemp.setFacsimile_s(employee.getFacsimile_s());
+					}
+					if(employee.getIdentityCard_s()!=null && !employee.getIdentityCard_s().equals("")){
+						oldemp.setIdentityCard_s(employee.getIdentityCard_s());
+					}
+					if(employee.getTelephone_s() !=null && !employee.getTelephone_s().equals("")){
+						oldemp.setTelephone_s(employee.getTelephone_s());
+					}
+					if(employee.getCreateUser_s() !=null && !employee.getCreateUser_s().equals("")){
+						oldemp.setCreateUser_s(employee.getCreateUser_s());
+					}
+					if(employee.getResaveds1_s() !=null && !employee.getResaveds1_s().equals("")){
+						oldemp.setResaveds1_s(employee.getResaveds1_s());
+					}
+					if(employee.getResaveds2_s() !=null && !employee.getResaveds2_s().equals("")){
+						oldemp.setResaveds2_s(employee.getResaveds2_s());
+					}
+					if(employee.getResaveds3_s() !=null && !employee.getResaveds3_s().equals("")){
+						oldemp.setResaveds3_s(employee.getResaveds3_s());
+					}
+					if(employee.getResaveds4_s() !=null && !employee.getResaveds4_s().equals("")){
+						oldemp.setResaveds4_s(employee.getResaveds4_s());
+					}			
+					session.saveOrUpdate(oldemp);
+					//session.merge(employee);
+				}
+			}else if(operation==3){//修改
+				Employee oldemp=(Employee) session.get(employee.getClass(),employee.getEmployeeID_s());
+				if(employee.getEmployeeID_s() != null && !employee.getEmployeeID_s().equals("")){
+					oldemp.setEmployeeID_s(employee.getEmployeeID_s());
+				}
+				
+				if(employee.getOrganizationPost_s() !=null && !employee.getOrganizationPost_s().equals("")){
+					oldemp.setOrganizationPost_s(employee.getOrganizationPost_s());
+				}
+				if(employee.getEmployeeLoginName() !=null && !employee.getEmployeeLoginName().equals("")){
+					oldemp.setEmployeeLoginName(employee.getEmployeeLoginName());
+				}
+				if(employee.getCustomerUserName_s() !=null && !employee.getCustomerUserName_s().equals("")){
+					oldemp.setCustomerUserName_s(employee.getCustomerUserName_s());
+				}
+				if(employee.getEmail_s() !=null && !employee.getEmail_s().equals("")){
+					oldemp.setEmail_s(employee.getEmail_s());
+				}
+				if(employee.getFacsimile_s()!=null && !employee.getFacsimile_s().equals("")){
+					oldemp.setFacsimile_s(employee.getFacsimile_s());
+				}
+				if(employee.getIdentityCard_s()!=null && !employee.getIdentityCard_s().equals("")){
+					oldemp.setIdentityCard_s(employee.getIdentityCard_s());
+				}
+				if(employee.getTelephone_s() !=null && !employee.getTelephone_s().equals("")){
+					oldemp.setTelephone_s(employee.getTelephone_s());
+				}
+				if(employee.getCreateUser_s() !=null && !employee.getCreateUser_s().equals("")){
+					oldemp.setCreateUser_s(employee.getCreateUser_s());
+				}
+				if(employee.getResaveds1_s() !=null && !employee.getResaveds1_s().equals("")){
+					oldemp.setResaveds1_s(employee.getResaveds1_s());
+				}
+				if(employee.getResaveds2_s() !=null && !employee.getResaveds2_s().equals("")){
+					oldemp.setResaveds2_s(employee.getResaveds2_s());
+				}
+				if(employee.getResaveds3_s() !=null && !employee.getResaveds3_s().equals("")){
+					oldemp.setResaveds3_s(employee.getResaveds3_s());
+				}
+				if(employee.getResaveds4_s() !=null && !employee.getResaveds4_s().equals("")){
+					oldemp.setResaveds4_s(employee.getResaveds4_s());
+				}			
+				session.saveOrUpdate(oldemp);
+			}else if(operation==2){//删除
+				if(employee!=null){
+					Employee oldemp=(Employee) session.get(employee.getClass(),employee.getEmployeeID_s());
+					oldemp.setIsOnline(1);
+					session.saveOrUpdate(oldemp);
+				}
+			}
+			session.flush();
+			tx.commit();
+			return msgid;
+		}catch(Exception e){
+			tx.rollback();
+			throw e;
+		}finally{				
+			session.clear();
+		}	
+	}
+	
+	/**
+	 * 在事务中操作职员表
+	 * OperationEmployeesbyTransaction 
+	 * @param   OrganizationPost  修改的对象  
+	 * session 上下文  
+	 * operation 操作 1：新增或修改 2：删除
+	 * @param  @return   
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int OperationEmployeesbyTransaction(Employee employee, Session session,int operation)
+	throws Exception {
+		// TODO Auto-generated method stub	
+		String subordinateSeqS = "";
+		try{		  
+			//新增或修改
+			if(operation==1){
+				if(employee!=null&&employee.isnotNull(employee)){						
+					//同步
+					if("t".equals(employee.getIssynchronization())){
+						Employee tmpemployee = this.getEmployeeById(employee);
+						if(tmpemployee!=null){
+							employee.setEmail_s(tmpemployee.getEmail_s());
+							employee.setOrganizationPost_s(tmpemployee.getOrganizationPost_s());
+							employee.setEmployeeLoginName(tmpemployee.getEmployeeLoginName());
+							employee.setTelephone_s(tmpemployee.getTelephone_s());
+							employee.setFacsimile_s(tmpemployee.getFacsimile_s());
+							session.delete(tmpemployee);
+							session.flush();
+							session.clear();
+						}
+					}
+					session.saveOrUpdate(employee);
+					session.flush();			
+				}
+			}
+			//删除
+			if(operation==2){
+				if(employee!=null&&employee.isnotNull(employee)){
+					session.delete(employee);
+					session.flush();			
+				}
+			}
+			return 1;
+		}catch(Exception e){
+			throw e;
+		}finally{				
+		}	
+	}
+	
+	/**
+	 * 在事务中操作职员表
+	 * OperationEmployeesbyTransaction 
+	 * @param   OrganizationPost  修改的对象  
+	 * session 上下文  
+	 * operation 操作 1：新增或修改 2：删除
+	 * @param  @return   
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int OperationEmployees(Employee employee,int operation)
+	throws Exception {
+		// TODO Auto-generated method stub	
+		Transaction tx = null;
+		Session session = HibernateUtil.getSession();
+		try{			
+			if(!session.isOpen()){
+				session = HibernateUtil.getSession();
+			}
+			tx = session.beginTransaction();
+			this.OperationEmployeesbyTransaction(employee, session, operation);
+			tx.commit();
+			return 1;
+		}catch(Exception e){
+			try{
+				if(tx!=null){
+					tx.rollback();
+				}
+			}catch(Exception e1){
+				throw e1;
+			}
+			throw e;
+		}finally{			
+			session.clear();
+		}	
+	}
+		
+	public Employee getEmployeeByLoginName(Employee loginEmployee) {
+		if(loginEmployee==null || loginEmployee.getEmployeeLoginName()==null)
+			return null;
+		Transaction tx = null;
+		Session session = HibernateUtil.getSession();
+		tx = session.beginTransaction();
+		String  hql="from Employee where employeeLoginName='"+loginEmployee.getEmployeeLoginName()+"'";
+		Query query =session.createQuery(hql);
+		if(query.list().size()>0){
+			Employee ep =(Employee) query.list().get(0);
+			session.clear();
+			return ep;
+		}		
+		session.clear();
+		return null;
+	}
+	
+	
+	public boolean isLoginNamehere(String loginname) throws Exception{
+		boolean returnValue = false;
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		long n = 0;
+		try {
+			if(loginname != null){
+				
+				String hql = "select count(*)  from Employee as em where 1=1 ";
+				String condition="";
+				
+				if(loginname != null && !loginname.trim().equals("")){
+			    	condition = " and em.employeeLoginName = '" + loginname + "'";
+			    }
+				
+				
+				Query query = session.createQuery(hql + condition);
+				if(query.iterate().hasNext()){
+					n = (Long)query.iterate().next();
+				}
+				if(n>0)
+				{
+					returnValue = true;
+				}
+				else
+				{
+					returnValue = false;
+				}
+			}
+		} catch (Exception e) {
+			throw e;
+			// TODO: handle exception
+		}
+		finally
+		{
+			session.clear();
+			return returnValue;	
+		}
+	}
+	
+	/**
+	 * 获得一卡通职工信息集合	   
+	 * getOneCardpbEmply 
+	 * @param   name    
+	 * @param  @return    设定文件    
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public List<Employee> getOneCardpbEmply() throws Exception{
+		List<Employee> employeeList = new ArrayList();
+		IorganizationDeptService iorganizationDeptService = new OrganizationDeptServiceImpl();
+		Connection sqlcon = DataResource.getConnect(ConstantUtil.OneCardSERVERCONN);
+		PreparedStatement prest = null;
+		try{
+			String sql = "select sysno,dptid,emplyId,EmplyName,CardNo,Serial,Invalidate,EmplyCode from pb_emply " +
+						 " where EmplyType='A' " +
+						 " and IsDeleted='0'";
+			prest = sqlcon.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = prest.executeQuery();
+			Employee tmp = null;
+			while (rs.next()) {
+				tmp = new Employee();
+				tmp.setEmployeeID_s(rs.getString("sysno"));
+				String dptid = rs.getString("dptid");//部门id
+				tmp.setOrganizationDept_s(dptid);
+				tmp.setIdentityCard_s(rs.getString("emplyId"));				
+				tmp.setCustomerUserName_s(rs.getString("EmplyName"));
+				tmp.setResaveds2_s(rs.getString("CardNo"));
+				tmp.setResaveds1_s(rs.getString("Serial"));
+				String invalidate = rs.getString("Invalidate");
+				tmp.setResaveds4_s(invalidate);				 
+				tmp.setEmployeeLoginName(rs.getString("EmplyCode"));//登录名
+				tmp.setIssynchronization("t");//同步
+				employeeList.add(tmp);
+			}
+		}catch(Exception e){			
+			throw e;
+		}finally{
+			if(prest!=null){
+				prest.close();
+			}
+			sqlcon.close();
+		}
+		return employeeList;
+	}
+	/**
+	 * 同步员工   
+	 * synchronizationEmployee 
+	 * @param   name    
+	 * @param  @return    设定文件    
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public void synchronizationEmployee()throws Exception{
+		Transaction tx = null;
+		Session session = HibernateUtil.getSession();
+		if(!session.isOpen()){
+			session = HibernateUtil.getSession();
+		}
+		String idList = "";
+		try {
+			tx = session.beginTransaction();
+			//获得cpg系统的员工信息
+			List<Employee> cpglist = this.getEmployees(new Employee(), ConstantUtil.pagingNot, 0);
+			List<String> eIDs = new ArrayList<String>();//员工id集合
+			if(BasicTools.isnotNull(cpglist)){
+				for(int i=0;i<cpglist.size();i++){
+					Employee e = cpglist.get(i);
+					eIDs.add(e.getEmployeeID_s());
+				}
+			}
+			//获得一卡通的员工信息
+			List<Employee> list = this.getOneCardpbEmply();
+			if(list!=null&&list.size()>0){
+				for(int i=0;i<list.size();i++){
+					Employee tmp = list.get(i);
+					if(i==0){
+						idList = "(";
+					}
+					idList = idList+"'"+tmp.getEmployeeID_s()+"'";
+					
+					if(i==list.size()-1){
+						idList = idList+")";
+					}else{
+						idList = idList+",";
+					}
+//System.out.println("idList======"+idList);
+					//该员工在系统内不存在,增加改员工密码信息
+					this.OperationEmployeesbyTransaction(tmp,session, 1);
+					int location = eIDs.lastIndexOf(tmp.getEmployeeID_s());
+					if(location==-1){
+						PasswordInfo pi=new PasswordInfo();
+						pi.setEmployeeID_s(tmp.getEmployeeID_s());
+						pi.setPassword_s(ConstantUtil.PASSWORDCONSTANT);
+						pi.setCreateUser_s("sys");
+						IpasswordInfoService ipis=new PasswordInfoServiceImpl();
+						ipis.OperationPasswordInfo(pi, 1,session);
+					}
+				}
+				//删除管理系统中没有的人员
+				if(!"".equals(idList)){
+					HibernateUtil.getJDBCconn();
+					Connection conn = session.connection();
+					String sql = "delete t_basis_employee where employeeid_s not in "+idList;
+					conn.createStatement().execute(sql);
+				}
+			}
+			tx.commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			tx.rollback();
+			throw e;
+		}finally{
+			session.clear();
+		}
+	}
+	
+
+	/**
+	 * 获得客户人员与职工集合
+	 * getAllcustomerUserAddEmploee 
+	 * @param   cards    卡号
+	 * @param  @return    设定文件    
+	 * @return String    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public ArrayList<VCustomeuser> getAllcustomerUserAddEmploee(String cards) throws Exception{
+		ArrayList<VCustomeuser> vCustomeuserList = new ArrayList();
+		IorganizationDeptService iorganizationDeptService = new OrganizationDeptServiceImpl();
+		Connection sqlcon = HibernateUtil.getJDBCconn();
+		ResultSet rs = null;
+		PreparedStatement prest = null;
+		try{
+			//得到根节点
+			OrganizationDept organizationDept = new OrganizationDept();
+			organizationDept.setResaveds1_s("null");
+			organizationDept = iorganizationDeptService.getOrganizationDept(organizationDept, ConstantUtil.pagingNot, 0).get(0);
+			String sql = "select *                                            "+
+							"  from (select '' as CUSTOMERNAME,                  "+
+							"               employeeID_s as customerUserID_s,    "+
+							"               t1.deptname_s as DEPARTMENT_S,       "+
+							"               customerUserName_s as CUSTOMERUSERNAME_S,"+
+							"               identityCard_s,                      "+
+							"               '' as POSITION_S,                    "+
+							"               telephone_s,                         "+
+							"               '' as DRIVINGLICENCECPG_S,           "+
+							"               '' as LEVELCPG_S,                    "+
+							"               null as LASTTRAINDATE_T,             "+
+							"               to_char(t.CREATEDATE_T,'YYYY-MM-dd HH24:mi:ss') as CREATEDATE_T,"+
+							"               organizationPost_s as DUTY_S,        "+
+							"               t.resaveds1_s as SYSNO_S,            "+
+							"               4 as USERTYPE_I                      "+
+							"          FROM t_basis_employee t                   "+
+							"          left join t_basis_organizationDept  t1    "+
+							"          on t.organizationdept_s = t1.organizationdept_s    "+
+							"        union all                                   "+
+							"        SELECT CUSTOMERNAME,                        "+
+							"               b.CUSTOMERUSERID_S,                  "+
+							"               b.DEPARTMENT_S,                      "+
+							"               b.CUSTOMERUSERNAME_S,                "+
+							"               b.IDENTITYCARD_S,                    "+
+							"               b.POSITION_S,                        "+
+							"               b.TELEPHONE_S,                       "+
+							"               DRIVINGLICENCECPG_S,                 "+
+							"               LEVELCPG_S,                          "+
+							"               to_char(LASTTRAINDATE_T,'YYYY-MM-dd HH24:mi:ss') as LASTTRAINDATE_T, "+
+							"               to_char(b.CREATEDATE_T,'YYYY-MM-dd HH24:mi:ss') as CREATEDATE_T,                      "+
+							"               b.DUTY_S,                            "+
+							"               c.card_s as SYSNO_S,                 "+
+							"               b.USERTYPE_I                         "+
+							"          FROM V_CUSTOMEUSER b                      "+
+							"          left join t_reception_customerUser c      "+
+							"	         on b.customerUserID_s =c.customerUserID_s)" +
+							"	       where SYSNO_S = '"+cards+"'";
+			 
+			//System.out.println("sql="+sql);
+			prest = sqlcon.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			rs = prest.executeQuery();
+			VCustomeuser tmp = null;
+			while (rs.next()) {
+				tmp = new VCustomeuser();
+				tmp.setCustomername(rs.getString("CUSTOMERNAME"));
+				tmp.setCustomeruserid_s(rs.getString("CUSTOMERUSERID_S"));
+				tmp.setDepartment_s(rs.getString("DEPARTMENT_S"));
+				tmp.setCustomerusername_s(rs.getString("CUSTOMERUSERNAME_S"));
+				tmp.setInvoiceuserid_s(rs.getString("IDENTITYCARD_S"));
+				tmp.setPosition_s(rs.getString("POSITION_S"));
+				tmp.setTelephone_s(rs.getString("TELEPHONE_S"));
+				tmp.setDrivingLicenceCPG_s(rs.getString("DRIVINGLICENCECPG_S"));
+				tmp.setLevelCPG_s(rs.getString("LEVELCPG_S"));
+				if(rs.getString("LASTTRAINDATE_T")!=null){
+					tmp.setLastTrainDate_t(DateUtil.getDate(rs.getString("LASTTRAINDATE_T"), "yyyy-MM-dd HH:mm:ss"));
+				}else{
+					tmp.setLastTrainDate_t(null);
+				}
+				if(rs.getString("CREATEDATE_T")!=null){
+					tmp.setCreatedateT(DateUtil.getDate(rs.getString("CREATEDATE_T"), "yyyy-MM-dd HH:mm:ss"));
+				}else{
+					tmp.setCreatedateT(null);
+				}
+				
+				tmp.setDuty_s(rs.getString("DUTY_S"));
+				tmp.setSysno_s(rs.getString("SYSNO_S"));
+				int USERTYPE_I = rs.getInt("USERTYPE_I");
+				tmp.setUsertypeI(USERTYPE_I);
+				if(USERTYPE_I==4){
+					tmp.setCustomername(organizationDept.getDeptName_s());
+				}
+				vCustomeuserList.add(tmp);
+			}
+		}catch(Exception e){
+			sqlcon.close();
+			throw e;
+		}finally{
+			if(rs!=null){
+				rs.close();
+			}
+			if(prest!=null){
+				prest.close();
+			}
+			sqlcon.close();
+		}
+		return vCustomeuserList;
+	}
+	
+	/**
+	 * 增加一卡通进出门卫二信息	   
+	 * addMj_Iodata 
+	 * @param   cards	   卡号
+	 * 			inout    1:进 2：出
+	 * @param  @return       
+	 * @return 1:正常
+	 *         2:已经在当前位置    
+	 * @Exception 异常对象    
+	 * @since  CodingExample　Ver(编码范例查看) 1.1
+	 */
+	public int addMj_Iodata(String cards,int inout)throws Exception{
+		if(cards==null||cards.equals("")){
+			throw new ClimsException("卡号不能为空");
+		}
+		List<Employee> employeeList = new ArrayList();
+		IorganizationDeptService iorganizationDeptService = new OrganizationDeptServiceImpl();
+		Connection sqlcon = DataResource.getConnect(ConstantUtil.OneCardSERVERCONN);
+		PreparedStatement prest = null;
+		PreparedStatement prest1 = null;
+		boolean b = false;
+		try{
+			String sqls = "select 1 from dbo.Mj_Clims_Indata where serial='"+cards+"'";
+			prest = sqlcon.prepareStatement(sqls);
+			ResultSet rs = prest.executeQuery();
+			if(rs.next()){
+				b = true;
+			}
+			if(inout==1&&b){
+				return 2;
+			}else if(inout==0&&!b){
+				return 2;
+			}
+			String sql = "select * from dbo.Mj_RegUser where Serial=?";
+			prest = sqlcon.prepareStatement(sql);
+			prest.setString(1, cards);
+			rs = prest.executeQuery();
+			prest1=sqlcon.prepareStatement("INSERT INTO [ocs_udp].[dbo].[Mj_Iodata] "+
+					"           ([Sysno]                     "+
+					"           ,[Serial]                    "+
+					"           ,[Cardtype]                  "+
+					"           ,[Door_id]                   "+
+					"           ,[IsIn]                      "+
+					"           ,[IODate])                   "+				
+					"     VALUES                             "+
+					"           (?           "+					
+					"           ,?           "+
+					"           ,?           "+
+					"           ,?           "+
+					"           ,?           "+
+					"           ,?) ");
+			if (rs.next()) {
+				prest1.setString(1, rs.getString("Sysno"));
+				prest1.setString(2, cards);
+				prest1.setInt(3, 3);
+				if(inout==1){
+					prest1.setInt(4, 43);
+				}else{
+					prest1.setInt(4, 44);
+				}
+				prest1.setString(5, "1");
+				prest1.setTimestamp(6, new Timestamp(new java.util.Date().getTime()));			
+				prest1.executeUpdate();				
+			}
+		}catch(Exception e){			
+			throw e;
+		}finally{
+			if(prest!=null){
+				prest.close();
+			}
+			if(prest1!=null){
+				prest1.close();
+			}
+			sqlcon.close();
+		}
+		return 1;
+	}
+	public static void  main (String arg[]) throws Exception{		 
+		EmployeeServiceImpl ies = new EmployeeServiceImpl();
+		int i = ies.addMj_Iodata("1",2);
+		//System.out.println(i);
+		//ies.addMj_Iodata("000000005C5C843F");
+		//ArrayList<VCustomeuser> list = ies.getAllcustomerUserAddEmploee("");
+	//	//System.out.println(list.size());
+		/*List l = ies.getOneCardpbEmply();
+		//System.out.println(l.size());*/
+	}
+}

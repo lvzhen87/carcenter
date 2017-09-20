@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.freshen.entity.ViewOrderInfo" table="v_orderinfo">
+		<id name="orderid_s" column="orderid_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="reservationdate_t" column="reservationdate_t" />
+		<property name="status_i" column="status_i" />
+		<property name="customerid_s" column="customerid_s" />
+		<property name="startdate_d" column="startdate_d" />
+		<property name="enddate_d" column="enddate_d" />
+		<property name="capguserid_s" column="capguserid_s" />
+		<property name="invoiceorder_s" column="invoiceorder_s" />
+		<property name="addedvaluetax_s" column="addedvaluetax_s" />
+		<property name="invoiceuser_s" column="invoiceuser_s" />
+		<property name="actualdate_d" column="actualdate_d" />
+		<property name="createdate_t" column="createdate_t" />
+		<property name="createuser_s" column="createuser_s" />
+		<property name="lastupdateuser_s" column="lastupdateuser_s" />
+		<property name="lastupdatedate_t" column="lastupdatedate_t" />
+		<property name="receiverlnvoiceaddress_s" column="receiverlnvoiceaddress_s" />
+		<property name="invoiceuserphone_s" column="invoiceuserphone_s" />
+		<property name="ordername_s" column="ordername_s" />
+		<property name="ispotential" column="ispotential" />
+		<property name="resaveds1_s" column="resaveds1_s" />
+		<property name="resaveds2_s" column="resaveds2_s" />
+		<property name="resaveds3_s" column="resaveds3_s" />
+		<property name="resaveds4_s" column="resaveds4_s" />
+		<property name="resaveds5_s" column="resaveds5_s" />
+		<property name="customerName_s" column="CUSTOMERNAME_S"></property>
+</class>
+</hibernate-mapping>                           

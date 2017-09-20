@@ -1,0 +1,327 @@
+/*公共样式*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #fffff;
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    background: url("../images/bg.jpg");
+    overflow: hidden;
+}
+
+/*头部*/
+div#header_wrapper{
+    width: 100%;
+    height: 126px;
+    margin: 0 auto;
+    background-color: #f5f6f7;
+    border-top: solid 12px #0062be;
+    -webkit-box-shadow:1px 1px 10px 2px rgba(0,0,0,.3);
+    -moz-box-shadow:1px 1px 10px 2px rgba(0,0,0,.3);
+    -ms-box-shadow:1px 1px 10px 2px rgba(0,0,0,.3);
+    -o-box-shadow:1px 1px 10px 2px rgba(0,0,0,.3);
+    box-shadow:1px 1px 10px 2px rgba(0,0,0,.3);
+}
+
+div#header_wrapper .container{
+    width: 97%;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+div#timearea{
+    display: inline-block;
+    width: 26%;
+    padding-left: 1%;
+    padding-top: 20px;
+}
+
+.timearea_a{
+    width: 82px;
+    height: 72px;
+    padding-top: 10px;
+    border-radius: 41px;
+    background-color: #0062be;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+}
+
+.timearea_b{
+    display: inline-block;
+    margin-top: 15px;
+    padding-top: 11px;
+    width: 380px;
+    max-width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #0062be;
+    margin-left: 40px;
+    color: #fff;
+    font-size: 20px;
+    /*font-weight: bold;*/
+    text-align: center;
+}
+
+div#headline{
+    display: inline-block;
+    width: 45%;
+    vertical-align:top;
+    background: url("../images/line_1.png") no-repeat;
+}
+
+div#headline span{
+    padding-left: 90px;
+    padding-right: 30px;
+    font-size: 60px;
+    line-height: 120px;
+    text-align: center;
+    color: #0062be;
+}
+
+div#headline .line{
+    display: inline-block;
+    vertical-align:top;
+    width: 63px;
+    height: 106px;
+    background: url("../images/line_2.png") no-repeat;
+}
+
+div#weather{
+    display: inline-block;
+    width: 27%;
+    vertical-align: top;
+}
+
+div#weather_a{
+    display: inline-block;
+    color: #0062be;
+    font-size: 60px;
+    margin-top: 20px;
+    vertical-align: top;
+}
+
+div#weather_b{
+    display: inline-block;
+    vertical-align: top;
+}
+
+div#weather_c{
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 35px;
+    padding-top: 11px;
+    width: 280px;
+    max-width: 280px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #0062be;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 20px;
+    /*font-weight: bold;*/
+    text-align: center;
+}
+
+div#weather_c span{
+    display: inline-block;
+    font-size: 24px;
+    padding-right: 10px;
+}
+
+/*主体部分*/
+div#body_wrapper{
+    width: 100%;
+    margin-top: 58px;
+}
+
+div#body_wrapper .container{
+    width: 92%;
+    margin: 0 auto;
+}
+
+div#body_wrapper li{
+    display: inline-block;
+    width: 21.5%;
+    height: 224px;
+    margin: 0 1.5%;
+    margin-bottom: 33px;
+    -webkit-border-radius: 8px 8px 0 0 ;
+    -moz-border-radius:  8px 8px 0 0;
+    -ms-border-radius:  8px 8px 0 0;
+    -o-border-radius:  8px 8px 0 0;
+    border-radius:  8px 8px 0 0;
+    -webkit-box-shadow:1px 1px 10px 1px rgba(0,0,0,.3);
+    -moz-box-shadow:1px 1px 10px 1px rgba(0,0,0,.3);
+    -ms-box-shadow:1px 1px 10px 1px rgba(0,0,0,.3);
+    -o-box-shadow:1px 1px 10px 1px rgba(0,0,0,.3);
+    box-shadow:1px 1px 10px 1px rgba(0,0,0,.3);
+}
+
+.li_blue{
+    background:url("../images/li_bg.jpg") repeat-x;
+}
+
+.li_gray{
+    background:url("../images/li_bg_gray.jpg") repeat-x;
+}
+
+
+/*道路名*/
+div#body_wrapper li .tit{
+    display: inline-block;
+    width: 100%;
+    height: 52px;
+    padding-top: 12px;
+    vertical-align: bottom;
+}
+
+div#body_wrapper li .tit1{
+    width: 50%;
+    display: inline-block;
+    color: #fff;
+    font-size: 26px;
+    line-height: 44px;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+div#body_wrapper li .tit2{
+    display: inline-block;
+    width: 15%;
+    padding-left: 10%;
+    vertical-align: bottom;
+}
+/*道路状态*/
+#status{
+    display: inline-block;
+    width: 30%;
+    height: 25px;
+    margin: 0 38% 0 32%;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+
+}
+
+#status_gray,#status_green,#status_red,#status_yellow{
+    border: solid 3px #fff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 30px;
+}
+
+#status_green{
+    width: 100%;
+    display: inline-block;
+    color: #337c3a;
+    background-color: #55c45f;
+
+}
+
+#status_red{
+    width: 100%;
+    display: inline-block;
+    color: #97333d;
+    background-color: #ed5565;
+}
+
+#status_yellow{
+    width: 100%;
+    display: inline-block;
+    color: #96772b;
+    background-color: #ffce54;
+}
+
+#status_gray{
+    width: 100%;
+    display: inline-block;
+    color: #545454;
+    background-color: #afafaf;
+}
+
+/*当前车辆总数*/
+#current{
+    display: inline-block;
+    width: 100%;
+    padding-top:5px;
+    vertical-align: top;
+    height: 125px;
+}
+
+.current_a,.current_b{
+    display: inline-block;
+    width: 45%;/*45%最适合1920，兼容到1440*/
+    min-width:120px;
+    max-width: 167px;
+    height: 105px;
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 18px;
+    color: #656565;
+}
+
+#current p{
+    font-size: 55px;
+    font-weight: bold;
+    text-align: center;
+    height: 75px;
+    vertical-align: bottom;
+}
+
+/*显示数字颜色*/
+#current_green{
+    color: #55c45f;
+}
+
+#current_red{
+    color: #ed5565;
+}
+
+#current_yellow{
+    color: #ffce54;
+}
+
+#current_blue{
+    color: #4fc0e8;
+}
+
+
+#current_gray{
+    color: #656565;
+}
+
+.current_c{
+    display: inline-block;
+    vertical-align: top;
+    width: 31px;
+    height: 105px;
+}
+
+
+/*尾部*/
+div#footer_wrapper{
+    width: 92%;
+    padding: 0 4%;
+}
+#scroll{
+    display: inline-block;
+    width: 100%;
+    height: 113px;
+    background: url("../images/footer_bg.png")no-repeat;
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    line-height: 133px;
+}
+
+#scroll span{
+    display: inline-block;
+    width: 35%;
+    text-align: center;
+    overflow: hidden;
+}

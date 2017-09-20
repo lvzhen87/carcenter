@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis
+END
+TBasisWorkshopcost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/TBasisWorkshopcost.hbm.xml
+END
+unsubscribeRule.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/unsubscribeRule.hbm.xml
+END
+PasswordInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/PasswordInfo.hbm.xml
+END
+PreRule.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/PreRule.hbm.xml
+END
+RoadCost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/RoadCost.hbm.xml
+END
+DriverTrainingRule.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/DriverTrainingRule.hbm.xml
+END
+Employee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/Employee.hbm.xml
+END
+OrganizationDept.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/OrganizationDept.hbm.xml
+END
+ViewOrderInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/ViewOrderInfo.hbm.xml
+END
+TimeRule.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/TimeRule.hbm.xml
+END
+BarrierGate.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/BarrierGate.hbm.xml
+END
+InterphoneInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/InterphoneInfo.hbm.xml
+END
+WorkShopInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/WorkShopInfo.hbm.xml
+END
+RoadExperimentType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/RoadExperimentType.hbm.xml
+END
+Driver.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/Driver.hbm.xml
+END
+ViewOrganization.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/ViewOrganization.hbm.xml
+END
+CustomerUser.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/CustomerUser.hbm.xml
+END
+RoadInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/RoadInfo.hbm.xml
+END
+VCustomeuser.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/VCustomeuser.hbm.xml
+END
+OtherChargeInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/OtherChargeInfo.hbm.xml
+END
+VRoadRaletive.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/VRoadRaletive.hbm.xml
+END
+OrganizationPost.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/2013_CPG_C-LIMS/!svn/ver/22/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/hbm/basis/OrganizationPost.hbm.xml
+END

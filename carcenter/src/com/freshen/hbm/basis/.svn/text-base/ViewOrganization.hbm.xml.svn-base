@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.freshen.entity.basis.ViewOrganization" table="V_ORGANIZATION">
+
+		<id name="orderid_s" column="orderid_s" >
+			<generator class="assigned"></generator>
+		</id>
+		<property name="customerusername_s" column="customerusername_s" />
+		<property name="employee" column="employee" />
+		<property name="employeeid_s" column="employeeid_s" />
+		<property name="postname_s" column="postname_s" />
+		<property name="organizationpost_s" column="organizationpost_s" />
+		<property name="deptname_s" column="deptname_s" />
+		<property name="organizationdept_s" column="organizationdept_s" />
+		</class>
+</hibernate-mapping>

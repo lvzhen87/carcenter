@@ -1,0 +1,25 @@
+
+
+
+##BarrierGate sql server connectInfo
+##???????
+#driver0=com.microsoft.sqlserver.jdbc.SQLServerDriver
+#url0=jdbc:sqlserver://192.168.249.201:1433;DatabaseName=Park
+#username0=sa
+#password0=1qaz@WSX
+#
+##BarrierGate oracle connectInfo
+##climes
+#driver1=oracle.jdbc.driver.OracleDriver
+#url1=jdbc:oracle:thin:@192.168.255.12:1521:clims
+#username1=sjy
+#password1=catarc
+#
+##BarrierGate oracle connectInfo
+##???????
+#driver2=com.microsoft.sqlserver.jdbc.SQLServerDriver
+#url2=jdbc:sqlserver://192.168.249.201:1433;DatabaseName=ocs_udp
+#username2=sa
+#password2=1qaz@WSX
+
+CaluDate=6

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl
+END
+OrderRoadCostBasisServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/OrderRoadCostBasisServiceImpl.java
+END
+CostOrderothercostServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/CostOrderothercostServiceImpl.java
+END
+OrderhandcraftcostServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/OrderhandcraftcostServiceImpl.java
+END
+OrdercostInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 198
+/svn/2013_CPG_C-LIMS/!svn/ver/81/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/OrdercostInfoServiceImpl.java
+END
+CostOrderotherchargebasisServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 210
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/CostOrderotherchargebasisServiceImpl.java
+END
+OrderWorkShopCostBasisServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/OrderWorkShopCostBasisServiceImpl.java
+END
+OrderUnsubscribeCostServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/2013_CPG_C-LIMS/!svn/ver/51/05_%E8%AE%BE%E8%AE%A1+%E5%BC%80%E5%8F%91+%E6%B5%8B%E8%AF%95/A602/A602/01_%E4%BB%A3%E7%A0%81/carcenter/src/com/freshen/cost/service/impl/OrderUnsubscribeCostServiceImpl.java
+END
