@@ -6,8 +6,6 @@ import com.freshen.clims.baseclass.BeanModel;
 import com.freshen.entity.Customer;
 import com.freshen.util.ConstantUtil;
 import com.freshen.util.DateUtil;
-import com.sun.corba.se.impl.orbutil.closure.Constant;
-
 public class Driver  extends  CustomerUser{
 	//String customerID_s,customerUserID_s, customerName_s, department_s, customerUserName_s,identityCard_s, position_s, telephone_s;
 	String  drivingLicenceCPG_s,
