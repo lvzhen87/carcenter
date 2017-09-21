@@ -30,7 +30,6 @@ import com.freshen.util.ExceptionDispose;
 import com.opensymphony.xwork2.ActionContext;
 import com.freshen.action.common.CapgActionSupport;import com.freshen.util.ConstantUtil;
 import com.freshen.clims.baseclass.ServiceImpl;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class ExpInfoAction extends CapgActionSupport{
 	String orderId=(String) ActionContext.getContext().getSession().get("orderId");

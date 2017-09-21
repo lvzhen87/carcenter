@@ -14,7 +14,6 @@ import com.freshen.util.DateUtil;
 import com.freshen.util.ExceptionDispose;
 import com.opensymphony.xwork2.ActionContext;
 import com.freshen.action.common.CapgActionSupport;import com.freshen.util.ConstantUtil;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class OccupationAction extends CapgActionSupport{
 	String serialNumber_s,roadID,state_s,specialInfo_s,appointDate_d;	
