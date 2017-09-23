@@ -19,7 +19,7 @@
 			<property name="connection.password">catarc</property>
 	 	-->
 			<property name="connection.url">	
-			jdbc:oracle:thin:@localhost:1521:climstj
+			jdbc:oracle:thin:@172.17.4.101:1521:climstj
 			</property>
 			
 			<property name="connection.username">system</property>
