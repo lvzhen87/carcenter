@@ -1325,7 +1325,7 @@ public class ReceptionVehicleInfoServiceImpl extends ClimsServiceBase implements
 		ResultSet rs = null;
 		Connection connora = HibernateUtil.getJDBCconn();
 		try {			
-			String str = "update t_reception_order b set resaveds2_s='0' ";
+			String str = "update t_reception_order b set resaveds2_s='0'";
 //			String str = "update t_reception_order b set resaveds2_s='0' where  b.orderid_s ='"+orderID+"'";
 			Statement st = connora.createStatement();
 			st.executeUpdate(str);
