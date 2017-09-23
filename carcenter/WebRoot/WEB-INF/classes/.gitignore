@@ -18,6 +18,7 @@
 /.svn
 /Customer.hbm.xml
 /META-INF
+<<<<<<< HEAD
 /OrderDetail.hbm.xml
 /OrderHotelOther.hbm.xml
 /OrderInfo.hbm.xml
@@ -30,3 +31,6 @@
 /TInquityWorkShopoccupyinfo.hbm.xml
 /TSubscribeOrdervehicleinfo.hbm.xml
 /VehicleInfo.hbm.xml
+=======
+/com
+>>>>>>> cb02c4b30b82b34f80bd3f8d2ef177938279c96e
