@@ -1292,6 +1292,7 @@ public class ReceptionVehicleInfoServiceImpl extends ClimsServiceBase implements
 			if(lock==null||!"1".equals(lock)){
 				str = "update t_reception_order b set resaveds2_s='1' ";
 //				str = "update t_reception_order b set resaveds2_s='1' where  b.orderid_s ='"+orderID+"'";
+				
 				Statement st = connora.createStatement();
 				st.executeUpdate(str);
 				connora.commit();
