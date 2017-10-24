@@ -18,8 +18,8 @@
 			<property name="connection.username">sjy</property>
 			<property name="connection.password">catarc</property>
 	 	
-			  <!--<property name="connection.url">	
-			jdbc:oracle:thin:@172.17.4.101:1521:climstj
+		  <!--	<property name="connection.url">	
+			jdbc:oracle:thin:@172.17.4.113:1521:climstj
 			</property>
 			
 			<property name="connection.username">system</property>

@@ -140,9 +140,9 @@ public class ReceptionOrderServiceImpl extends ClimsServiceBase implements Irece
 		    }
 		    
 		   
-		    if(status_i!=null){
-		    	condition += " and receptionOrder.status_i="+status_i+"";
-		    }
+//		    if(status_i!=null){
+//		    	condition += " and receptionOrder.status_i="+status_i+"";
+//		    }
 		    if(status_s!=null){	    	
 		    	String[] statusarr = status_s.split("vv");
 		    	for(int i=0;i<statusarr.length;i++){

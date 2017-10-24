@@ -47,5 +47,30 @@
 		<result name="success" >/process/processinterphone.jsp</result>
 	</action>
 	
+		<!-- 道路使用率计算-->
+		<action name="roadstaticticstatistic" class="com.freshen.basis.action.ProcessTimeStatisticAction" method="">
+    		<result name="success">/process/processtimestatistic.jsp</result>
+    	</action>
+    	
+    	<!-- 道路使用率计算-->
+    	<action name="roadstaticticstatisticcacu" class="com.freshen.basis.action.ProcessTimeStatisticAction" method="processTimeStatisticCacu">
+    		<result name="success">/process/processtimestatistic.jsp</result>
+    	</action>
+    	
+    	<!-- 道路使用率计算-->
+    	<action name="reroadstaticticstatisticcacu" class="com.freshen.basis.action.ProcessTimeStatisticAction" method="reprocessTimeStatisticCacu">
+    		<result name="success">/process/processtimestatistic.jsp</result>
+    	</action>
+    	
+    	<!-- 道路使用率计算-->
+    	<action name="roadstaticticstatisticcacumonth" class="com.freshen.basis.action.ProcessTimeStatisticAction" method="processTimeStatisticCacuMonth">
+    		<result name="success">/process/processtimestatistic.jsp</result>
+    	</action>
+    	
+    	<!-- 道路使用率计算-->
+    	<action name="reroadstaticticstatisticcacumonth" class="com.freshen.basis.action.ProcessTimeStatisticAction" method="reprocessTimeStatisticCacuMonth">
+    		<result name="success">/process/processtimestatistic.jsp</result>
+    	</action>
+	
 </package>
 </struts>

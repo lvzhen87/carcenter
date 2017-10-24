@@ -104,14 +104,15 @@ form{
 				<td width="10%">道路名称</td>
 				<td width="10%">道路类型</td>
 				<!--  <td width="8%">技术参数</td>-->
-				<td width="8%">最大容量</td>
+				<td width="7%">最大容量</td>
+				<td width="7%">试验时间</td>
 				<!--  <td width="10%">实验类型</td>-->
-				<td width="8%">状态</td>
-				<td width="8%">费用单价(元/分钟)</td>
-				<td width="8%">包场单价(万/时)</td>
-				<td width="8%">活动包场(万/半天)</td>
-				<td width="8%">最少预订天数</td>
-				<td width="8%">道路分组</td>
+				<td width="7%">状态</td>
+				<td width="7%">费用单价(元/分钟)</td>
+				<td width="7%">包场单价(万/时)</td>
+				<td width="7%">活动包场(万/半天)</td>
+				<td width="7%">最少预订天数</td>
+				<td width="7%">道路分组</td>
 				<td width="8%">操作</td>
 			</tr>
 		<c:choose>
@@ -134,6 +135,7 @@ form{
 				</td>
 				<!--  <td>${roadlist.technicalParameters_s}</td>-->
 				<td>${roadlist.maxCapacity_i}</td>
+				<td>${roadlist.usefultime_s}</td>
 				<!--  <td>${roadlist.types }</td>-->
 				<td>
 					<c:if test="${roadlist.state_i==0}" >未投入使用</c:if>

@@ -26,7 +26,9 @@ public class RoadInfoAction extends CapgActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	
-	String roadID,roadName,technicalParameters,inputdate,remark,roadType,state;
+	String roadID,roadName,technicalParameters,inputdate,remark,roadType,state,usefultime;
+
+
 	String exptypeID;
 	String experimentTypeName;
 	String overproofUnitPrie_i,unitPrie_i,wholeUnitPrie_i,wholeOverproofUnitPrie_i;
@@ -266,6 +268,7 @@ public class RoadInfoAction extends CapgActionSupport{
 			ri.setResaveds1_s(resaveds1_s);
 			ri.setResaveds2_s(resaveds2_s);
 			ri.setResaveds4_s(resaveds4);
+			ri.setUsefultime_s(usefultime);
 			//封装list
 			ArrayList<RoadInfo> rilist=new ArrayList<RoadInfo>();
 			rilist.add(ri);
@@ -622,5 +625,15 @@ public class RoadInfoAction extends CapgActionSupport{
 	public void setResaveds4(String resaveds4) {
 		this.resaveds4 = resaveds4;
 	}
-	
+	public String getUsefultime() {
+		return usefultime;
+	}
+
+
+
+	public void setUsefultime(String usefultime) {
+		this.usefultime = usefultime;
+	}
+
+
 }

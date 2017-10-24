@@ -9,13 +9,19 @@ public class RoadInfo  extends  BeanModel{
 
 	private static final long serialVersionUID = 1L;
 	
-	String roadID_s,roadName_s,technicalParameters_s,remark_s,createUser_s,lastUpdateUser_s;
+	String roadID_s,roadName_s,technicalParameters_s,remark_s,createUser_s,lastUpdateUser_s,usefultime_s;
 	Integer maxCapacity_i,state_i;
 	Date inputDate_t,createDate_t,lastUpdateDate_t;
 	String resaveds2_s,resaveds3_s,resaveds4_s,	resaveds5_s;
 	String types;//记录试验类型字符串，不在数据库，逻辑字段
 	String roadType_s;	//标识 该条道路 出现在何种 预约模式下
 	
+	public String getUsefultime_s() {
+		return usefultime_s;
+	}
+	public void setUsefultime_s(String usefultime_s) {
+		this.usefultime_s = usefultime_s;
+	}
 	private Set<RoadExperimentType> roadExperimentTypeSet; //one-to-many 道路试验类型基础信息表
 	
 	private Set<BarrierGate> BarrierGateEnter;

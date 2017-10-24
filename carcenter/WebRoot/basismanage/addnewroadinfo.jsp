@@ -159,8 +159,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<tr>
   		<td class="tor">备注:</td>
   			<td> <input type="text" id="remark" name="remark" value="${roadinfo.remark_s}" /> </td>
-  			<td class="tor"></td>
-  			<td ><input type="hidden" id="roadID" name="roadID" value="${roadID}"/> 
+  			<td class="tor">使用时间</td>
+  			<td >
+  			<input type="text" id="usefultime" name="usefultime" value="${roadinfo.usefultime_s}" />
+  			<input type="hidden" id="roadID" name="roadID" value="${roadID}"/> 
   			<input type="hidden" id="types" name="types" value=""/> 
   			<input type="hidden" id="statuesi" name="statuesi" value=""/> 
   			<input type="hidden" id="resaveds2_s" name="resaveds2_s" value=""/>
@@ -171,7 +173,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		<!--  <tr>
   			<td colspan="4" align="center">
-  				
+  				<input type="hidden" id="types" name="types" value=""/> 
+  			<input type="hidden" id="statuesi" name="statuesi" value=""/> 
+  			<input type="hidden" id="resaveds2_s" name="resaveds2_s" value=""/>
+  			<input type="hidden" id="resaveds4_s" name="resaveds4_s" value=""/>
   			</td>
   		</tr>-->
   	</table>
@@ -247,6 +252,13 @@ $("#TypeName").keydown(function(){
   					return false;
   				}
   			}
+  			if(!isInteger($("#usefultime").val()))
+  			{
+  				$.messager.alert('Error','使用时间请填写数字！');
+  					return false;
+  			}
+  			//alert($("#usefultime").val());
+  			
   			//if($("#overproofUnitPrie_i").val()==null){
   			//	alert("收费标准不能为空！请填写！");
   			//	return false;
@@ -277,7 +289,7 @@ $("#TypeName").keydown(function(){
   		$("#statuesi").val($("#state").combobox('getValues'));
   		$("#resaveds2_s").val($("#wash").combobox('getValues'));
   		$("#resaveds4_s").val($("#statusing").combobox('getValues'));
-  		alert($("#resaveds4_s").val())
+  		//alert($("#resaveds4_s").val())
   		var str="提交操作？"
   		$.messager.confirm('确定', str, function(r){
   			if (r){
@@ -304,6 +316,7 @@ $("#TypeName").keydown(function(){
   					resaveds2:$("#resaveds2").val(),
   					resaveds2_s:$("#resaveds2_s").val(),
   					resaveds4:$("#resaveds4_s").val(),
+  					usefultime:$("#usefultime").val(),
   					time:new Date().getTime()
   				},function(){
   					$.messager.alert('Success','道路信息添加成功！');
@@ -319,6 +332,13 @@ $("#TypeName").keydown(function(){
 	  	   // window.close();
   			
   		});
+  		
+  		function isInteger(obj) {  
+	  		//alert(parseInt(obj, 10));
+	  		//alert(typeof(obj));
+	  		//alert(parseInt(obj, 10) === obj );
+	  		return String(parseInt(obj, 10)) === obj ;
+  		} 
   	</script>
  
   </div>

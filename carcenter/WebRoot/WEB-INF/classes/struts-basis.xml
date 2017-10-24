@@ -377,7 +377,7 @@
     	</action>
     	
     	<!-- 设置补贴-->
-    	<action name="updatesubsidiesinfoAction" class="com.freshen.basis.action.SubsidiesAction" method="updateSubsidiesinfo">
+    	<action name="updatesubsidiesinfoAction" class="com.freshen.basis.action.SubsidiesAction" method="processTimeStatisticCacu">
     		<result name="success">/basismanage/subsidies.jsp</result>
     	</action>
 	</package>

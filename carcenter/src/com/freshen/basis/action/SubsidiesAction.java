@@ -29,6 +29,64 @@ public class SubsidiesAction extends CapgActionSupport {
 	private String breakfirstStatus = "";
 	private String lanchStatus = "";
 	private String dinnerStatus = "";
+	
+	private String breakfirststart = "";
+	private String breakfirstend = "";
+	
+	private String lanchstart="";
+	private String lanchend = "";
+	
+	private String dinnerstart="";
+	private String dinnerend = "";
+	
+	public String getBreakfirststart() {
+		return breakfirststart;
+	}
+
+	public void setBreakfirststart(String breakfirststart) {
+		this.breakfirststart = breakfirststart;
+	}
+
+	public String getBreakfirstend() {
+		return breakfirstend;
+	}
+
+	public void setBreakfirstend(String breakfirstend) {
+		this.breakfirstend = breakfirstend;
+	}
+
+	public String getLanchstart() {
+		return lanchstart;
+	}
+
+	public void setLanchstart(String lanchstart) {
+		this.lanchstart = lanchstart;
+	}
+
+	public String getLanchend() {
+		return lanchend;
+	}
+
+	public void setLanchend(String lanchend) {
+		this.lanchend = lanchend;
+	}
+
+	public String getDinnerstart() {
+		return dinnerstart;
+	}
+
+	public void setDinnerstart(String dinnerstart) {
+		this.dinnerstart = dinnerstart;
+	}
+
+	public String getDinnerend() {
+		return dinnerend;
+	}
+
+	public void setDinnerend(String dinnerend) {
+		this.dinnerend = dinnerend;
+	}
+
 	List<Department> dlist = new ArrayList<Department>();
 	private String dptList = "";
 	public List<Department> getDlist() {
@@ -65,7 +123,9 @@ public class SubsidiesAction extends CapgActionSupport {
 			Connection conn = DriverManager.getConnection(url, username, psw);
 			
 			PreparedStatement pstmt = conn
-					.prepareStatement("SELECT TOP 1000 breakfirstMoney,lanchMoney,dinnerMoney,breakfirstStatus,lanchStatus,dinnerStatus,subsidiesStatus,id FROM dbo.A_subsidies_param");
+					.prepareStatement("SELECT TOP 1000 breakfirstMoney,lanchMoney,dinnerMoney,breakfirstStatus,lanchStatus,dinnerStatus,"
+							+ "subsidiesStatus,breakfirststart,breakfirstend,lanchstart,lanchend,dinnerstart,dinnerend"
+							+ ",id FROM dbo.A_subsidies_param");
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				// out.println(rs.getString("dept"));
@@ -76,6 +136,15 @@ public class SubsidiesAction extends CapgActionSupport {
 				breakfirstStatus = rs.getString("breakfirstStatus");
 				lanchStatus = rs.getString("lanchStatus");
 				dinnerStatus = rs.getString("dinnerStatus");
+				
+				breakfirststart = rs.getString("breakfirststart");
+				breakfirstend = rs.getString("breakfirstend");
+				
+				lanchstart=rs.getString("lanchstart");
+				lanchend = rs.getString("lanchend");
+				
+				dinnerstart=rs.getString("dinnerstart");
+				dinnerend = rs.getString("dinnerend");
 			}
 			pstmt = conn
 					.prepareStatement("SELECT TOP 1000 pb_depart.DptId ,DptName,case when A_subsidies_dep.dptId is null then 0 else 1 end as checkstatus  FROM ocs_udp.dbo.pb_depart LEFT join dbo.A_subsidies_dep on A_subsidies_dep.dptId  = pb_depart.DptId where IsDeleted = 0");
@@ -167,6 +236,30 @@ public class SubsidiesAction extends CapgActionSupport {
 		String[] dptArray = dptList.split(","); 
 		boolean executeResult ;
 		try {
+			if(breakfirststart.indexOf(":")<0)
+			{
+				breakfirststart = breakfirststart+":00";
+			}
+			if(breakfirstend.indexOf(":")<0)
+			{
+				breakfirstend = breakfirstend+":00";
+			}
+			if(lanchstart.indexOf(":")<0)
+			{
+				lanchstart = lanchstart+":00";
+			}
+			if(lanchend.indexOf(":")<0)
+			{
+				lanchend = lanchend+":00";
+			}
+			if(dinnerstart.indexOf(":")<0)
+			{
+				dinnerstart = dinnerstart+":00";
+			}
+			if(dinnerend.indexOf(":")<0)
+			{
+				dinnerend = dinnerend+":00";
+			}
 			Properties prop = new Properties();
 			InputStream in = getClass().getResourceAsStream(
 					"dataConnect.properties");
@@ -184,7 +277,9 @@ public class SubsidiesAction extends CapgActionSupport {
 			
 			sql = "update dbo.A_subsidies_param set breakfirstMoney = "+breakfirstMoney.toString()+
 					",lanchMoney = "+ lanchMoney.toString()+",dinnerMoney = "+dinnerMoney +",breakfirstStatus= "+breakfirstStatus+
-					",lanchStatus = "+lanchStatus.toString()+",dinnerStatus = "+dinnerStatus.toString();
+					",lanchStatus = "+lanchStatus.toString()+",dinnerStatus = "+dinnerStatus.toString()+",breakfirststart = '"+breakfirststart.toString()
+					+"',breakfirstend = '"+breakfirstend.toString()+"',lanchstart = '"+lanchstart.toString()+"',lanchend = '"+lanchend.toString()
+					+"',dinnerstart = '"+dinnerstart.toString()+"',dinnerend = '"+dinnerend.toString() + "'";
 			
 			PreparedStatement pstmt = conn
 					.prepareStatement(sql);

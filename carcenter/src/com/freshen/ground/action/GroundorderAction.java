@@ -67,12 +67,20 @@ public class GroundorderAction extends CapgActionSupport{
 				orderID = new String(orderID.getBytes("ISO-8859-1"),"UTF-8").trim();
 			}
 
-			if(orderName != null && !orderName.trim().equals("") && ChineseTools.isMessyCode(orderName)){
+			if(orderName != null && !orderName.trim().replace(" ", "").equals("") && ChineseTools.isMessyCode(orderName)){
 				orderName = new String(orderName.getBytes("ISO-8859-1"),"UTF-8").trim();
 			}
 
+			if(orderName==null||orderName.equals("") || orderName.equals(" "))
+			{
+				ro.setOrderName_s("");
+			}
+			else
+			{
+
+				ro.setOrderName_s(orderName);
+			}
 			ro.setOrderID_s(orderID);
-			ro.setOrderName_s(orderName);
 			ro.setStatus_s("2vv3vv5vv6");
 			
 			////System.out.println(DateUtil.getDate(startdatepicker));

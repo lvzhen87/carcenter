@@ -1,24 +1,8 @@
-/com
-/error.properties
-/hibernate.cfg.xml
-/log4j.properties
-/pdf
-/struts-basis.xml
-/struts-cost.xml
-/struts-ground.xml
-/struts-login.xml
-/struts-preorder.xml
-/struts-process.xml
-/struts-reception.xml
-/struts-test.xml
-/struts.xml
-/江苏盐城试验场确认函.jasper
 /.DS_Store
 /.struts-ground.mex
 /.svn
 /Customer.hbm.xml
 /META-INF
-<<<<<<< HEAD
 /OrderDetail.hbm.xml
 /OrderHotelOther.hbm.xml
 /OrderInfo.hbm.xml
@@ -31,6 +15,4 @@
 /TInquityWorkShopoccupyinfo.hbm.xml
 /TSubscribeOrdervehicleinfo.hbm.xml
 /VehicleInfo.hbm.xml
-=======
 /com
->>>>>>> cb02c4b30b82b34f80bd3f8d2ef177938279c96e

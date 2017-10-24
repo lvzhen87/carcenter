@@ -38,6 +38,7 @@
 		<property name="resaveds5_s" column="resaveds5_s" />
 		<property name="roadType_s" column="roadType_s" />
 		<property name="beginningDay_i" column="beginningDay_i" />
+		<property name="usefultime_s" column="usefultime_s" />
 		<one-to-one name="roadCost" class="com.freshen.entity.basis.RoadCost" lazy="false" cascade="all" fetch="select"></one-to-one>
 	</class>
 </hibernate-mapping>

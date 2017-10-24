@@ -91,6 +91,7 @@ outlookbar.additem('对讲机记录查询',t,'./searchinterphoneAction')
 outlookbar.additem('对讲机发放与回收',t,'./recExperiencephoneAction')
 outlookbar.additem('公卡管理',t,'./initStaticOVAction')
 outlookbar.additem('洗车信息查询',t,'./ground/washcar.jsp')
+outlookbar.additem('道路使用率查询',t,'./roadstaticticstatistic')
 
 //	yepeng del start
 //outlookbar.additem('道路占用查询',t,'./groundroadOccupationAction')

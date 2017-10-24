@@ -37,6 +37,7 @@ tr {
 	height: 30px;
 }
 
+
 input {
 	width: 300px;
 	border: 1px solid #36D;
@@ -47,13 +48,13 @@ input {
 </head>
 
 <body style="margin: 0px;padding: 0px; width: 1100px">
-	<div id="man_zone" style="height: 520px; width: 1080px;">
+	<div id="man_zone" style="height: 545px; width: 1100px;">
 
 		<table width="90%" >
 
 			<tr>
-				<td class="tor">补贴部门:</td>
-				<td>
+				<td class="tor" width="70px">补贴部门:</td>
+				<td width="370px">
 					<table id="dpttable">
 						<c:forEach items="${dlist}" var="department">
 							<tr>
@@ -94,30 +95,55 @@ input {
 					</table>
 				</td>
 				<td valign="top">
-					<table>
+					<table width="98%">
 						<tr>
-							<td class="tor">早餐补贴:</td>
-							<td><select id="breakfirstStatsu">
+						<td>早餐</td>
+							<td class="tor" >补贴:</td>
+							<td ><select id="breakfirstStatsu">
 									<option value="1"
 										<c:if test="${breakfirstStatus == '1'}">selected="selected" </c:if>>固定金额补贴</option>
 									<option value="2"
 										<c:if test="${breakfirstStatus == '2'}">selected="selected" </c:if>>动态金额补贴</option>
 							</select></td>
-							<td><input type="text" id="breakfirstMoney"
+							
+							<td  class="tor" >补贴金额</td>
+							<td ><input type="text" id="breakfirstMoney" style=" width:100px"
 								name="breakfirstMoney" value="${breakfirstMoney}" /></td>
 						</tr>
+					<tr>
+					<td></td>
+								<td  class="tor" >补贴开始时间</td>
+							<td><input type="text" id="breakfirststart" style=" width:100px"
+								name="breakfirststart" value="${breakfirststart}" /></td>
+							<td  class="tor" >补贴结束时间</td>
+								<td ><input type="text" id="breakfirstend" style=" width:100px"
+								name="breakfirstend" value="${breakfirstend}" /></td>
+								
+						</tr>
 						<tr>
-							<td class="tor">午餐补贴:</td>
+						<td>午餐</td>
+							<td class="tor"><p>午餐补贴:</p></td>
 							<td><select id="lanchStatus">
 									<option value="1"
 										<c:if test="${lanchStatus == '1'}">selected="selected" </c:if>>固定金额补贴</option>
 									<option value="2"
 										<c:if test="${lanchStatus == '2'}">selected="selected" </c:if>>动态金额补贴</option>
 							</select></td>
-							<td><input type="text" id="lanchMoney" name="lanchMoney"
+							<td  class="tor" >补贴金额</td>
+							<td><input type="text" id="lanchMoney" name="lanchMoney"  style=" width:100px"
 								value="${lanchMoney}" /></td>
+								</tr>
+							<tr>
+							<td></td>
+								<td  class="tor" >补贴开始时间</td>
+							<td><input type="text" id="lanchstart" name="lanchstart"  style=" width:100px"
+								value="${lanchstart}" /></td>
+							<td  class="tor" >补贴结束时间</td>
+								<td ><input type="text" id="lanchend" name="lanchend"  style=" width:100px"
+								value="${lanchend}" /></td>
 						</tr>
 						<tr>
+						<td>晚餐</td>
 							<td class="tor">晚餐补贴:</td>
 							<td><select id="dinnerStatus">
 									<option value="1"
@@ -125,12 +151,22 @@ input {
 									<option value="2"
 										<c:if test="${dinnerStatus == '2'}">selected="selected" </c:if>>动态金额补贴</option>
 							</select></td>
-							<td><input type="text" id="dinnerMoney" name="dinnerMoney"
+							<td  class="tor" >补贴金额</td>
+							<td><input type="text" id="dinnerMoney" name="dinnerMoney"  style=" width:100px"
 								value="${dinnerMoney}" /></td>
+								</tr>
+							<tr>
+							<td></td>
+								<td   class="tor" >补贴开始时间</td>
+							<td><input type="text" id="dinnerstart" name="dinnerstart"  style=" width:100px"
+								value="${dinnerstart}" /></td>
+							<td   class="tor" >补贴结束时间</td>
+								<td ><input type="text" id="dinnerend" name="dinnerend"  style=" width:100px"
+								value="${dinnerend}" /></td>
 						</tr>
 						<tr>
-						<td colspan="3">
-						<table>
+						<td colspan="5">
+						<table width = "100%">
 						<tr>
 						<td>
 							固定金额补贴:
@@ -184,6 +220,15 @@ input {
 			var breakfirstStatsu;
 			var lanchStatus;
 			var dinnerStatus;
+			
+			var breakfirststart;
+			var lanchstart;
+			var dinnerstart;
+			var breakfirstend;
+			var lanchend;
+			var dinnerend;
+
+			
 			var status = 0;
 			breakfirstMoney =  $("#breakfirstMoney").val();
 			lanchMoney =  $("#lanchMoney").val();
@@ -193,6 +238,13 @@ input {
 			lanchStatus = $("#lanchStatus").val();
 			dinnerStatus = $("#dinnerStatus").val();
 
+			breakfirststart = $("#breakfirststart").val();
+			lanchstart = $("#lanchstart").val();
+			dinnerstart = $("#dinnerstart").val();
+			
+			breakfirstend = $("#breakfirstend").val();
+			lanchend = $("#lanchend").val();
+			dinnerend = $("#dinnerend").val();
 			if(!SubmitCk(breakfirstMoney))
 			{
 			
@@ -238,6 +290,15 @@ input {
 						breakfirstStatus:breakfirstStatsu,
 						lanchStatus:lanchStatus,
 						dinnerStatus:dinnerStatus,
+						
+						breakfirststart:breakfirststart,
+						lanchstart:lanchstart,
+						dinnerstart:dinnerstart,
+						
+						breakfirstend:breakfirstend,
+						lanchend:lanchend,
+						dinnerend:dinnerend,
+						
 	  					dptList:adIds,  					 
 	  					time:new Date().getTime()
 	  				},function(){

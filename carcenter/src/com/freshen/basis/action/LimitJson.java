@@ -422,6 +422,18 @@ public class LimitJson {
 				strjson += "\"checked\" : \"true\"";
 			}
 		}
+		
+		strjson +="},{";
+		strjson +="\"id\":\"roadstaticticstatistic\",";
+		strjson +="\"text\":\"道路使用率查询\"";
+		//if
+		if(limitpage != null){
+			if(limitpage.contains("道路使用率查询")){
+				strjson += ",";
+				strjson += "\"checked\" : \"true\"";
+			}
+		}
+		
 		strjson +="}]";
 		/*strjson +="},{";
 		strjson +="\"id\":16,";
